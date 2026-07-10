@@ -25,50 +25,212 @@ def _():
 @app.cell
 def _():
     from html import escape
-    from pathlib import Path
+    import hashlib
+    import importlib
+    import os
+    from pathlib import Path, PurePosixPath
+    import shutil
     import sys
+    import tempfile
+    import urllib.request
+    import zipfile
 
-    project_root = Path(__file__).resolve().parents[1]
+    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.2.0-rc2/witness_machine_v12_molab_bundle.zip"
+    BUNDLE_BYTES = 3_704_001
+    BUNDLE_SHA256 = "baf3e1e50b21ec229dcdc62ddde1451d42a50833ffa1c5ffc98778430edd2439"
+    BUNDLE_TOP_LEVEL = "witness_machine_v12"
+    BUNDLE_MARKER = ".bundle-sha256"
+    REQUIRED_ROOT_FILES = (
+        "src/molab_witness_machine/__init__.py",
+        "src/molab_witness_machine/score_law.py",
+        "src/molab_witness_machine/v12_copy.py",
+        "src/molab_witness_machine/v12_control.py",
+        "src/molab_witness_machine/v12_geometry.py",
+        "src/molab_witness_machine/v12_gpu.py",
+        "src/molab_witness_machine/v12_policy_compare.py",
+        "src/molab_witness_machine/v12_real_evidence.py",
+        "src/molab_witness_machine/v12_stac.py",
+        "src/molab_witness_machine/v12_temporal.py",
+        "src/molab_witness_machine/v12_visuals.py",
+        "artifacts/v12_public/v12_temporal_transport_display.svg",
+        "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
+        "artifacts/v12_public/v12_real_frozen_scorer_display.npz",
+        "artifacts/v12_public/v12_real_frozen_scorer_display.manifest.json",
+        "artifacts/v12_public/v12_real_frozen_scorer_evidence.npz",
+        "artifacts/v12_public/v12_real_frozen_scorer_evidence.manifest.json",
+    )
+
+    def _fail_bundle(message: str) -> None:
+        raise RuntimeError(f"Molab runtime bootstrap failed for {BUNDLE_URL}: {message}")
+
+    def _missing_required_root_files(root: Path) -> tuple[str, ...]:
+        return tuple(
+            relative_path
+            for relative_path in REQUIRED_ROOT_FILES
+            if not (root / relative_path).is_file()
+        )
+
+    def _is_valid_root(root: Path) -> bool:
+        return not _missing_required_root_files(root)
+
+    def _candidate_roots(notebook_file: str | Path) -> tuple[Path, ...]:
+        seen: set[Path] = set()
+        candidates: list[Path] = []
+        for start in (Path(notebook_file).resolve().parent, Path.cwd().resolve()):
+            for candidate in (start, *start.parents):
+                if candidate not in seen:
+                    seen.add(candidate)
+                    candidates.append(candidate)
+        return tuple(candidates)
+
+    def _cache_base() -> Path:
+        xdg_cache_home = os.environ.get("XDG_CACHE_HOME")
+        if xdg_cache_home:
+            return Path(xdg_cache_home).expanduser().resolve() / "witness-machine"
+        return Path.home().expanduser().resolve() / ".cache" / "witness-machine"
+
+    def _cache_slot() -> Path:
+        return _cache_base() / BUNDLE_SHA256
+
+    def _cache_root(cache_slot: Path) -> Path:
+        return cache_slot / BUNDLE_TOP_LEVEL
+
+    def _cache_marker_path(cache_slot: Path) -> Path:
+        return cache_slot / BUNDLE_MARKER
+
+    def _is_valid_cache_slot(cache_slot: Path) -> bool:
+        marker_path = _cache_marker_path(cache_slot)
+        try:
+            marker_text = marker_path.read_text(encoding="utf-8").strip()
+        except OSError:
+            return False
+        return marker_text == BUNDLE_SHA256 and _is_valid_root(_cache_root(cache_slot))
+
+    def _remove_path(path: Path) -> None:
+        if path.is_dir() and not path.is_symlink():
+            shutil.rmtree(path)
+        elif path.exists():
+            path.unlink()
+
+    def _download_bundle_bytes(*, urlopen=None) -> bytes:
+        opener = urllib.request.urlopen if urlopen is None else urlopen
+        try:
+            with opener(BUNDLE_URL, timeout=30) as response:
+                payload = response.read(BUNDLE_BYTES + 1)
+        except OSError as exc:
+            _fail_bundle(f"download failed: {exc}")
+        actual_bytes = len(payload)
+        if actual_bytes != BUNDLE_BYTES:
+            actual_label = str(actual_bytes) if actual_bytes <= BUNDLE_BYTES else f"at least {actual_bytes}"
+            _fail_bundle(f"expected {BUNDLE_BYTES} bytes, got {actual_label}")
+        actual_sha256 = hashlib.sha256(payload).hexdigest()
+        if actual_sha256 != BUNDLE_SHA256:
+            _fail_bundle(f"expected SHA-256 {BUNDLE_SHA256}, got {actual_sha256}")
+        return payload
+
+    def _validate_zip_members(members: list[zipfile.ZipInfo]) -> None:
+        if not members:
+            _fail_bundle("archive is empty")
+        for info in members:
+            member_path = PurePosixPath(info.filename)
+            raw_parts = info.filename.split("/")
+            if raw_parts and raw_parts[-1] == "":
+                raw_parts = raw_parts[:-1]
+            if member_path.is_absolute():
+                _fail_bundle(f"unsafe ZIP member {info.filename!r}")
+            if not raw_parts or any(part in ("", ".", "..") for part in raw_parts):
+                _fail_bundle(f"unsafe ZIP member {info.filename!r}")
+            if raw_parts[0] != BUNDLE_TOP_LEVEL:
+                _fail_bundle(
+                    f"expected top-level directory {BUNDLE_TOP_LEVEL!r}, got {raw_parts[0]!r}"
+                )
+
+    def _materialize_cache_root(*, urlopen=None) -> Path:
+        cache_slot = _cache_slot()
+        if _is_valid_cache_slot(cache_slot):
+            return _cache_root(cache_slot)
+        if cache_slot.exists():
+            _remove_path(cache_slot)
+        cache_parent = cache_slot.parent
+        cache_parent.mkdir(parents=True, exist_ok=True)
+        staging_dir = Path(tempfile.mkdtemp(prefix="witness-machine-", dir=cache_parent))
+        staging_slot = staging_dir / BUNDLE_SHA256
+        staging_slot.mkdir()
+        try:
+            archive_path = staging_dir / "bundle.zip"
+            archive_path.write_bytes(_download_bundle_bytes(urlopen=urlopen))
+            with zipfile.ZipFile(archive_path) as archive:
+                members = archive.infolist()
+                _validate_zip_members(members)
+                archive.extractall(staging_slot)
+            _cache_marker_path(staging_slot).write_text(f"{BUNDLE_SHA256}\n", encoding="utf-8")
+            missing_files = _missing_required_root_files(_cache_root(staging_slot))
+            if missing_files:
+                _fail_bundle(f"extracted bundle is missing {missing_files[0]}")
+            try:
+                staging_slot.replace(cache_slot)
+            except FileExistsError:
+                if not _is_valid_cache_slot(cache_slot):
+                    _remove_path(cache_slot)
+                    staging_slot.replace(cache_slot)
+            if not _is_valid_cache_slot(cache_slot):
+                missing_files = _missing_required_root_files(_cache_root(cache_slot))
+                if missing_files:
+                    _fail_bundle(f"cache is missing {missing_files[0]}")
+                _fail_bundle("cache marker does not match the sealed bundle SHA-256")
+            return _cache_root(cache_slot)
+        finally:
+            shutil.rmtree(staging_dir, ignore_errors=True)
+
+    def _resolve_project_root(notebook_file: str | Path, *, urlopen=None) -> Path:
+        for candidate in _candidate_roots(notebook_file):
+            if _is_valid_root(candidate):
+                return candidate
+        return _materialize_cache_root(urlopen=urlopen)
+
+    project_root = _resolve_project_root(__file__)
     source_root = project_root / "src"
-    if str(source_root) not in sys.path:
+    if not sys.path or sys.path[0] != str(source_root):
+        if str(source_root) in sys.path:
+            sys.path.remove(str(source_root))
         sys.path.insert(0, str(source_root))
 
     import numpy as np
 
-    from molab_witness_machine.v12_copy import catalog, format_percent
-    from molab_witness_machine.v12_control import (
-        notebook_toy_proposals,
-        value_carrier_proposals,
+    copy_module = importlib.import_module("molab_witness_machine.v12_copy")
+    control_module = importlib.import_module("molab_witness_machine.v12_control")
+    geometry_module = importlib.import_module("molab_witness_machine.v12_geometry")
+    policy_compare_module = importlib.import_module("molab_witness_machine.v12_policy_compare")
+    real_evidence_module = importlib.import_module("molab_witness_machine.v12_real_evidence")
+    stac_module = importlib.import_module("molab_witness_machine.v12_stac")
+    temporal_module = importlib.import_module("molab_witness_machine.v12_temporal")
+    visuals_module = importlib.import_module("molab_witness_machine.v12_visuals")
+
+    boundary_sweep = geometry_module.boundary_sweep
+    catalog = copy_module.catalog
+    compare_matched_precision_policies = (
+        policy_compare_module.compare_matched_precision_policies
     )
-    from molab_witness_machine.v12_geometry import (
-        boundary_sweep,
-        integrate_negative_gradient,
-        screw_trajectory,
-    )
-    from molab_witness_machine.v12_visuals import (
-        edge_carrier_graph,
-        evaluator_equivalence_scene,
-        laguerre_cells,
-        morse_flow_scene,
-        score_law_balance,
-        sdf_boundary_sweep,
-        sensitivity_allocation_map,
-        shadow_price_allocation,
-        task_witness_hero,
-        temporal_aperture_scene,
-    )
-    from molab_witness_machine.v12_stac import select_regional_strategy
-    from molab_witness_machine.v12_policy_compare import (
-        compare_matched_precision_policies,
-    )
-    from molab_witness_machine.v12_real_evidence import (
-        display_derivative_svg,
-        load_display_derivative,
-    )
-    from molab_witness_machine.v12_temporal import (
-        load_temporal_display,
-        localized_temporal_display_svg,
-    )
+    display_derivative_svg = real_evidence_module.display_derivative_svg
+    edge_carrier_graph = visuals_module.edge_carrier_graph
+    evaluator_equivalence_scene = visuals_module.evaluator_equivalence_scene
+    format_percent = copy_module.format_percent
+    integrate_negative_gradient = geometry_module.integrate_negative_gradient
+    laguerre_cells = visuals_module.laguerre_cells
+    load_display_derivative = real_evidence_module.load_display_derivative
+    load_temporal_display = temporal_module.load_temporal_display
+    localized_temporal_display_svg = temporal_module.localized_temporal_display_svg
+    morse_flow_scene = visuals_module.morse_flow_scene
+    notebook_toy_proposals = control_module.notebook_toy_proposals
+    score_law_balance = visuals_module.score_law_balance
+    select_regional_strategy = stac_module.select_regional_strategy
+    screw_trajectory = geometry_module.screw_trajectory
+    sdf_boundary_sweep = visuals_module.sdf_boundary_sweep
+    sensitivity_allocation_map = visuals_module.sensitivity_allocation_map
+    shadow_price_allocation = visuals_module.shadow_price_allocation
+    task_witness_hero = visuals_module.task_witness_hero
+    temporal_aperture_scene = visuals_module.temporal_aperture_scene
+    value_carrier_proposals = control_module.value_carrier_proposals
 
     temporal_display = load_temporal_display(
         project_root / "artifacts/v12_public/v12_temporal_transport_display.svg",
@@ -1595,7 +1757,10 @@ def _(gpu_run, mo, project_root, set_accelerator_state):
         def _run_accelerator_probe():
             worker = mo.current_thread()
             try:
-                from molab_witness_machine.v12_gpu import run_proxy_robustness_sweep
+                import importlib
+
+                gpu_module = importlib.import_module("molab_witness_machine.v12_gpu")
+                run_proxy_robustness_sweep = gpu_module.run_proxy_robustness_sweep
 
                 evidence_root = project_root / "artifacts" / "v12_public"
                 receipt = run_proxy_robustness_sweep(

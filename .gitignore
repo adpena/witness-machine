@@ -1,4 +1,5 @@
 __pycache__/
 *.py[cod]
 .venv/
-notebooks/__marimo__/session/
+notebooks/__marimo__/session/*
+!notebooks/__marimo__/session/witness_machine_v12.py.json

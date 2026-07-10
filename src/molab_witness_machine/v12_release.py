@@ -557,6 +557,7 @@ def build_v12_release_bundles(
         "artifacts/v12_public/v12_temporal_transport_display.svg",
         "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
         "notebooks/__marimo__/assets/witness_machine_v12/opengraph.png",
+        "notebooks/__marimo__/session/witness_machine_v12.py.json",
         "configs/v12_paper_lineage.yaml",
         "configs/v12_claim_sources.yaml",
         "docs/THIRD_PARTY_NOTICES_V12.md",
