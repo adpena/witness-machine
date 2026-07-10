@@ -201,7 +201,7 @@ def build_v12_figure_lock(
         "09_v8_edge_carriers.svg": (
             edge_carrier_graph(messages, id_prefix="wm12-lock-edge"),
             "ADVISORY",
-            "edge-centric Road-hub v8 representation hypothesis",
+            "heterogeneous generator-native v8 carrier-family hypothesis with scoped edge-centricity",
             ("C006",),
         ),
         "10_temporal_screw_aperture.svg": (
@@ -592,6 +592,11 @@ def build_v12_release_bundles(
             "reports/V12_FORM_UPLOAD_RECEIPT.md",
             "reports/RECURSIVE_ADVERSARIAL_REVIEW_V12.md",
             "reports/RECURSIVE_ADVERSARIAL_REVIEW_V12.json",
+            "reports/V15_OBVIOUSLY_WINNING_SUBMISSION_SWEEP.md",
+            "reports/V15_PACT_V752_V8_PARITY_SWEEP.md",
+            "reports/V15_PUBLIC_METADATA_REPAIR_RECEIPT.md",
+            "reports/V15_LIVE_SUBMISSION_SENTINEL.md",
+            "reports/V15_FINAL_REPORT.md",
             "review/MENTOR_PACKET_V12.md",
             "docs/V12_WORLD_CLASS_NOTEBOOK_REWRITE_PLAN.md",
             "configs/claims_registry.yaml",
@@ -685,7 +690,7 @@ def build_v12_release_bundles(
         ],
         "score_claim": False,
         "full_stac_reproduction": False,
-        "public_submit_push_upload_pr": "BLOCKED_PENDING_OPERATOR_GO",
+        "public_submit_push_upload_pr": "OPERATOR_GO_RECEIVED_AUTH_IDENTITY_GATES_APPLY",
     }
     manifest_path = destination / "witness_machine_v12_release_manifest.json"
     manifest_bytes = _canonical_json(manifest) + b"\n"

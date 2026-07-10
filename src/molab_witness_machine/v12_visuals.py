@@ -87,22 +87,23 @@ DEFAULT_MESSAGES: dict[str, str] = {
     "stac.boundary": "semantic boundary",
     "stac.hotspot": "off-boundary debt",
     "stac.note": "first-order controller · not an evaluated score",
-    # v8 edge-centric graph.
-    "edge.title": "Shared boundaries carry the scene",
+    # v8 heterogeneous generator-native graph.
+    "edge.title": "Heterogeneous generators carry the scene",
     "edge.desc": (
-        "An edge-centric carrier graph with Road as the adjacency hub. Shared "
-        "class boundaries flow through merge, difference, and correction stages."
+        "An illustrative generator-native graph: the Road/Undrivable interface is "
+        "strictly edge-centric, while a lane band, movable sites, a static hood, "
+        "and tiny tail edges keep their smallest natural coordinates."
     ),
     "edge.road": "Road",
     "edge.undriv": "Undrivable",
     "edge.lane": "Lane",
     "edge.mycar": "My car",
     "edge.movable": "Movable",
-    "edge.shared": "shared edge carriers",
+    "edge.shared": "illustrative generator-native composition",
     "edge.merge": "MERGE",
     "edge.diff": "DIFF",
     "edge.correct": "CORRECT",
-    "edge.pipeline": "one topology · local residuals · sparse repair",
+    "edge.pipeline": "heterogeneous generators · de-shared edges · sparse repair",
     # Equal-curvature Laguerre cells.
     "laguerre.title": "Fields compete; a partition appears",
     "laguerre.desc": (
@@ -873,7 +874,7 @@ def edge_carrier_graph(
     id_prefix: str = "v12-edge",
     theme: VisualTheme = DEFAULT_THEME,
 ) -> str:
-    """Render the v8 Road-hub shared-boundary carrier graph."""
+    """Render an illustrative heterogeneous, generator-native v8 carrier graph."""
 
     p = _prefix(id_prefix)
 
@@ -881,17 +882,20 @@ def edge_carrier_graph(
         return _text(messages, key)
 
     edges = (
-        ("road-undriv", 320, 230, 122, 160, theme.cyan),
-        ("road-lane", 320, 230, 518, 160, theme.gold),
-        ("road-mycar", 320, 230, 152, 342, theme.violet),
-        ("road-movable", 320, 230, 488, 342, theme.coral),
-        ("lane-undriv", 518, 160, 122, 160, theme.mint),
-        ("mycar-movable", 152, 342, 488, 342, theme.mint),
+        ("road-undriv", "M320 230 L122 160", "horizon-lateral", theme.cyan, 6, ""),
+        ("road-lane", "M320 230 L518 160", "lane-band", theme.gold, 5, ""),
+        ("road-mycar", "M320 230 L152 342", "hood-static", theme.violet, 5, ""),
+        ("road-movable", "M320 230 L488 342", "movable-sites", theme.coral, 5, ""),
+        ("undriv-movable", "M122 160 Q320 28 488 342", "movable-sites", theme.coral, 4, ""),
+        ("lane-undriv", "M518 160 L122 160", "tiny-tail", theme.mint, 2, ' stroke-dasharray="8 7"'),
+        ("lane-movable", "M518 160 L488 342", "tiny-tail", theme.mint, 2, ' stroke-dasharray="8 7"'),
+        ("lane-mycar", "M518 160 Q350 430 152 342", "tiny-tail", theme.mint, 2, ' stroke-dasharray="8 7"'),
     )
     edge_svg = "\n".join(
-        f'<g data-edge="{name}" data-carrier="shared-boundary"><path class="{p}-line {p}-flow" '
-        f'd="M{x1} {y1} L{x2} {y2}" stroke="{color}" stroke-width="5"/></g>'
-        for name, x1, y1, x2, y2, color in edges
+        f'<g data-edge="{name}" data-carrier-family="{family}">'
+        f'<path class="{p}-line {p}-flow" d="{path}" stroke="{color}" '
+        f'stroke-width="{width}"{dash_attr}/></g>'
+        for name, path, family, color, width, dash_attr in edges
     )
     nodes = (
         ("undriv", 122, 160, t("edge.undriv")),
@@ -922,7 +926,7 @@ def edge_carrier_graph(
     </marker>
   </defs>
   <rect class=\"{p}-bg\" width=\"640\" height=\"650\"/>
-  <g data-model=\"edge-centric\" aria-hidden=\"true\">
+  <g data-model=\"heterogeneous-generator-native\" data-edge-centric-scope=\"shared-interface-only\" aria-hidden=\"true\">
     {edge_svg}
     {node_svg}
     <g data-class-node=\"road\" data-adjacency-hub=\"true\">

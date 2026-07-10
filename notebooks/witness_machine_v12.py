@@ -783,10 +783,10 @@ def _(escape, locale, messages, mo, task_witness_hero):
 @app.cell
 def _(escape, locale, messages, mo):
     route_items = (
-        ("#wm-stac-heading", messages["route.paper"]),
+        ("#wm-paper-experiment", messages["route.paper"]),
         ("#wm-real-heading", messages["route.real"]),
-        ("#wm-sdf-heading", messages["route.wall"]),
-        ("#wm-gpu-heading", messages["route.gpu"]),
+        ("#wm-wall-experiment", messages["route.wall"]),
+        ("#wm-gpu-experiment", messages["route.gpu"]),
         ("#wm-close-heading", messages["route.close"]),
     )
     route_html = '<span class="wm-route-separator" aria-hidden="true">→</span>'.join(
@@ -831,13 +831,16 @@ def _(
     mo.vstack(
         [
             mo.hstack([locale_picker], justify="start"),
-            mo.accordion(
-                {"Display & accessibility / Pantalla y accesibilidad": accessibility_controls},
-                lazy=False,
-            ),
             loss_budget,
             mo.Html(
                 f"<p class='wm-control-note'>{escape(messages['control.loss_budget_help'])}</p>"
+            ),
+            mo.Html(
+                f"<p class='wm-takeaway'>{escape(messages['control.loss_budget_prompt'])}</p>"
+            ),
+            mo.accordion(
+                {"Display & accessibility / Pantalla y accesibilidad": accessibility_controls},
+                lazy=False,
             ),
         ],
         gap=0.55,
@@ -885,6 +888,7 @@ def _(escape, messages, mo):
     )
     mo.vstack(
         [
+            mo.Html('<span id="wm-paper-experiment" aria-hidden="true"></span>'),
             boundary_focus_ratio,
             mo.Html(
                 f"<p class='wm-control-note'>{escape(messages['control.boundary_focus_help'])}</p>"
@@ -1170,6 +1174,7 @@ def _(messages, mo):
     )
     mo.vstack(
         [
+            mo.Html('<span id="wm-wall-experiment" aria-hidden="true"></span>'),
             boundary_shift,
             mo.md(messages["control.boundary_shift_help"]),
         ]
@@ -1555,7 +1560,13 @@ def _(messages, mo):
         kind="success",
         full_width=True,
     )
-    gpu_run
+    mo.vstack(
+        [
+            mo.Html('<span id="wm-gpu-experiment" aria-hidden="true"></span>'),
+            gpu_run,
+        ],
+        gap=0.0,
+    )
     return (gpu_run,)
 
 

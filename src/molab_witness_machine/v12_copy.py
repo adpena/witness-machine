@@ -24,7 +24,7 @@ _EN_US = {
         "Light, dark, color-vision-safe, monochrome, and motion preferences change "
         "presentation only; the computed geometry is invariant."
     ),
-    "dev.status": "Interactive paper implementation · no exact score claim",
+    "dev.status": "Interactive paper implementation · move the mathematics, inspect the evidence",
     "nav.score": "01 · FROZEN RECEIVER",
     "nav.paper": "02 · PAPER CONTROLLER",
     "nav.real": "REAL FROZEN-SCORER EVIDENCE",
@@ -68,6 +68,11 @@ _EN_US = {
     "control.loss_budget_help": (
         "The paper controller spends this declared local budget across coefficients. "
         "Larger B permits coarser regional tables; it is not a measured task loss or score."
+    ),
+    "control.loss_budget_prompt": (
+        "[TOY][DERIVATION] START HERE · Move B. One reactive state recomputes the "
+        "receiver balance, the paper-controller table allocation, and the final "
+        "carrier bids. Follow the same pressure from equation to witness."
     ),
     "control.boundary_focus": "Outline precision ratio ρ",
     "control.boundary_focus_help": (
@@ -271,28 +276,30 @@ _EN_US = {
     "laguerre.cell_c": "movable",
     "laguerre.tie_locus": "shared tie locus",
     "laguerre.note": "argmax selects one cell at every point",
-    "edge.heading": "The edge is shared information",
+    "edge.heading": "One scene, several irreducible coordinates",
     "edge.body": (
-        "v8 is not five independent class fields. Road is an adjacency hub, and "
-        "the decoder composes shared boundary carriers before applying sparse differences "
-        "and corrections."
+        "v8 is not five naive independent class fields. It is a heterogeneous "
+        "generator-native program: Road↔Undrivable is strictly edge-centric; the lane "
+        "band, movable-site carrier, hood model, and tiny tail edges keep their smallest "
+        "natural coordinates before merge, diff, and correction."
     ),
-    "edge.takeaway": "Merge → diff → correct: generate structure first, then pay residual debt.",
-    "edge.title": "Shared boundaries carry the scene",
+    "edge.takeaway": "Generate the horizon, lane band, moving sites, and hood once; merge, diff, correct.",
+    "edge.title": "Heterogeneous generators carry the scene",
     "edge.desc": (
-        "An edge-centric carrier graph with Road as the adjacency hub. Shared class "
-        "boundaries flow through merge, difference, and correction stages."
+        "An illustrative generator-native graph: the Road/Undrivable interface is "
+        "strictly edge-centric, while a lane band, movable sites, a static hood, and "
+        "tiny tail edges keep their smallest natural coordinates."
     ),
     "edge.road": "Road",
     "edge.undriv": "Undrivable",
     "edge.lane": "Lane",
     "edge.mycar": "My car",
     "edge.movable": "Movable",
-    "edge.shared": "shared edge carriers",
+    "edge.shared": "illustrative generator-native composition",
     "edge.merge": "MERGE",
     "edge.diff": "DIFF",
     "edge.correct": "CORRECT",
-    "edge.pipeline": "one topology · local residuals · sparse repair",
+    "edge.pipeline": "heterogeneous generators · de-shared edges · sparse repair",
     "control.texture": "Temporal texture aperture",
     "control.refresh": "Refresh pressure",
     "temporal_evidence.kicker": "REAL TEMPORAL EVIDENCE",
@@ -418,7 +425,7 @@ _EN_US = {
         "[TOY] Edge carriers and local shadow prices are a generator proposal, not an "
         "exact score result."
     ),
-    "close.provenance": "PROVENANCE · v7.5 shared trunk → v8 edge-centric decomposition",
+    "close.provenance": "PROVENANCE · v7.5 shared trunk → v8 generator-native heterogeneous decomposition",
     "close.takeaway": "Compress the evidence the frozen judge needs, and let geometry regenerate the rest.",
     "sources.heading": "Sources, scope, and reproducibility",
     "sources.body": (
@@ -458,7 +465,7 @@ _ES_US = {
         "Las preferencias de luz, oscuridad, visión cromática, monocromo y movimiento "
         "solo cambian la presentación; la geometría calculada permanece invariante."
     ),
-    "dev.status": "Implementación interactiva del artículo · sin afirmar puntuación exacta",
+    "dev.status": "Implementación interactiva del artículo · mueve las matemáticas, inspecciona la evidencia",
     "nav.score": "01 · RECEPTOR CONGELADO",
     "nav.paper": "02 · CONTROLADOR DEL ARTÍCULO",
     "nav.real": "EVIDENCIA REAL DEL EVALUADOR CONGELADO",
@@ -502,6 +509,12 @@ _ES_US = {
     "control.loss_budget_help": (
         "El controlador del artículo reparte este presupuesto local declarado entre coeficientes. "
         "Un B mayor permite tablas regionales más gruesas; no es pérdida medida ni puntuación."
+    ),
+    "control.loss_budget_prompt": (
+        "[TOY][DERIVATION] EMPIEZA AQUÍ · Mueve B. Un único estado reactivo "
+        "recalcula el balance del receptor, la asignación de tablas del controlador "
+        "del artículo y las pujas finales de los portadores. Sigue la misma presión "
+        "desde la ecuación hasta el testigo."
     ),
     "control.boundary_focus": "Razón de precisión del contorno ρ",
     "control.boundary_focus_help": (
@@ -704,28 +717,30 @@ _ES_US = {
     "laguerre.cell_c": "móvil",
     "laguerre.tie_locus": "lugar de empate compartido",
     "laguerre.note": "argmax elige una celda en cada punto",
-    "edge.heading": "El borde es información compartida",
+    "edge.heading": "Una escena, varias coordenadas irreducibles",
     "edge.body": (
-        "v8 no son cinco campos de clase independientes. La calzada es el centro de "
-        "adyacencia y el decodificador compone portadores de frontera antes de aplicar "
-        "diferencias y correcciones dispersas."
+        "v8 no son cinco campos de clase ingenuos e independientes. Es un programa "
+        "heterogéneo y nativo de generadores: Road↔Undrivable es estrictamente céntrico "
+        "en el borde; la banda de carril, los sitios móviles, el capó y las aristas de "
+        "cola conservan sus coordenadas naturales mínimas antes de fusionar, diferenciar y corregir."
     ),
-    "edge.takeaway": "Fusiona → diferencia → corrige: genera estructura y luego paga el residuo.",
-    "edge.title": "Las fronteras compartidas sostienen la escena",
+    "edge.takeaway": "Genera una vez horizonte, banda de carril, sitios móviles y capó; fusiona, diferencia, corrige.",
+    "edge.title": "Generadores heterogéneos sostienen la escena",
     "edge.desc": (
-        "Un grafo de portadores centrado en bordes con la calzada como núcleo de "
-        "adyacencia. Las fronteras pasan por fusión, diferencia y corrección."
+        "Un grafo ilustrativo nativo de generadores: la interfaz Road/Undrivable es "
+        "estrictamente céntrica en el borde; la banda de carril, los sitios móviles, "
+        "el capó estático y las aristas de cola conservan sus coordenadas naturales mínimas."
     ),
     "edge.road": "Calzada",
     "edge.undriv": "No transitable",
     "edge.lane": "Carril",
     "edge.mycar": "Mi vehículo",
     "edge.movable": "Móvil",
-    "edge.shared": "portadores de borde compartidos",
+    "edge.shared": "composición ilustrativa nativa de generadores",
     "edge.merge": "FUSIONA",
     "edge.diff": "DIFERENCIA",
     "edge.correct": "CORRIGE",
-    "edge.pipeline": "una topología · residuos locales · reparación dispersa",
+    "edge.pipeline": "generadores heterogéneos · bordes sin duplicar · reparación dispersa",
     "control.texture": "Apertura de textura temporal",
     "control.refresh": "Presión de refresco",
     "temporal_evidence.kicker": "EVIDENCIA TEMPORAL REAL",
@@ -854,7 +869,7 @@ _ES_US = {
         "[TOY] Los portadores de borde y los precios sombra locales son una propuesta "
         "generativa, no un resultado de puntuación exacta."
     ),
-    "close.provenance": "PROCEDENCIA · tronco compartido v7.5 → descomposición de bordes v8",
+    "close.provenance": "PROCEDENCIA · tronco compartido v7.5 → descomposición heterogénea nativa de generadores v8",
     "close.takeaway": "Comprime la evidencia que necesita el juez congelado y deja que la geometría regenere el resto.",
     "sources.heading": "Fuentes, alcance y reproducibilidad",
     "sources.body": (

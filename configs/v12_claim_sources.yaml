@@ -82,9 +82,9 @@ claims:
 
   - id: v8_edge_carrier_graph
     class: ADVISORY
-    statement: "The edge-centric Road-hub graph is the current v8 representation hypothesis."
-    receipt: "tests/test_v12_visuals.py::test_v8_visual_is_edge_centric_with_road_hub_and_real_pipeline; tests/test_v8_edge_decomp.py"
-    falsifier: equal-byte frozen-evaluator experiment favors class-naive or uniform representation
+    statement: "The graph illustrates heterogeneous generator-native v8 carrier families; strict edge-centricity is scoped to irreducible shared interfaces."
+    receipt: "tests/test_v12_visuals.py::test_v8_visual_is_generator_native_with_scoped_edge_centricity_and_real_pipeline; tests/test_v8_edge_decomp.py"
+    falsifier: equal-byte frozen-evaluator experiment favors a class-naive or uniform representation
 
   - id: v12_mobile_no_overflow
     class: EMPIRICAL

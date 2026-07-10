@@ -23,6 +23,11 @@ contest = [
 ]
 dev = ["pytest", "ruff"]
 
+[project.urls]
+Homepage = "https://github.com/adpena/witness-machine"
+Notebook = "https://molab.marimo.io/github/adpena/witness-machine/blob/main/notebooks/witness_machine_v12.py"
+Repository = "https://github.com/adpena/witness-machine"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

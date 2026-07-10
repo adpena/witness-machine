@@ -6,8 +6,8 @@ authors:
     given-names: "ad"
     alias: "adpena"
 version: "1.2.0"
-date-released: "2026-07-09"
-url: "https://github.com/adpena"
+date-released: "2026-07-10"
+url: "https://github.com/adpena/witness-machine"
 license: "MIT"
 keywords:
   - task-aware compression

@@ -1,10 +1,24 @@
-# The Witness Machine — V12 release bundle
+# The Witness Machine
 
-This archive is a compact, public, non-score-bearing release artifact. It
-contains the runnable marimo notebook, the Python modules reachable from that
-notebook, compact locked evidence, and custody metadata. It does not contain
-the comma.ai source video, frozen scorer weights, private run directories, or
-an exact score claim.
+**Shadow-price-guided SDF level-set compression for frozen driving perception**
+
+[Run the notebook in molab](https://molab.marimo.io/github/adpena/witness-machine/blob/main/notebooks/witness_machine_v12.py)
+· [Source](https://github.com/adpena/witness-machine)
+· [V1.2.0-rc2 release candidate](https://github.com/adpena/witness-machine/releases/tag/v1.2.0-rc2)
+
+![The Witness Machine](notebooks/__marimo__/assets/witness_machine_v12/opengraph.png)
+
+What is the smallest decoded video that makes a frozen driving-perception
+receiver reach the same decision? This runnable marimo notebook implements the
+first-order bounded-loss spatial controller from **DNN-Driven Compressive
+Offloading for Edge-Assisted Semantic Video Segmentation** (STAC,
+arXiv:2203.14481), then asks which compact geometric coordinate should carry
+that debt.
+
+Move one global loss budget through the controller; make a boundary-only policy
+tie and then lose to uniform allocation; move an SDF wall and watch its exact
+area and first variation change together. A locked frozen-SegNet pair keeps the
+synthesis honest. No exact comma.ai score is claimed.
 
 ## Run the notebook
 
@@ -25,18 +39,18 @@ marimo export html notebooks/witness_machine_v12.py \
 ```
 
 `RELEASE_MANIFEST.json` records every shipped source byte. The fuller research
-archive additionally contains the manuscript, locked figures, review packet,
-and reproducibility reports. Rebuilding the release archives and running the
-repository-wide gate suite require the source repository; those commands are
-deliberately not advertised as archive-local operations.
+archive adds the manuscript, locked figures, review packet, and reproducibility
+reports. The compact release excludes the challenge video, scorer weights,
+private run directories, and upstream source mutations. Rebuilding the release
+archives and repository-wide gates require the source repository.
 
 ## Authority boundary
 
 Public claims use `TOY`, `ADVISORY`, `EMPIRICAL`, `DERIVATION`, `EXTERNAL`,
 `EXACT-CANDIDATE`, or `EXACT`. No `EXACT` score is available without an exact
 score card tied to exact archive bytes and an unmodified upstream evaluator
-transcript. Public submit, push, upload, PR, publication, or payment remains
-stopped until explicit operator GO; login or credentials remain an operator
-gate.
+transcript. Operator GO for the public source and release was received on July
+10, 2026; identity, passwords, MFA, CAPTCHAs, and contest-form confirmation
+remain account-holder actions.
 
 MIT licensed. Built in public by `adpena`.
