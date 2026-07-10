@@ -1,0 +1,99 @@
+schema: witness_machine.claim_sources.v12
+updated_utc: "2026-07-09T23:30:00Z"
+
+policy:
+  public_badge_style: quiet_source_rail
+  machine_classes:
+    - TOY
+    - ADVISORY
+    - EMPIRICAL
+    - DERIVATION
+    - EXTERNAL
+    - EXACT-CANDIDATE
+    - EXACT
+  exact_score_requires:
+    - archive_sha256
+    - archive_bytes
+    - unmodified_upstream_transcript
+    - input_video_identity
+    - scorer_runtime_and_hardware_axis
+    - exact_score_card
+
+claims:
+  - id: contest_score_law
+    class: EXTERNAL
+    statement: "The challenge objective combines SegNet disagreement, PoseNet distortion, and archive rate in the displayed formula."
+    source: "https://github.com/commaai/comma_video_compression_challenge"
+    falsifier: upstream evaluator formula differs from the rendered equation
+
+  - id: stac_primary_metadata
+    class: EXTERNAL
+    statement: "STAC is the primary recreated alphaXiv paper and has the displayed exact title and authors."
+    source: "https://www.alphaxiv.org/abs/2203.14481"
+    falsifier: live alphaXiv metadata differs
+
+  - id: stac_first_order_bound
+    class: DERIVATION
+    statement: "Under STAC's small-perturbation model, quantization debt is bounded by sum |g_i| q_i / 2 and the continuous optimum equalizes that debt."
+    source: "https://arxiv.org/abs/2203.14481"
+    receipt: "tests/test_v12_stac.py::test_ideal_allocation_equalizes_first_order_debt_and_uses_budget"
+    falsifier: numerical allocation fails to equalize debt or exceed the declared bound
+
+  - id: stac_regional_rematerialization
+    class: DERIVATION
+    statement: "A compact regional level map plus a shared table bank deterministically rematerializes the dense quantization strategy."
+    source: "https://arxiv.org/abs/2203.14481"
+    receipt: "tests/test_v12_stac.py::test_rematerialized_map_matches_selected_tables_at_partial_edges"
+    falsifier: receiver expansion differs from the selected tables
+
+  - id: boundary_not_universal_oracle
+    class: EXTERNAL
+    statement: "STAC reports useful frozen-network sensitivity away from semantic boundaries and a boundary-guided policy that can underperform uniform JPEG."
+    source: "https://arxiv.org/abs/2203.14481"
+    falsifier: paper text or comparison does not support the statement
+
+  - id: current_sensitivity_visual
+    class: TOY
+    statement: "The currently rendered sensitivity plate is a deterministic construction used to explain STAC's controller."
+    receipt: "notebooks/witness_machine_v12.py"
+    promotion_blocker: the teaching plate remains analytic; do not relabel it as the separate locked real-gradient plate
+
+  - id: real_frozen_scorer_boundary_duality
+    class: EMPIRICAL
+    statement: "On one fixed real pair, raw frozen-SegNet summed-margin input-gradient magnitude is broad while the declared heuristic margin-normalized sensitivity proxy concentrates near the semantic boundary at epsilon=1e-6; the concentration is regularizer- and logit-scale-sensitive."
+    receipt: "artifacts/v12_public/v12_real_frozen_scorer_evidence.manifest.json"
+    evidence_axis: "[macOS-CPU advisory]"
+    scope: "one fixed preselected pair; not an n600 population estimate; not STAC DCT sensitivity"
+    falsifier: "artifact hash, formula binding, recomputed boundary-mass metrics, or declared regularizer-sensitivity checks fail validation"
+
+  - id: real_consecutive_temporal_transport
+    class: ADVISORY
+    statement: "On one locked consecutive pair, frozen-SegNet partitions and a compact three-level strategy are transported with an advisory Farneback image-flow estimate while holes and collisions remain explicit."
+    receipt: "artifacts/v12_public/v12_temporal_transport_display.manifest.json"
+    evidence_axis: "[macOS-CPU advisory]"
+    scope: "pair 196 raw frames 392→393; not PoseNet, not STAC DIS flow, not a refresh-policy reproduction, and not a score"
+    falsifier: "pair custody, target-argmax parity, output hashes, or exact table_bank[level] rematerialization fail validation"
+
+  - id: laguerre_equal_curvature
+    class: DERIVATION
+    statement: "The displayed cells are a genuine equal-curvature power/Laguerre diagram."
+    receipt: "src/molab_witness_machine/v12_visuals.py::laguerre_cells"
+    falsifier: rendered cell edges fail the weighted-distance tie equations
+
+  - id: v8_edge_carrier_graph
+    class: ADVISORY
+    statement: "The edge-centric Road-hub graph is the current v8 representation hypothesis."
+    receipt: "tests/test_v12_visuals.py::test_v8_visual_is_edge_centric_with_road_hub_and_real_pipeline; tests/test_v8_edge_decomp.py"
+    falsifier: equal-byte frozen-evaluator experiment favors class-naive or uniform representation
+
+  - id: v12_mobile_no_overflow
+    class: EMPIRICAL
+    statement: "The final local V12 release surface has no horizontal overflow at the declared 390x844 viewport."
+    receipt: "reports/V12_BROWSER_E2E.json"
+    measured_surface: "local release server; host and port intentionally excluded from public bundle"
+    promotion_blocker: repeat after final story and on public molab URL
+
+  - id: no_exact_candidate_score
+    class: ADVISORY
+    statement: "v12 currently makes no exact comma.ai score claim."
+    falsifier: any result-shaped candidate score appears without an exact score card

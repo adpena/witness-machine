@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this research artifact, please cite the arXiv paper/release once available."
+title: "The Witness Machine: shadow-price-guided SDF level-set compression for frozen driving perception"
+authors:
+  - family-names: "Pena"
+    given-names: "ad"
+    alias: "adpena"
+version: "1.2.0"
+date-released: "2026-07-09"
+url: "https://github.com/adpena"
+license: "MIT"
+keywords:
+  - task-aware compression
+  - signed distance fields
+  - level sets
+  - video compression
+  - autonomous driving
+  - marimo
+  - reproducibility

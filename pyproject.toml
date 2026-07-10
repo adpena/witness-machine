@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "molab-witness-machine"
+version = "1.2.0"
+description = "Interactive SDF level-set compression research instrument for frozen driving perception"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "adpena"}]
+dependencies = [
+  "numpy>=1.25",
+  "marimo>=0.23.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+contest = [
+  "torch",
+  "opencv-python",
+]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+testpaths = ["tests"]

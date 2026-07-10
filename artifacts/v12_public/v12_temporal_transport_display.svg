@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 930"
+  role="img" aria-labelledby="temporal-title temporal-desc"
+  style="display:block;width:100%;height:auto;max-width:1200px">
+  <title id="temporal-title">Transport the strategy; measure when topology refuses</title>
+  <desc id="temporal-desc">An advisory five-panel comparison of a real cached driving-scene
+  segmentation at raw frame 392, its transport using a dense OpenCV Farneback
+  flow estimate, the consecutive segmentation at raw frame 393, transport support, and a
+  rematerialized three-level geometric strategy. This is not PoseNet, STAC DIS flow, or a score.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101f"/><stop offset="1" stop-color="#101b31"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .eyebrow { fill:#7fd8ff; font-size:16px; font-weight:700; letter-spacing:2px; }
+      .headline { fill:#f8fbff; font-size:42px; font-weight:760; }
+      .dek { fill:#b9c8de; font-size:18px; }
+      .metric { fill:#e8f0fb; font-size:16px; font-variant-numeric:tabular-nums; }
+      .panel-title { fill:#f8fbff; font-size:18px; font-weight:700; }
+      .panel-sub { fill:#9fb0c9; font-size:13px; }
+      .panel-frame { fill:#0b1425; stroke:#31415e; stroke-width:1.5; filter:url(#shadow); }
+      .foot { fill:#8fa2bd; font-size:13px; }
+    </style>
+  </defs>
+  <rect width="1200" height="930" rx="28" fill="url(#bg)"/>
+  <text class="eyebrow" x="40" y="48">TEMPORAL STRATEGY TRANSPORT · ADVISORY</text>
+  <text class="headline" x="40" y="99">Transport the strategy.</text>
+  <text class="headline" x="40" y="140">Measure when topology refuses.</text>
+  <text class="dek" x="40" y="174">One real consecutive pair. One explicit receiver map. No hidden certainty.</text>
+  <text class="metric" x="40" y="202">label debt 0.9%   ·   boundary debt 3.8%   ·   holes 1.6%   ·   collisions 1.2%</text>
+  
+    <g transform="translate(40 220)">
+      <text class="panel-title" x="0" y="0">Frozen partition · raw frame 392</text>
+      <text class="panel-sub" x="0" y="24">pair 196 · frozen SegNet argmax [ADVISORY]</text>
+      <rect class="panel-frame" x="0" y="40" width="340" height="255" rx="14"/>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABUCAIAAADVvyQ8AAABSElEQVR42u3Yy3HCMBRA0VcKpaSUrFIHBaYnhxk2BgMGW5KfojNzVwwg6Ug2nzifv1WwQAAUKFABBQpUQIECFVCgQIEKKFCgAgoUqIACBSqgQIECFVCgQAUUKFABBQpUmUG/TqdLMf3MA7oFcd7Vcf7IgwUkQ48kdtu60xwCdBVlinhf8O7JS9CHp7hX0OXiP8IqckJfjJgXdM9Zq038zqY+2+lGoKvTLW5UD/3ZO79YxXbQzRveb6XWcgOaim/ncHteXmqxcew9Lu3J3fzdI9Le7zr1jQOvjn+JG4cjdr03S5aDP5TaaLbcszjwim65zmZjRe/fAbMNGuNothk9RtOsPYcYULPqZGJYzUpT8kOzMCvQyn+OYAWaqy5Bf2O6BPSGI08757kCmm213RUIgAIFKqBAgQooUKACChQoUAEFClRAgQLVSn9le5+2sXo+7AAAAABJRU5ErkJggg==" x="6" y="46" width="328" height="243"
+             preserveAspectRatio="none" image-rendering="pixelated"/>
+    </g>
+    <g transform="translate(430 220)">
+      <text class="panel-title" x="0" y="0">Transported partition</text>
+      <text class="panel-sub" x="0" y="24">forward nearest splat of dense Farneback flow</text>
+      <rect class="panel-frame" x="0" y="40" width="340" height="255" rx="14"/>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABUCAIAAADVvyQ8AAACF0lEQVR42u3Y4W3DIBCG4Rugv7pAM0pH6a/OkQG7k4uEZBHAGI4D4/aVPlWV4xh4coBteT6/iGEEAkABBZQACiigBFBAASWAAgoooARQQAElgAIKKAEUUEAJoIACCigBFFBACaCAAkoABfQfg769f6g/BXQS6Ofj4SLbdxhA20w9YhjvGB7JDGAx9GtAUztdIs0/AlowLXO4b7m/m0i9YHRyCpqt4rtWaOpVxvKgthVaaHHOhinqHeO0fE5PCEHd/z5Wq8HeYtqr7EGr0hY1396zpjlbKE9/pJO1/N2jrhZGoQdV/+C2I3fXbwXdz9/LvPIKVmN5AZ3D17R0VoqkK4b54qBZ1nt+tM4xRAph0/VXjs70F4kOtvazFTc8WTpFRpRwD2i6HLeuA52+or66SXmab+sRqGJh7cQV9YVM+jcINGUd1GjKMnVTyo7N5G6psEAfsQ6KXLi5762MmP4LgQ6dgDVPTbbNRaCDdtErQdN7g3HlE9XpBFOZTDl5AqalWn46uF+F+ifLmaA199GGv/S8Cg1n+jqg5ruWXNLpRYo0fMMdPQWsPuVXq82jO4H+JVWmrVOraaYTaH9z2LMIyITCXNCxvNdH72Sb+i+LDy+bH9lchjatvle9ANRzHMUNqXyCeTr7fAI6eTArgBaYFF+UFXq/IKg6cuveAwooARRQQAmggAJKAAUUUEAJoIACSgAFFFCSzS8PYl/WnepA1AAAAABJRU5ErkJggg==" x="6" y="46" width="328" height="243"
+             preserveAspectRatio="none" image-rendering="pixelated"/>
+    </g>
+    <g transform="translate(820 220)">
+      <text class="panel-title" x="0" y="0">Observed partition · raw frame 393</text>
+      <text class="panel-sub" x="0" y="24">pair 196 · next frozen SegNet argmax [ADVISORY]</text>
+      <rect class="panel-frame" x="0" y="40" width="340" height="255" rx="14"/>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABUCAIAAADVvyQ8AAABU0lEQVR42u3W0W2DMBiF0TtKRukofeocGbA7pZUqVTTQBBIbO/hI3xNCtjn8Csn5/K6CBQFQoEAFFChQAQUKVECBAgUqoECBCihQoAIKFKiAAgUKVECBAhVQoEAFFChQ9Qz6djp9l8vHNKCPIE77cZxeWXiAztDTD9/W5pqjgD5v99slmY9wV6apZ3f18LdpHmuu+d+yvYMuAq0xKuK4aaLnO84v7gp6+6w1gDatWeTmxQd5FnTl2955xGrP79bpvgudcfge+HHYetsf0OaCRbYutcj6da5uHmUAd/NN7Q1Gww3Esr5pi3i8l5SGH/dDjnxafd+baO6waV73H1Kfu2c0zdpnSLd/6F6UNaPNZu13nDFns96bDs2yhwzNsqcNzbJnzlCfoB1Y01DzM5e2rTHdumA6ebbDFARAgQIVUKBABRQoUAEFChSogAIFKqBAgepOX6x7u0gGr42mAAAAAElFTkSuQmCC" x="6" y="46" width="328" height="243"
+             preserveAspectRatio="none" image-rendering="pixelated"/>
+    </g>
+    <g transform="translate(235 566)">
+      <text class="panel-title" x="0" y="0">Receiver support</text>
+      <text class="panel-sub" x="0" y="24">green valid · amber collision · coral hole</text>
+      <rect class="panel-frame" x="0" y="40" width="340" height="255" rx="14"/>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABUCAIAAADVvyQ8AAAB9klEQVR42u3aXVLEIAzAca7jSTzHPnolj+P7nsl1rcMASSm0BFj8z+RF7e7QX5PwYd3b/ZNoGA4CQAEFlAAUUEAJQAEFlAAUUEABJQAFFFACUEABJQAFFFACUEABBZQAFFBACUABBZQAFND/BPr99R79+HHLXJn5K6CK5h6ovwzQBqDlKQwooPagkky95vBTTEoHPfTn93nZ4aDbAAof/yzLpsxwQ9Cn/m+wDj0JqnTeLV+usR6Wxfqgheuwktbh03wga4+dUr7nqqAlprJjvEzJl5dtdXnufEP5N+tTYpyhPRPWtZpVLObfi6BRB+iVwq7V2vNcehrdpAdNGut0PTSpo+aZ+FQ4W5vbZ32Ey4Zk/KYdoN/xnXry5BOneQaF3ywXFUuAZk75DEpyD/R6KcyybOp8bBouTlcDVe+wzyF0kqcrgIZee7dn/SBliajn300mK9ej2OP7GbKr8SORy4C2T9p1655JLsywTczMWjOCSs2xSXp4GhDtAs7WvjnobMdr+ZWAQlw5Wmc4F8mpYL7zY1k6ka+fu4pZzUF77lKabOFCzb+oqSpbULm/vvjmRIeOrw57PKhcoxQ23LFtQR1t1S7AzVN3M/9v+fVAS7b8o7K1qunz9h2vMwIKKAEooIASgAIKKAEooIACSgAKKKAEoIAuGA9mE8U+oA+zqQAAAABJRU5ErkJggg==" x="6" y="46" width="328" height="243"
+             preserveAspectRatio="none" image-rendering="pixelated"/>
+    </g>
+    <g transform="translate(625 566)">
+      <text class="panel-title" x="0" y="0">Rematerialized strategy</text>
+      <text class="panel-sub" x="0" y="24">boundary / annulus / interior [DERIVATION]</text>
+      <rect class="panel-frame" x="0" y="40" width="340" height="255" rx="14"/>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABUCAIAAADVvyQ8AAADDklEQVR42u2aTW4bMQxGdYCuug7Qfc9RIMhle4heLDWgQGAokaJ+RraTBxCGPZ6RqadPJCU5vfz+g220BAKAAhSgGEABClAMoAAFKAZQgAIUoBhAAQpQDKAABSgGUIACFAMoQAEKUAygAAUoBlCAAhQD6HcH+vb3vbbvAvTHz1/T31oQ3/+91tZk+mjQ7wO0KcAmxJqp/9TdmV4LNPf5dsMouyDfuJCfEqgln9sNo+rLrdXX/acsFZ+MBmlLxsgajCuoPBWJj+W9aiGC2w8XVxBPE/iUo5YA83X1oPS7DIPqjNU3efNKTLA830I5+Yliwu96Atb6krEif7y9z9ZE3GTtFAO159MD0NW1cjVNgLPSqwKhfkzdUKeyfCVjDeYWK/go4r7D60qXDqRRxTVdLDLs9t+pDWQSG5prpakic5Un1YjWzsfLsq6lmlETnxpwJZD1MkvqRRIJthMJF82I4QSH0uuufQLa/KIOgqrp/DE+Ny0iJYyqwYuvr6QYZbbxZ4PiKztrTUTJtxnHP6a8lUblw83aUGbJ9ZqjG2EjOi2NyHBcxwEnHPuR1xKZvJL8SSF/Q7UemWJdeSocW3ZVZH5rBtZgrhsVr1mH1nVPM1PJome686P5ZyJYW+XE6EKmK15Toc7KuhlH5tKRyj9DChoK0Arr4vhZ4m0r1KK5AtGhKcV+BuhKjOry7Sh0+55CMx1PZKGJ4lQuc2XvDm2OXPRjpUt1bbCdpqVTK/A92RGIWslMrIU2SrVZq2wc10NnSnKzbnu4nIh6ardJCfkJFKpm+h2BqqOEItJdkyYdoKlcv6JIWgzrZbzX6410QAtzi/Rj4VXRLDl5ztVrgcqZvpHmxjpEzndJNr8+EFBn7ye4J9bdLltsRBbasgCo65D61NY5I0mRE/M5L609/NGjnqut3pDsHk84ZyRpcYPaMbl2nj44i5/BbIS7QiOd1EJkqvrzS+1NbLFFhztAd3k5ffx9vgxwSEUc7kx5/o/I/0MBClAMoAAFKAZQgAIUAyhAAQpQDKAABSgGUIB+AfsPjfjnDWiM6IIAAAAASUVORK5CYII=" x="6" y="46" width="328" height="243"
+             preserveAspectRatio="none" image-rendering="pixelated"/>
+    </g>
+  <text class="foot" x="40" y="898">[ADVISORY] OpenCV Farneback image-space estimate · [DERIVATION] illustrative table bank [1,4,12]</text>
+  <text class="foot" x="40" y="918">Not PoseNet · not STAC DIS flow · not a STAC reproduction · not an exact or proxy challenge score</text>
+</svg>

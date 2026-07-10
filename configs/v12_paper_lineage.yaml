@@ -1,0 +1,246 @@
+schema: witness_machine.paper_lineage.v12
+updated_utc: "2026-07-09T23:30:00Z"
+
+public_identity:
+  project_title: "The Witness Machine"
+  form_title: "DNN-Driven Compressive Offloading for Edge-Assisted Semantic Video Segmentation"
+  distinction: >-
+    The form title names the one alphaXiv paper whose operative kernel is recreated.
+    The project title names our multi-paper geometric extension.
+
+primary:
+  id: stac_2022
+  exact_title: "DNN-Driven Compressive Offloading for Edge-Assisted Semantic Video Segmentation"
+  authors:
+    - Xuedou Xiao
+    - Juecheng Zhang
+    - Wei Wang
+    - Jianhua He
+    - Qian Zhang
+  venue: "IEEE INFOCOM 2022"
+  arxiv_id: "2203.14481"
+  arxiv_url: "https://arxiv.org/abs/2203.14481"
+  alphaxiv_url: "https://www.alphaxiv.org/abs/2203.14481"
+  doi: "10.1109/INFOCOM48880.2022.9796657"
+  article_license: "CC BY-SA 4.0"
+  evidence_class: EXTERNAL
+  recreated_kernel:
+    - first-order bounded-loss allocation q_i = 2B / (M |g_i|)
+    - finite offline table bank and online regional table selection
+    - compact table-level strategy map
+  engaged_paper_finding:
+    - boundary-only allocation is not a universal sensitivity oracle
+  real_adaptation_evidence:
+    - one locked frozen-SegNet pixel-space top-two-margin gradient on a fixed comma.ai pair
+    - boundary-annulus mass accounting for raw summed-margin gradient magnitude and a heuristic margin-normalized sensitivity proxy
+  not_yet_recreated:
+    - STAC task-loss gradient in block-DCT coordinates
+    - quantize/dequantize/IDCT or JPEG round trip
+    - matched-rate regional-table codec comparison
+    - dense-flow strategy transport
+    - PSNR-style keyframe refresh decision
+  not_attributed_to_paper:
+    - PoseNet Fisher or six-coordinate motion extension
+    - signed-distance carrier basis
+    - Morse-Smale topology and persistence controller
+    - max-plus/tropical or Laguerre generator parameterization
+    - v7.5 single-trunk or v8 edge-centric architecture
+    - comma.ai score or archive result
+
+supporting:
+  - id: coding_for_machines_rd_2025
+    exact_title: "Rate-Distortion Theory in Coding for Machines and its Application"
+    authors:
+      - Alon Harell
+      - Yalda Foroutan
+      - Nilesh Ahuja
+      - Parual Datta
+      - Bhavya Kanzariya
+      - V. Srinivasa Somayazulu
+      - Omesh Tickoo
+      - Anderson de Andrade
+      - Ivan V. Bajic
+    arxiv_id: "2305.17295"
+    arxiv_url: "https://arxiv.org/abs/2305.17295"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2305.17295v2"
+    role: task-rate-distortion and direct-coding foundation
+    evidence_class: EXTERNAL
+
+  - id: sparc_2026
+    exact_title: "Learned Image Compression for Vision-Language-Action Models"
+    authors:
+      - Hyeonjun Kim
+      - Jegwang Ryu
+      - Sangbeom Ha
+      - Junhyeok Lee
+      - Jun-Hyuk Kim
+      - Hyemin Ahn
+      - Jaeho Lee
+    arxiv_id: "2606.16253"
+    arxiv_url: "https://arxiv.org/abs/2606.16253"
+    alphaxiv_url: "https://www.alphaxiv.org/overview/2606.16253v1"
+    role: temporal spatial mask, receiver rematerialization, and tilted protection of rare task-critical latents
+    evidence_class: EXTERNAL
+
+  - id: sa_icm_2024
+    exact_title: "Image Coding for Machines with Edge Information Learning Using Segment Anything"
+    authors:
+      - Takahiro Shindo
+      - Kein Yamada
+      - Taiju Watanabe
+      - Hiroshi Watanabe
+    venue: "ICIP 2024"
+    arxiv_id: "2403.04173"
+    arxiv_url: "https://arxiv.org/abs/2403.04173"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2403.04173"
+    role: edge-information and SA-NeRV precedent; boundary-only foil
+    evidence_class: EXTERNAL
+    code_license_note: "Public repository found without a detected LICENSE/COPYING file; do not copy its code."
+
+  - id: task_aware_encoder_control_2024
+    exact_title: "Task-Aware Encoder Control for Deep Video Compression"
+    authors:
+      - Xingtong Ge
+      - Jixiang Luo
+      - Xinjie Zhang
+      - Tongda Xu
+      - Guo Lu
+      - Dailan He
+      - Jing Geng
+      - Yan Wang
+      - Jun Zhang
+      - Hongwei Qin
+    venue: "CVPR 2024"
+    arxiv_id: "2404.04848"
+    arxiv_url: "https://arxiv.org/abs/2404.04848"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2404.04848"
+    role: encoder-side mode and GoP control with a stable pretrained decoder
+    evidence_class: EXTERNAL
+
+  - id: dmtz_2026
+    exact_title: "Preserving Discrete Morse-Smale Complexes in Error-Bounded Lossy Compression"
+    authors:
+      - Yuxiao Li
+      - Mingze Xia
+      - Xin Liang
+      - Bei Wang
+      - Hanqi Guo
+    arxiv_id: "2409.17346"
+    arxiv_url: "https://arxiv.org/abs/2409.17346"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2409.17346"
+    role: critical-point and separatrix-preserving compression lineage
+    evidence_class: EXTERNAL
+    metadata_note: >-
+      The current arXiv v3 title and author list differ from older alphaXiv/local
+      records that use "Multi-Tier Preservation...". Cite the current arXiv metadata
+      in prose and explain the historical-title mismatch if alphaXiv displays it.
+
+  - id: visual_information_theory_2026
+    exact_title: "A visual introduction to information theory"
+    authors:
+      - Henry Pinkard
+      - Laura Waller
+    arxiv_id: "2206.07867"
+    arxiv_url: "https://arxiv.org/abs/2206.07867"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2206.07867"
+    role: visual teaching grammar; no figures copied
+    evidence_class: EXTERNAL
+
+  - id: active_boundary_loss_2022
+    exact_title: "Active Boundary Loss for Semantic Segmentation"
+    authors:
+      - Chi Wang
+      - Yunke Zhang
+      - Miaomiao Cui
+      - Peiran Ren
+      - Yin Yang
+      - Xuansong Xie
+      - XianSheng Hua
+      - Hujun Bao
+      - Weiwei Xu
+    arxiv_id: "2102.02696"
+    arxiv_url: "https://arxiv.org/abs/2102.02696"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2102.02696"
+    role: learned boundary-motion lineage, not a frozen-evaluator compression method
+    evidence_class: EXTERNAL
+
+  - id: implicit_neural_video_compression_2021
+    exact_title: "Implicit Neural Video Compression"
+    authors:
+      - Yunfan Zhang
+      - Ties van Rozendaal
+      - Johann Brehmer
+      - Markus Nagel
+      - Taco Cohen
+    arxiv_id: "2112.11312"
+    arxiv_url: "https://arxiv.org/abs/2112.11312"
+    alphaxiv_url: "https://www.alphaxiv.org/abs/2112.11312"
+    role: generator-native video and implicit motion lineage
+    evidence_class: EXTERNAL
+
+foundational_non_alphaxiv:
+  - id: osher_sethian_1988
+    exact_title: "Fronts Propagating with Curvature-Dependent Speed: Algorithms Based on Hamilton-Jacobi Formulations"
+    authors: [Stanley Osher, James A. Sethian]
+    year: 1988
+    doi: "10.1016/0021-9991(88)90002-2"
+    role: level-set evolution
+    evidence_class: EXTERNAL
+  - id: allaire_jouve_toader_2004
+    exact_title: "Structural Optimization Using Sensitivity Analysis and a Level-Set Method"
+    authors: [Grégoire Allaire, François Jouve, Anca-Maria Toader]
+    year: 2004
+    doi: "10.1016/j.jcp.2003.09.032"
+    role: shape derivative, adjoint, and level-set normal velocity
+    evidence_class: EXTERNAL
+  - id: smale_1961
+    exact_title: "On Gradient Dynamical Systems"
+    authors: [Stephen Smale]
+    year: 1961
+    doi: "10.2307/1970311"
+    role: literal gradient dynamics, critical points, and stable/unstable manifolds
+    evidence_class: EXTERNAL
+  - id: aurenhammer_1987
+    exact_title: "Power Diagrams: Properties, Algorithms and Applications"
+    authors: [Franz Aurenhammer]
+    year: 1987
+    doi: "10.1137/0216006"
+    role: equal-curvature weighted-distance Laguerre cells
+    evidence_class: EXTERNAL
+  - id: murray_li_sastry_1994
+    exact_title: "A Mathematical Introduction to Robotic Manipulation"
+    authors: [Richard M. Murray, Zexiang Li, S. Shankar Sastry]
+    year: 1994
+    url: "https://www.cds.caltech.edu/~murray/books/MLS/"
+    role: twist and screw kinematics
+    evidence_class: EXTERNAL
+
+foundational_alphaxiv:
+  - id: deep_sdf_2019
+    exact_title: "DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation"
+    authors: [Jeong Joon Park, Peter Florence, Julian Straub, Richard Newcombe, Steven Lovegrove]
+    arxiv_id: "1901.05103"
+    arxiv_url: "https://arxiv.org/abs/1901.05103"
+    role: continuous neural signed-distance representation
+    evidence_class: EXTERNAL
+  - id: micro_lie_2018
+    exact_title: "A Micro Lie Theory for State Estimation in Robotics"
+    authors: [Joan Solà, Jérémie Deray, Dinesh Atchuthan]
+    arxiv_id: "1812.01537"
+    arxiv_url: "https://arxiv.org/abs/1812.01537"
+    role: SE(3), se(3), exponential maps, and twist coordinates
+    evidence_class: EXTERNAL
+  - id: tropical_convexity_2004
+    exact_title: "Tropical Convexity"
+    authors: [Mike Develin, Bernd Sturmfels]
+    arxiv_id: "math/0308254"
+    arxiv_url: "https://arxiv.org/abs/math/0308254"
+    role: max-plus algebra and tropical polyhedral lineage
+    evidence_class: EXTERNAL
+  - id: nerv_2021
+    exact_title: "NeRV: Neural Representations for Videos"
+    authors: [Hao Chen, Bo He, Hanyu Wang, Yixuan Ren, Ser-Nam Lim, Abhinav Shrivastava]
+    arxiv_id: "2110.13903"
+    arxiv_url: "https://arxiv.org/abs/2110.13903"
+    role: receiver-side generator-native video representation
+    evidence_class: EXTERNAL

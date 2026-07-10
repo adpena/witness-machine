@@ -1,0 +1,150 @@
+{
+  "authority": "[ADVISORY]",
+  "builder": {
+    "command": "PYTHONPATH=src $COMMA_LAB_ROOT/.venv/bin/python scripts/build_v12_temporal_display.py --pact-root $COMMA_LAB_ROOT --pair-index 196",
+    "path": "scripts/build_v12_temporal_display.py",
+    "sha256": "7f63e0f954329f95eab162c6ba8c1c00c7cc578885bcefd271b026514b96c7d0"
+  },
+  "claim_badges": [
+    "ADVISORY",
+    "DERIVATION"
+  ],
+  "display_shape": [
+    84,
+    112
+  ],
+  "distribution": {
+    "public_payload": "derived 84x112 class maps, support masks, strategy levels, and resized dense Farneback flow only; no source RGB or scorer weights",
+    "release_gate": "CLEARED by the operator/publication-owner declaration dated 2026-07-09; attribution and source custody remain required.",
+    "source_repository_license": "MIT file present at upstream/LICENSE; exact bytes locked in technical_custody"
+  },
+  "frames": {
+    "pair_index": 196,
+    "proof": "upstream seq_len=2 and AVVideoDataset consumes non-overlapping two-frame sequences; gt_f0/gt_f1 are the two frames of this single pair",
+    "source_raw_frame": 392,
+    "target_raw_frame": 393
+  },
+  "full_stac_reproduction": false,
+  "metric_semantics": {
+    "not_a_score": "No value in this manifest is d_seg, d_pose, the comma.ai composite, PSNR, or a paper-reported result.",
+    "refresh_pressure": "max(label disagreement, boundary-set disagreement, holes, collisions); continuous display/control construction"
+  },
+  "metrics": {
+    "collision_fraction": 0.011904761904761904,
+    "hole_fraction": 0.01594387755102041,
+    "refresh_pressure": 0.03845322963923094,
+    "valid_boundary_disagreement": 0.03845322963923094,
+    "valid_label_disagreement": 0.008965219269820695
+  },
+  "outputs": {
+    "v12_temporal_transport_display.npz": {
+      "bytes": 77504,
+      "sha256": "a5e91901040f4558396789ab6fd5a24b8526b600e7e620b9e31a40543277827e"
+    },
+    "v12_temporal_transport_display.svg": {
+      "bytes": 8450,
+      "sha256": "d834efda477ee29ace7301970f41990002367f08c3f0d6892ca202ccf03aa4d2"
+    }
+  },
+  "pose_claim": false,
+  "schema_version": "v12_temporal_transport_display_v1",
+  "score_claim": false,
+  "technical_custody": {
+    "cache_builder_commit": "91732a48afd8111f3a4da13fefaf356b9124dc14",
+    "class_order": {
+      "0": "Road",
+      "1": "Lane",
+      "2": "Undrivable",
+      "3": "Movable",
+      "4": "MyCar"
+    },
+    "excluded_asset_finding": "Manim ego_idx advances pair indices while using gt_f1 only, so adjacent entries are raw-frame stride 2; those flow/argmax assets are technically locked but intentionally not used for a consecutive-frame claim.",
+    "excluded_assets": {
+      "excluded_manim_flow": {
+        "bytes": 55568,
+        "path": "experiments/manim_levelset/assets/ego_flow_uv.npy",
+        "sha256": "30172cde403fe1f36ae664bd681d20bed1a98ff3eb9a6d20f4491998b69cad75"
+      },
+      "excluded_manim_pair_indices": {
+        "bytes": 464,
+        "path": "experiments/manim_levelset/assets/ego_idx.npy",
+        "sha256": "a266dae412aeab9f8d07ef3273b1ac235daf355ed2aadfd476fb3cb758d21ed4"
+      },
+      "excluded_manim_producer": {
+        "bytes": 14300,
+        "path": "experiments/manim_levelset/scenes/_prep_hardest_frame.py",
+        "sha256": "17ce0da4b98f89cbbcd66f2ac254acfb94728d9b19b4c40c0235012e74634bf1"
+      }
+    },
+    "fresh_target_argmax_matches_cache": true,
+    "inputs": {
+      "posenet_weights": {
+        "bytes": 55835560,
+        "path": "upstream/models/posenet.safetensors",
+        "sha256": "0f3a0874c5c387f990d7b88bd1d7e1f6de35d98b45f2a289989db2c77b9b6576"
+      },
+      "segnet_loader_and_inference": {
+        "bytes": 7111,
+        "path": "src/tac/boundary_math/seg_core.py",
+        "sha256": "ea9accb303fb9297a10048bf0054ae6e358bc5415016aee9ac66c55fce82acd6"
+      },
+      "segnet_weights": {
+        "bytes": 38502892,
+        "path": "upstream/models/segnet.safetensors",
+        "sha256": "68956e328d4c5d875389a1a444870e6bac1c052c9986123827af95c07c6991b6"
+      },
+      "source_cache": {
+        "bytes": 5078017610,
+        "path": "experiments/results/mlx_fleet_gt_cache/gt_n600.npz",
+        "sha256": "cf8d83605d2198ef56786c6be23d3470033ad2763f59559f06a79cedfb7b8cd6"
+      },
+      "source_cache_builder": {
+        "bytes": 3895,
+        "path": "tools/build_shared_gt_cache_for_mlx_fleet.py",
+        "sha256": "7275e9ac0fc445a243798d407c419cc0a99e6342397c23ac1be8e56f7b1490b0"
+      },
+      "source_cache_log": {
+        "bytes": 573,
+        "path": "experiments/results/mlx_fleet_gt_cache/build_n600.log",
+        "sha256": "b61cb13ee011b742946e9ce0b5245d3fdead9ea37ef4c0f31fd0f6983f4cf7a1"
+      },
+      "source_video": {
+        "bytes": 37545489,
+        "path": "upstream/videos/0.mkv",
+        "sha256": "2611f5f3e186f3529777749f97bd4cce3a208d6b3559e137bd45d256980d2fa9"
+      },
+      "upstream_frame_utils": {
+        "bytes": 9345,
+        "path": "upstream/frame_utils.py",
+        "sha256": "d689aca7d263997cb2fb980d6098d503f955e56e8642cd0a04cc437f0ffdab90"
+      },
+      "upstream_license": {
+        "bytes": 1065,
+        "path": "upstream/LICENSE",
+        "sha256": "f6f2bcc9096b01dd1017365f74be2b31236bb34b04a4dc04a324679326ec976e"
+      },
+      "upstream_modules": {
+        "bytes": 8322,
+        "path": "upstream/modules.py",
+        "sha256": "065961ba97023e393e27818760b0dc8efaa8dd53c5d4cc70a2db8ee1b3cf49aa"
+      }
+    },
+    "pact_head_observed_at_build": "86d1209cc656ecebeb3ab01c599af5b5153ce4ee",
+    "pact_worktree_dirty_at_build": true,
+    "source_cache_arrays": "gt_f0/gt_f1 real decoded consecutive pair frames; lstars frozen SegNet argmax for gt_f1; margins top1-top2 gap; gt_poses frozen PoseNet first-six outputs",
+    "source_cache_command": ".venv/bin/python -u tools/build_shared_gt_cache_for_mlx_fleet.py --num-pairs 600",
+    "source_root": "COMMA_LAB_ROOT"
+  },
+  "title": "Temporal strategy transport on one real consecutive raw-frame pair",
+  "transport": {
+    "categorical_warp": "forward nearest splat; row-major first contributor wins; holes and many-to-one collisions remain explicit",
+    "dense_display_field": "dense 448x336 flow bilinearly resized and displacement-scaled to the display grid",
+    "estimator": "OpenCV calcOpticalFlowFarneback run directly between gt_f0 and gt_f1 of one pair at 448x336",
+    "limitations": [
+      "Farneback is an advisory image-space estimate, not PoseNet, xi, camera motion, or ground-truth flow.",
+      "The [1,4,12] bank and boundary/annulus/interior map are a geometric construction, not a fitted STAC table bank.",
+      "This does not implement STAC temporal DIS flow, its PSNR trigger, or its experiment."
+    ],
+    "receiver": "transport compact uint8 strategy levels, then index receiver-held [1,4,12] table bank exactly"
+  }
+}
