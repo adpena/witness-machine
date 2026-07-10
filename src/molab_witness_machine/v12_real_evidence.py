@@ -862,13 +862,17 @@ def display_derivative_svg(
     _validate_display_arrays(derivative.arrays, derivative.metadata)
     labels = np.asarray(derivative.arrays["argmax_mode_u8"])
     boundary = np.asarray(derivative.arrays["boundary_coverage_u8"], dtype=np.uint16)
+    # comma10k-canonical class colors in the frozen scorer's class order
+    # (0 Road, 1 Lane markings, 2 Undrivable, 3 Movable, 4 MyCar) — the same
+    # encoding the temporal-transport figure uses, so one palette means one
+    # thing everywhere in the notebook.
     palette = np.array(
         [
-            [0, 114, 178],
-            [230, 159, 0],
-            [0, 158, 115],
-            [204, 121, 167],
-            [213, 94, 0],
+            [64, 32, 32],
+            [255, 0, 0],
+            [128, 128, 96],
+            [0, 255, 102],
+            [204, 0, 255],
         ],
         dtype=np.uint8,
     )
@@ -954,16 +958,20 @@ def display_derivative_svg(
     panels: list[str] = []
     for index, (url, label, aria) in enumerate(zip(data_urls, panel_labels, panel_aria)):
         x = 32 + 360 * index
+        rendering = "pixelated" if index == 0 else "auto"
         panels.append(
             f'<text x="{x}" y="67" class="panel-title">{html.escape(label)}</text>'
             f'<image x="{x}" y="82" width="336" height="252" '
             f'preserveAspectRatio="none" href="{url}" role="img" '
+            f'style="image-rendering:{rendering}" '
             f'aria-label="{html.escape(aria)}"/>'
         )
+    boundary_pct = 100 * summary["boundary_pixel_fraction"]
+    flip_pct = 100 * summary["flip_risk_mass_on_boundary"]
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" xml:lang="{html.escape(locale)}" role="img" '
         'aria-labelledby="v12-display-title v12-display-desc" focusable="false" '
-        'viewBox="0 0 1120 402" width="100%" preserveAspectRatio="xMidYMid meet">'
+        'viewBox="0 0 1120 448" width="100%" preserveAspectRatio="xMidYMid meet">'
         f'<title id="v12-display-title">{safe_title}</title>'
         f'<desc id="v12-display-desc">{safe_description}</desc>'
         f'<metadata>{embedded_metadata}</metadata>'
@@ -971,14 +979,20 @@ def display_derivative_svg(
         '<stop offset="0" stop-color="#070c23"/><stop offset="0.5" stop-color="#00b4c8"/>'
         '<stop offset="1" stop-color="#ffe650"/></linearGradient></defs>'
         '<style>.panel-title{font:600 17px system-ui,sans-serif;fill:#f8fafc}'
-        '.note{font:13px system-ui,sans-serif;fill:#cbd5e1}</style>'
-        '<rect width="1120" height="402" rx="18" fill="#080d1f"/>'
+        '.note{font:13px system-ui,sans-serif;fill:#cbd5e1}'
+        '.stat{font:600 25px system-ui,sans-serif;fill:#f8fafc;font-variant-numeric:tabular-nums}'
+        '.stat-label{font:13px system-ui,sans-serif;fill:#94a3b8}</style>'
+        '<rect width="1120" height="448" rx="8" fill="#080d1f"/>'
         f'<text x="32" y="34" style="font:700 21px system-ui,sans-serif;fill:#fff">{safe_title}</text>'
         + "".join(panels)
-        + '<rect x="392" y="354" width="336" height="10" rx="5" fill="url(#v12-heat)"/>'
-        f'<text x="392" y="384" class="note">{html.escape(text("real.visual.lower"))}</text>'
-        f'<text x="728" y="384" text-anchor="end" class="note">{html.escape(text("real.visual.higher"))}</text>'
-        f'<text x="1088" y="384" text-anchor="end" class="note">{html.escape(text("real.visual.pair"))} {pair} · {html.escape(axis)}</text>'
+        + f'<text x="32" y="384" class="stat">{boundary_pct:.1f}%</text>'
+        f'<text x="32" y="404" class="stat-label">of pixels are boundary</text>'
+        f'<text x="182" y="384" class="stat">{flip_pct:.1f}%</text>'
+        f'<text x="182" y="404" class="stat-label">of sensitivity mass sits there</text>'
+        '<rect x="392" y="366" width="336" height="8" fill="url(#v12-heat)"/>'
+        f'<text x="392" y="394" class="note">{html.escape(text("real.visual.lower"))}</text>'
+        f'<text x="728" y="394" text-anchor="end" class="note">{html.escape(text("real.visual.higher"))}</text>'
+        f'<text x="1088" y="394" text-anchor="end" class="note">{html.escape(text("real.visual.pair"))} {pair} · {html.escape(axis)}</text>'
         "</svg>"
     )
 

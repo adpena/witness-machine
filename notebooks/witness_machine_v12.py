@@ -15,14 +15,14 @@ __generated_with = "0.23.13"
 app = marimo.App(width="full", app_title="The Witness Machine")
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     import marimo as mo
 
     return (mo,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     from html import escape
     import hashlib
@@ -35,9 +35,9 @@ def _():
     import urllib.request
     import zipfile
 
-    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.2.0-rc2/witness_machine_v12_molab_bundle.zip"
-    BUNDLE_BYTES = 3_704_001
-    BUNDLE_SHA256 = "baf3e1e50b21ec229dcdc62ddde1451d42a50833ffa1c5ffc98778430edd2439"
+    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.2.1/witness_machine_v12_molab_bundle.zip"
+    BUNDLE_BYTES = 3_705_237
+    BUNDLE_SHA256 = "e8494c72f46341c8be0055163f673b1ef840cb6df50047697efbca4a041e5472"
     BUNDLE_TOP_LEVEL = "witness_machine_v12"
     BUNDLE_MARKER = ".bundle-sha256"
     REQUIRED_ROOT_FILES = (
@@ -268,7 +268,7 @@ def _():
     )
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.Html(
         r"""
@@ -694,7 +694,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     locale_picker = mo.ui.dropdown(
         options={"English": "en-US", "Español": "es-US"},
@@ -705,7 +705,7 @@ def _(mo):
     return (locale_picker,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     appearance_picker = mo.ui.dropdown(
         options={
@@ -720,7 +720,7 @@ def _(mo):
     return (appearance_picker,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     color_encoding_picker = mo.ui.dropdown(
         options={
@@ -735,7 +735,7 @@ def _(mo):
     return (color_encoding_picker,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     motion_picker = mo.ui.dropdown(
         options={
@@ -750,7 +750,7 @@ def _(mo):
     return (motion_picker,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(appearance_picker, color_encoding_picker, mo, motion_picker):
     light_tokens = {
         "scheme": "light",
@@ -892,14 +892,14 @@ def _(appearance_picker, color_encoding_picker, mo, motion_picker):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(catalog, locale_picker):
     locale = str(locale_picker.value or "en-US")
     messages = catalog(locale)
     return locale, messages
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     loss_budget = mo.ui.slider(
         start=4.0,
@@ -914,7 +914,7 @@ def _(messages, mo):
     return (loss_budget,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, locale, messages, mo, task_witness_hero):
     hero_svg = task_witness_hero(messages, id_prefix="wm12-hero-main")
     mo.Html(
@@ -942,7 +942,7 @@ def _(escape, locale, messages, mo, task_witness_hero):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, locale, messages, mo):
     route_items = (
         ("#wm-paper-experiment", messages["route.paper"]),
@@ -966,7 +966,7 @@ def _(escape, locale, messages, mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     appearance_picker,
     color_encoding_picker,
@@ -1010,7 +1010,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, locale, loss_budget, messages, mo, score_law_balance):
     task_focus = 1.0 - (float(loss_budget.value) - 4.0) / 28.0
     score_svg = score_law_balance(
@@ -1036,7 +1036,7 @@ def _(escape, locale, loss_budget, messages, mo, score_law_balance):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, messages, mo):
     boundary_focus_ratio = mo.ui.slider(
         start=1.0,
@@ -1064,7 +1064,7 @@ def _(escape, messages, mo):
     return (boundary_focus_ratio,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     boundary_focus_ratio,
     compare_matched_precision_policies,
@@ -1102,7 +1102,7 @@ def _(
     return policy_comparison, sensitivity, stac_strategy
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     escape,
     locale,
@@ -1195,7 +1195,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(load_display_derivative, project_root):
     evidence_root = project_root / "artifacts" / "v12_public"
     real_display = load_display_derivative(
@@ -1205,7 +1205,7 @@ def _(load_display_derivative, project_root):
     return (real_display,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     display_derivative_svg,
     escape,
@@ -1243,7 +1243,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     escape,
     locale,
@@ -1271,7 +1271,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     texture_trade = mo.ui.slider(
         start=0.0,
@@ -1287,7 +1287,7 @@ def _(messages, mo):
     return (texture_trade,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     escape,
     evaluator_equivalence_scene,
@@ -1322,7 +1322,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     boundary_shift = mo.ui.slider(
         start=-0.22,
@@ -1344,13 +1344,13 @@ def _(messages, mo):
     return (boundary_shift,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(boundary_shift, boundary_sweep):
     boundary_state = boundary_sweep(float(boundary_shift.value))
     return (boundary_state,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     boundary_state,
     escape,
@@ -1389,7 +1389,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     soft_temperature = mo.ui.slider(
         start=0.05,
@@ -1405,7 +1405,7 @@ def _(messages, mo):
     return (soft_temperature,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(integrate_negative_gradient):
     morse_traces = tuple(
         integrate_negative_gradient(start, steps=150).points.tolist()
@@ -1414,7 +1414,7 @@ def _(integrate_negative_gradient):
     return (morse_traces,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     escape,
     locale,
@@ -1452,7 +1452,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     road_weight = mo.ui.slider(
         start=-1.5,
@@ -1488,7 +1488,7 @@ def _(messages, mo):
     return lane_weight, movable_weight, road_weight
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     escape,
     laguerre_cells,
@@ -1522,7 +1522,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(edge_carrier_graph, escape, locale, messages, mo):
     edge_svg = edge_carrier_graph(messages, id_prefix="wm12-edge-main")
     mo.Html(
@@ -1543,7 +1543,7 @@ def _(edge_carrier_graph, escape, locale, messages, mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     texture_amplitude = mo.ui.slider(
         start=0.0,
@@ -1569,7 +1569,7 @@ def _(messages, mo):
     return refresh_pressure, texture_amplitude
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(np, screw_trajectory):
     screw_twist = np.array([0.0, 0.0, 0.12, 0.0, 0.0, 1.0], dtype=np.float64)
     screw_seed_point = np.array([0.82, 0.0, 0.0], dtype=np.float64)
@@ -1578,7 +1578,7 @@ def _(np, screw_trajectory):
     return (screw_points,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     escape,
     locale,
@@ -1619,7 +1619,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     boundary_state,
     loss_budget,
@@ -1644,7 +1644,7 @@ def _(
     return controller_bids, controller_rows, toy_operating_d_pose
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     controller_bids,
     controller_rows,
@@ -1713,7 +1713,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(messages, mo):
     gpu_run = mo.ui.button(
         label=messages["gpu.run"],
@@ -1732,7 +1732,7 @@ def _(messages, mo):
     return (gpu_run,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     get_accelerator_state, set_accelerator_state = mo.state(
         {"status": "idle", "request_id": 0, "receipt": None, "error": None}
@@ -1740,7 +1740,7 @@ def _(mo):
     return get_accelerator_state, set_accelerator_state
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(gpu_run, mo, project_root, set_accelerator_state):
     accelerator_thread = None
     accelerator_request_id = int(gpu_run.value or 0)
@@ -1800,7 +1800,7 @@ def _(gpu_run, mo, project_root, set_accelerator_state):
     return (accelerator_thread,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, get_accelerator_state, locale, messages, mo):
     accelerator_state = get_accelerator_state()
     accelerator_receipt = accelerator_state["receipt"]
@@ -1850,7 +1850,7 @@ def _(escape, get_accelerator_state, locale, messages, mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, locale, messages, mo):
     mo.Html(
         f"""
@@ -1876,7 +1876,7 @@ def _(escape, locale, messages, mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(escape, locale, messages, mo):
     sources = mo.Html(
         f"""

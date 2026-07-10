@@ -50,6 +50,18 @@ REQUIRED_ASSETS = (
 )
 
 
+def _is_app_cell_decorator(decorator: ast.expr) -> bool:
+    """Match both ``@app.cell`` and ``@app.cell(hide_code=True)`` forms."""
+    if isinstance(decorator, ast.Call):
+        decorator = decorator.func
+    return (
+        isinstance(decorator, ast.Attribute)
+        and isinstance(decorator.value, ast.Name)
+        and decorator.value.id == "app"
+        and decorator.attr == "cell"
+    )
+
+
 def _bootstrap_namespace() -> dict[str, object]:
     tree = ast.parse(NOTEBOOK.read_text(encoding="utf-8"), filename=str(NOTEBOOK))
     app_cells = [
@@ -57,10 +69,7 @@ def _bootstrap_namespace() -> dict[str, object]:
         for node in tree.body
         if isinstance(node, ast.FunctionDef)
         and any(
-            isinstance(decorator, ast.Attribute)
-            and isinstance(decorator.value, ast.Name)
-            and decorator.value.id == "app"
-            and decorator.attr == "cell"
+            _is_app_cell_decorator(decorator)
             for decorator in node.decorator_list
         )
     ]

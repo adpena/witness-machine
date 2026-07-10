@@ -191,8 +191,8 @@ _EN_US = {
     "real.visual.semantic_aria": "Block-mode semantic argmax with boundary coverage brightened",
     "real.visual.gradient_aria": "Log-normalized block-mean raw gradient magnitude",
     "real.visual.flip_risk_aria": "Log-normalized block-mean margin-normalized sensitivity proxy",
-    "real.visual.lower": "lower display value",
-    "real.visual.higher": "higher display value",
+    "real.visual.lower": "low · log display scale",
+    "real.visual.higher": "high",
     "real.visual.pair": "pair",
     "equiv.heading": "Preserve the answer, not the appearance",
     "equiv.body": (
@@ -632,8 +632,8 @@ _ES_US = {
     "real.visual.semantic_aria": "Argmax semántico por moda de bloque con cobertura fronteriza iluminada",
     "real.visual.gradient_aria": "Media de bloque log-normalizada de la magnitud del gradiente crudo",
     "real.visual.flip_risk_aria": "Media de bloque log-normalizada del proxy de sensibilidad",
-    "real.visual.lower": "valor visual menor",
-    "real.visual.higher": "valor visual mayor",
+    "real.visual.lower": "bajo · escala log de despliegue",
+    "real.visual.higher": "alto",
     "real.visual.pair": "par",
     "equiv.heading": "Preserva la respuesta, no la apariencia",
     "equiv.body": (

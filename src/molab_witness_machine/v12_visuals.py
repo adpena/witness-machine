@@ -447,7 +447,10 @@ def sensitivity_allocation_map(
     allocation_cells = cells(
         flat_steps,
         x0=348.0,
-        color=theme.mint,
+        # Gold = budget/allocation in the instrument palette; pairing coral
+        # (sensitivity debt) with gold avoids the red-vs-green clash and keeps
+        # one meaning per hue across the notebook.
+        color=theme.gold,
         # Fixed monotone transfer rather than per-image normalization: a
         # uniform change in absolute quantization step must remain visible.
         normalize=lambda value: 1.0 / (1.0 + value),
@@ -471,10 +474,10 @@ def sensitivity_allocation_map(
     <text class="{p}-text {p}-small" x="470" y="126" text-anchor="middle">{t("stac.allocation")}</text>
     {sensitivity_cells}
     {allocation_cells}
-    <path class="{p}-line" d="M54 334 Q112 282 166 306 T286 224" stroke="{theme.cyan}" stroke-width="5"/>
-    <path class="{p}-line" d="M354 334 Q412 282 466 306 T586 224" stroke="{theme.cyan}" stroke-width="5" opacity=".75"/>
-    <circle cx="104" cy="184" r="13" fill="none" stroke="{theme.gold}" stroke-width="4"/>
-    <path class="{p}-line" d="M116 176 L162 144" stroke="{theme.gold}" stroke-width="2"/>
+    <path class="{p}-line" d="M54 334 Q112 282 166 306 T286 224" stroke="{theme.cyan}" stroke-width="3"/>
+    <path class="{p}-line" d="M354 334 Q412 282 466 306 T586 224" stroke="{theme.cyan}" stroke-width="3" opacity=".75"/>
+    <circle cx="104" cy="184" r="13" fill="none" stroke="{theme.dark_ink}" stroke-width="2.25"/>
+    <path class="{p}-line" d="M116 176 L162 144" stroke="{theme.dark_ink}" stroke-width="1.25"/>
     <text class="{p}-text {p}-small" x="168" y="148">{t("stac.hotspot")}</text>
     <text class="{p}-muted {p}-small" x="170" y="399" text-anchor="middle">{t("stac.boundary")}</text>
   </g>
@@ -834,17 +837,19 @@ def shadow_price_allocation(
         return _text(messages, key)
 
     labels = (t("control.boundary"), t("control.motion"), t("control.generator"), t("control.residual"))
-    colors = (theme.cyan, theme.gold, theme.violet, theme.coral)
     bars: list[str] = []
     winner = int(max(range(4), key=lambda index: bids[index]))
-    for index, (value, label, color) in enumerate(zip(bids, labels, colors, strict=True)):
+    for index, (value, label) in enumerate(zip(bids, labels, strict=True)):
         x = 72 + index * 138
         height = 210.0 * value / scale
         y = 356.0 - height
+        # One hue carries the comparison; color marks only the admitted carrier.
+        selected = index == winner
+        fill = theme.cyan if selected else theme.panel_alt
+        opacity = ".92" if selected else ".85"
         bars.append(
-            f'<g data-carrier-bid="{index}" data-selected="{str(index == winner).lower()}">'
-            f'<rect x="{x}" y="{y:.2f}" width="84" height="{height:.2f}" rx="1" fill="{color}" fill-opacity=".78"/>'
-            f'<circle cx="{x + 42}" cy="{y:.2f}" r="{9 if index == winner else 5}" fill="{theme.text}"/>'
+            f'<g data-carrier-bid="{index}" data-selected="{str(selected).lower()}">'
+            f'<rect x="{x}" y="{y:.2f}" width="84" height="{height:.2f}" rx="1" fill="{fill}" fill-opacity="{opacity}"/>'
             f'<text class="{p}-text {p}-small" x="{x + 42}" y="390" text-anchor="middle">{label}</text></g>'
         )
     return (
@@ -882,14 +887,16 @@ def edge_carrier_graph(
         return _text(messages, key)
 
     edges = (
-        ("road-undriv", "M320 230 L122 160", "horizon-lateral", theme.cyan, 6, ""),
-        ("road-lane", "M320 230 L518 160", "lane-band", theme.gold, 5, ""),
-        ("road-mycar", "M320 230 L152 342", "hood-static", theme.violet, 5, ""),
-        ("road-movable", "M320 230 L488 342", "movable-sites", theme.coral, 5, ""),
-        ("undriv-movable", "M122 160 Q320 28 488 342", "movable-sites", theme.coral, 4, ""),
-        ("lane-undriv", "M518 160 L122 160", "tiny-tail", theme.mint, 2, ' stroke-dasharray="8 7"'),
-        ("lane-movable", "M518 160 L488 342", "tiny-tail", theme.mint, 2, ' stroke-dasharray="8 7"'),
-        ("lane-mycar", "M518 160 Q350 430 152 342", "tiny-tail", theme.mint, 2, ' stroke-dasharray="8 7"'),
+        # Stroke widths follow one hierarchy: hero interface 3.5, primary
+        # carriers 2.5, secondary 2, tail edges 1.25 (dashed).
+        ("road-undriv", "M320 230 L122 160", "horizon-lateral", theme.cyan, 3.5, ""),
+        ("road-lane", "M320 230 L518 160", "lane-band", theme.gold, 2.5, ""),
+        ("road-mycar", "M320 230 L152 342", "hood-static", theme.violet, 2.5, ""),
+        ("road-movable", "M320 230 L488 342", "movable-sites", theme.coral, 2.5, ""),
+        ("undriv-movable", "M122 160 Q320 28 488 342", "movable-sites", theme.coral, 2, ""),
+        ("lane-undriv", "M518 160 L122 160", "tiny-tail", theme.mint, 1.25, ' stroke-dasharray="8 7"'),
+        ("lane-movable", "M518 160 L488 342", "tiny-tail", theme.mint, 1.25, ' stroke-dasharray="8 7"'),
+        ("lane-mycar", "M518 160 Q350 430 152 342", "tiny-tail", theme.mint, 1.25, ' stroke-dasharray="8 7"'),
     )
     edge_svg = "\n".join(
         f'<g data-edge="{name}" data-carrier-family="{family}">'
@@ -930,7 +937,7 @@ def edge_carrier_graph(
     {edge_svg}
     {node_svg}
     <g data-class-node=\"road\" data-adjacency-hub=\"true\">
-      <circle cx=\"320\" cy=\"230\" r=\"67\" fill=\"{theme.cyan}\" opacity=\".18\"/>
+      <circle cx=\"320\" cy=\"230\" r=\"67\" fill=\"{theme.cyan}\" opacity=\".12\"/>
       <circle cx=\"320\" cy=\"230\" r=\"51\" fill=\"{theme.cyan}\"/>
       <text x=\"320\" y=\"238\" text-anchor=\"middle\" fill=\"{theme.dark_ink}\"
         font-family=\"ui-sans-serif, system-ui, sans-serif\" font-size=\"24\" font-weight=\"780\">{t("edge.road")}</text>
@@ -941,14 +948,14 @@ def edge_carrier_graph(
 
   <g transform=\"translate(38 482)\" data-pipeline=\"merge-diff-correct\">
     <rect class=\"{p}-panel\" width=\"564\" height=\"132\" rx=\"4\"/>
-    <g data-stage=\"merge\"><rect x=\"24\" y=\"25\" width=\"132\" height=\"50\" rx=\"2\" fill=\"{theme.cyan}\"/>
-      <text x=\"90\" y=\"58\" text-anchor=\"middle\" fill=\"{theme.dark_ink}\" font-size=\"20\" font-weight=\"800\">{t("edge.merge")}</text></g>
-    <path class=\"{p}-line\" d=\"M164 50 L207 50\" stroke=\"{theme.muted}\" stroke-width=\"3\" marker-end=\"url(#{p}-pipe-arrow)\"/>
-    <g data-stage=\"diff\"><rect x=\"216\" y=\"25\" width=\"132\" height=\"50\" rx=\"2\" fill=\"{theme.gold}\"/>
-      <text x=\"282\" y=\"58\" text-anchor=\"middle\" fill=\"{theme.dark_ink}\" font-size=\"20\" font-weight=\"800\">{t("edge.diff")}</text></g>
-    <path class=\"{p}-line\" d=\"M356 50 L399 50\" stroke=\"{theme.muted}\" stroke-width=\"3\" marker-end=\"url(#{p}-pipe-arrow)\"/>
-    <g data-stage=\"correct\"><rect x=\"408\" y=\"25\" width=\"132\" height=\"50\" rx=\"2\" fill=\"{theme.mint}\"/>
-      <text x=\"474\" y=\"58\" text-anchor=\"middle\" fill=\"{theme.dark_ink}\" font-size=\"20\" font-weight=\"800\">{t("edge.correct")}</text></g>
+    <g data-stage=\"merge\"><line x1=\"24\" y1=\"28\" x2=\"156\" y2=\"28\" stroke=\"{theme.cyan}\" stroke-width=\"2.5\"/>
+      <text x=\"90\" y=\"60\" text-anchor=\"middle\" fill=\"{theme.text}\" font-size=\"17\" font-weight=\"650\" letter-spacing=\"1.5\">{t("edge.merge")}</text></g>
+    <path class=\"{p}-line\" d=\"M164 50 L207 50\" stroke=\"{theme.muted}\" stroke-width=\"1.25\" marker-end=\"url(#{p}-pipe-arrow)\"/>
+    <g data-stage=\"diff\"><line x1=\"216\" y1=\"28\" x2=\"348\" y2=\"28\" stroke=\"{theme.gold}\" stroke-width=\"2.5\"/>
+      <text x=\"282\" y=\"60\" text-anchor=\"middle\" fill=\"{theme.text}\" font-size=\"17\" font-weight=\"650\" letter-spacing=\"1.5\">{t("edge.diff")}</text></g>
+    <path class=\"{p}-line\" d=\"M356 50 L399 50\" stroke=\"{theme.muted}\" stroke-width=\"1.25\" marker-end=\"url(#{p}-pipe-arrow)\"/>
+    <g data-stage=\"correct\"><line x1=\"408\" y1=\"28\" x2=\"540\" y2=\"28\" stroke=\"{theme.mint}\" stroke-width=\"2.5\"/>
+      <text x=\"474\" y=\"60\" text-anchor=\"middle\" fill=\"{theme.text}\" font-size=\"17\" font-weight=\"650\" letter-spacing=\"1.5\">{t("edge.correct")}</text></g>
     <text class=\"{p}-muted {p}-small\" x=\"282\" y=\"108\" text-anchor=\"middle\">{t("edge.pipeline")}</text>
   </g>
 </svg>"""
@@ -1034,12 +1041,12 @@ def laguerre_cells(
         coords = [(ox + scale * x, oy + scale * y) for x, y in polygon]
         path = " ".join(("M" if k == 0 else "L") + f"{x:.2f},{y:.2f}" for k, (x, y) in enumerate(coords)) + " Z"
         paths.append(
-            f'<path data-laguerre-cell="{index}" d="{path}" fill="{color}" fill-opacity=".23" '
-            f'stroke="{color}" stroke-width="3" vector-effect="non-scaling-stroke"/>'
+            f'<path data-laguerre-cell="{index}" d="{path}" fill="{color}" fill-opacity=".16" '
+            f'stroke="{color}" stroke-width="2" vector-effect="non-scaling-stroke"/>'
         )
         sx, sy = ox + scale * site[0], oy + scale * site[1]
         points.append(
-            f'<circle cx="{sx:.2f}" cy="{sy:.2f}" r="8" fill="{color}"/>'
+            f'<circle cx="{sx:.2f}" cy="{sy:.2f}" r="5.5" fill="{color}"/>'
             f'<text class="{p}-text {p}-small" x="{sx:.2f}" y="{sy - 16:.2f}" text-anchor="middle">{label}</text>'
         )
     return (
