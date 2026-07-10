@@ -16,574 +16,6 @@ app = marimo.App(width="full", app_title="The Witness Machine")
 
 
 @app.cell(hide_code=True)
-def _(mo):
-    mo.Html(
-        r"""
-        <style>
-          :root {
-            color-scheme: light;
-            --wm-bg: #f7f7f3;
-            --wm-panel: #ffffff;
-            --wm-panel-2: #cbd2d8;
-            --wm-text: #17191c;
-            --wm-muted: #4f5963;
-            --wm-cyan: #006f8a;
-            --wm-gold: #8a5a00;
-            --wm-coral: #b73a37;
-            --wm-mint: #527a00;
-            --wm-violet: #5d4a9e;
-            --wm-dark-ink: #101214;
-            --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);
-          }
-
-          @media (prefers-color-scheme: dark) {
-            :root {
-              color-scheme: dark;
-              --wm-bg: #0b0d10;
-              --wm-panel: #11161c;
-              --wm-panel-2: #2a333d;
-              --wm-text: #f5f7f2;
-              --wm-muted: #b7c0c9;
-              --wm-cyan: #8bd5ff;
-              --wm-gold: #ffd166;
-              --wm-coral: #ff746c;
-              --wm-mint: #b8f26a;
-              --wm-violet: #b9a7ff;
-              --wm-dark-ink: #0b0d10;
-            }
-          }
-
-          body, marimo-app, marimo-app .app {
-            background: var(--wm-bg) !important;
-          }
-
-          .wm-shell {
-            width: min(100%, 1220px);
-            margin-inline: auto;
-            padding-inline: clamp(1rem, 3vw, 2.5rem);
-            color: var(--wm-text);
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, ui-sans-serif, system-ui, sans-serif;
-          }
-
-          .wm-hero-grid,
-          .wm-scene-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
-            align-items: center;
-            gap: clamp(1.2rem, 4vw, 4rem);
-            min-width: 0;
-          }
-
-          .wm-scene-grid {
-            grid-template-columns: minmax(0, 0.78fr) minmax(20rem, 1.22fr);
-          }
-
-          .wm-copy,
-          .wm-visual {
-            min-width: 0;
-          }
-
-          .wm-visual > svg {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-          }
-
-          .wm-proposal-table {
-            width: 100%;
-            margin-top: 1rem;
-            border-collapse: collapse;
-            font-variant-numeric: tabular-nums;
-            font-size: clamp(0.7rem, 1.3vw, 0.84rem);
-          }
-
-          .wm-proposal-table th,
-          .wm-proposal-table td {
-            padding: 0.48rem 0.38rem;
-            border-bottom: 1px solid color-mix(in srgb, var(--wm-muted) 24%, transparent);
-            text-align: right;
-          }
-
-          .wm-proposal-table th:first-child,
-          .wm-proposal-table td:first-child {
-            text-align: left;
-          }
-
-          .wm-proposal-table caption {
-            margin-block-end: 0.55rem;
-            color: var(--wm-muted);
-            font-size: 0.82rem;
-            line-height: 1.4;
-            text-align: start;
-          }
-
-
-          .wm-kicker {
-            margin: 0 0 0.75rem;
-            color: var(--wm-mint);
-            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-          }
-
-          .wm-title {
-            margin: 0;
-            max-width: 12ch;
-            color: var(--wm-text);
-            font-size: clamp(3rem, 6.8vw, 5.9rem);
-            line-height: 0.94;
-            letter-spacing: -0.065em;
-          }
-
-          .wm-subtitle {
-            max-width: 27ch;
-            margin-block: 1.25rem 1rem;
-            color: var(--wm-text);
-            font-size: clamp(1.25rem, 2.3vw, 2rem);
-            font-weight: 620;
-            line-height: 1.2;
-            letter-spacing: -0.025em;
-          }
-
-          .wm-paper,
-          .wm-body {
-            max-width: 64ch;
-            color: var(--wm-muted);
-            font-size: clamp(1rem, 1.45vw, 1.16rem);
-            line-height: 1.62;
-          }
-
-          .wm-paper {
-            padding-inline-start: 0.9rem;
-            border-inline-start: 3px solid var(--wm-gold);
-          }
-
-          .wm-paper a,
-          .wm-inline-link {
-            color: var(--wm-text);
-            text-decoration-color: var(--wm-gold);
-            text-decoration-thickness: 2px;
-            text-underline-offset: 0.22em;
-          }
-
-          .wm-dev {
-            display: block;
-            width: fit-content;
-            margin-block: 0.5rem 1.5rem;
-            padding-block-start: 0.55rem;
-            border-block-start: 1px solid var(--wm-gold);
-            color: var(--wm-muted);
-            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.04em;
-            line-height: 1.35;
-          }
-
-          .wm-section {
-            margin-block: clamp(2.75rem, 5vw, 4.75rem);
-            scroll-margin-top: 2rem;
-          }
-
-          .wm-section h2 {
-            margin: 0 0 1rem;
-            color: var(--wm-text);
-            font-size: clamp(2rem, 4vw, 3.7rem);
-            line-height: 1;
-            letter-spacing: -0.045em;
-          }
-
-          .wm-takeaway {
-            margin-block-start: 1.25rem;
-            padding: 0.85rem 0 0.15rem 1rem;
-            border-inline-start: 2px solid var(--wm-mint);
-            background: transparent;
-            color: var(--wm-text);
-            font-size: clamp(1.02rem, 1.7vw, 1.28rem);
-            font-weight: 650;
-            line-height: 1.45;
-          }
-
-          .wm-control-note {
-            margin-block-start: 0.6rem;
-            color: var(--wm-muted);
-            font-size: 0.92rem;
-            line-height: 1.45;
-          }
-
-          .wm-scope {
-            margin-block-start: 1rem;
-            padding: 0.2rem 0 0.2rem 0.85rem;
-            border-inline-start: 1px solid var(--wm-coral);
-            color: var(--wm-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-          }
-
-          .wm-receipt {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 0.7rem;
-            margin-block-start: 1.1rem;
-          }
-
-          .wm-receipt > div {
-            min-width: 0;
-            padding-block: 0.65rem;
-            border-block-start: 2px solid var(--wm-panel-2);
-          }
-
-          .wm-receipt dt {
-            color: var(--wm-muted);
-            font-size: 0.76rem;
-            line-height: 1.25;
-          }
-
-          .wm-receipt dd {
-            margin: 0.3rem 0 0;
-            overflow-wrap: anywhere;
-            color: var(--wm-text);
-            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
-            font-size: 0.9rem;
-          }
-
-          .wm-evidence {
-            margin-block-start: 1.4rem;
-          }
-
-          .wm-evidence > svg {
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-          }
-
-          .wm-duality {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-            margin-block: 1.25rem;
-          }
-
-          .wm-duality > div {
-            min-width: 0;
-            padding-inline-start: 1rem;
-            border-inline-start: 3px solid var(--wm-cyan);
-          }
-
-          .wm-duality > div:last-child {
-            border-inline-start-color: var(--wm-gold);
-          }
-
-          .wm-duality strong {
-            display: block;
-            color: var(--wm-text);
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            line-height: 1;
-          }
-
-          .wm-duality span {
-            display: block;
-            margin-block-start: 0.45rem;
-            color: var(--wm-muted);
-            line-height: 1.35;
-          }
-
-          .wm-equation {
-            display: block;
-            max-width: 100%;
-            margin-block: 1.15rem;
-            padding: 0.85rem 0;
-            overflow-wrap: anywhere;
-            border-block: 1px solid var(--wm-rule);
-            background: transparent;
-            color: var(--wm-text);
-            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
-            font-size: clamp(0.84rem, 1.4vw, 1.05rem);
-            line-height: 1.6;
-          }
-
-          :where(a, button, input, select, textarea, [tabindex]):focus-visible {
-            outline: 3px solid var(--wm-gold) !important;
-            outline-offset: 4px !important;
-          }
-
-          .wm-source-links {
-            display: grid;
-            gap: 0.7rem;
-            padding: 0;
-            list-style: none;
-          }
-
-          .wm-source-links a {
-            color: var(--wm-cyan);
-            text-underline-offset: 0.2em;
-          }
-
-          .wm-route {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 0.55rem 0.8rem;
-            margin-block: 1.4rem 0.25rem;
-            padding-block: 0.8rem;
-            border-block: 1px solid var(--wm-rule);
-            font-size: 0.86rem;
-            line-height: 1.45;
-          }
-
-          .wm-route-label {
-            color: var(--wm-muted);
-            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-          }
-
-          .wm-route a {
-            color: var(--wm-text);
-            font-weight: 650;
-            text-decoration-color: var(--wm-gold);
-            text-underline-offset: 0.2em;
-          }
-
-          .wm-route-separator {
-            color: var(--wm-muted);
-          }
-
-          @media (max-width: 900px) {
-            .wm-shell {
-              padding-inline: clamp(0.9rem, 4vw, 1.5rem);
-            }
-
-            .wm-hero-grid,
-            .wm-scene-grid {
-              grid-template-columns: minmax(0, 1fr);
-              gap: 1.2rem;
-            }
-
-            .wm-title {
-              max-width: 10ch;
-              font-size: clamp(2.9rem, 15vw, 5rem);
-            }
-
-            .wm-subtitle {
-              max-width: 31ch;
-            }
-
-            .wm-visual {
-              width: min(100%, 35rem);
-              margin-inline: auto;
-            }
-
-            .wm-section {
-              margin-block: 3.25rem;
-            }
-
-            .wm-receipt {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .wm-duality {
-              grid-template-columns: minmax(0, 1fr);
-            }
-
-            .wm-proposal-table {
-              font-size: clamp(0.66rem, 2.7vw, 0.82rem);
-            }
-
-            .wm-proposal-table th,
-            .wm-proposal-table td {
-              padding-inline: 0.18rem;
-            }
-          }
-
-          @media (max-width: 430px) {
-            .wm-receipt {
-              grid-template-columns: minmax(0, 1fr);
-            }
-
-            .wm-section h2 {
-              font-size: clamp(2rem, 12vw, 3.1rem);
-            }
-          }
-
-          @media (prefers-contrast: more) {
-            :root {
-              --wm-muted: var(--wm-text) !important;
-              --wm-panel-2: var(--wm-text) !important;
-              --wm-rule: var(--wm-text) !important;
-            }
-          }
-
-          @media (forced-colors: active) {
-            .wm-kicker,
-            .wm-dev,
-            .wm-paper,
-            .wm-takeaway,
-            .wm-scope {
-              border-color: CanvasText;
-              color: CanvasText;
-            }
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-              scroll-behavior: auto !important;
-              animation-duration: 0.001ms !important;
-              animation-iteration-count: 1 !important;
-              transition-duration: 0.001ms !important;
-            }
-          }
-        </style>
-        """
-    )
-    return
-
-
-@app.cell(hide_code=True)
-def _(appearance_picker, color_encoding_picker, mo, motion_picker):
-    light_tokens = {
-        "scheme": "light",
-        "bg": "#f7f7f3",
-        "panel": "#ffffff",
-        "panel_2": "#cbd2d8",
-        "text": "#17191c",
-        "muted": "#4f5963",
-        "cyan": "#006f8a",
-        "gold": "#8a5a00",
-        "coral": "#b73a37",
-        "mint": "#527a00",
-        "violet": "#5d4a9e",
-        "ink": "#101214",
-    }
-    dark_tokens = {
-        "scheme": "dark",
-        "bg": "#0b0d10",
-        "panel": "#11161c",
-        "panel_2": "#2a333d",
-        "text": "#f5f7f2",
-        "muted": "#b7c0c9",
-        "cyan": "#8bd5ff",
-        "gold": "#ffd166",
-        "coral": "#ff746c",
-        "mint": "#b8f26a",
-        "violet": "#b9a7ff",
-        "ink": "#0b0d10",
-    }
-    selected_appearance = str(appearance_picker.value or "light")
-    tokens = None if selected_appearance == "auto" else (
-        light_tokens if selected_appearance == "light" else dark_tokens
-    )
-    selected_encoding = str(color_encoding_picker.value or "semantic")
-    auto_dark_color_tokens = None
-    if selected_encoding == "cvd":
-        cvd_light = {
-            "cyan": "#005a8d",
-            "gold": "#704900",
-            "coral": "#a53a00",
-            "mint": "#006b50",
-            "violet": "#713d78",
-        }
-        cvd_dark = {
-            "cyan": "#56b4e9",
-            "gold": "#f0c15c",
-            "coral": "#ff8a5b",
-            "mint": "#65d2b1",
-            "violet": "#e58fd8",
-        }
-        if selected_appearance == "auto":
-            color_tokens = cvd_light
-            auto_dark_color_tokens = cvd_dark
-        else:
-            color_tokens = cvd_light if selected_appearance == "light" else cvd_dark
-    elif selected_encoding == "monochrome":
-        monochrome_light = {
-            "cyan": "#17191c",
-            "gold": "#59616a",
-            "coral": "#17191c",
-            "mint": "#59616a",
-            "violet": "#17191c",
-        }
-        monochrome_dark = {
-            "cyan": "#f5f7f2",
-            "gold": "#b7c0c9",
-            "coral": "#f5f7f2",
-            "mint": "#b7c0c9",
-            "violet": "#f5f7f2",
-        }
-        if selected_appearance == "auto":
-            color_tokens = monochrome_light
-            auto_dark_color_tokens = monochrome_dark
-        else:
-            color_tokens = (
-                monochrome_light if selected_appearance == "light" else monochrome_dark
-            )
-    else:
-        color_tokens = None
-    selected_motion = str(motion_picker.value or "focus")
-    base_animation_state = "running" if selected_motion == "continuous" else "paused"
-    interaction_animation_state = "paused" if selected_motion == "still" else "running"
-    if tokens is None:
-        token_rules = ""
-    else:
-        token_rules = f"""
-            color-scheme: {tokens['scheme']};
-            --wm-bg: {tokens['bg']};
-            --wm-panel: {tokens['panel']};
-            --wm-panel-2: {tokens['panel_2']};
-            --wm-text: {tokens['text']};
-            --wm-muted: {tokens['muted']};
-            --wm-cyan: {tokens['cyan']};
-            --wm-gold: {tokens['gold']};
-            --wm-coral: {tokens['coral']};
-            --wm-mint: {tokens['mint']};
-            --wm-violet: {tokens['violet']};
-            --wm-dark-ink: {tokens['ink']};
-        """
-    if color_tokens is None:
-        color_rules = ""
-    else:
-        color_rules = f"""
-            --wm-cyan: {color_tokens['cyan']};
-            --wm-gold: {color_tokens['gold']};
-            --wm-coral: {color_tokens['coral']};
-            --wm-mint: {color_tokens['mint']};
-            --wm-violet: {color_tokens['violet']};
-        """
-    if auto_dark_color_tokens is None:
-        auto_dark_color_rules = ""
-    else:
-        auto_dark_color_rules = f"""
-          @media (prefers-color-scheme: dark) {{
-            :root {{
-              --wm-cyan: {auto_dark_color_tokens['cyan']};
-              --wm-gold: {auto_dark_color_tokens['gold']};
-              --wm-coral: {auto_dark_color_tokens['coral']};
-              --wm-mint: {auto_dark_color_tokens['mint']};
-              --wm-violet: {auto_dark_color_tokens['violet']};
-            }}
-          }}
-        """
-    appearance_style = f"""
-        <style data-wm-explicit-appearance="{selected_appearance}"
-               data-wm-color-encoding="{selected_encoding}"
-               data-wm-motion="{selected_motion}">
-          :root {{
-            {token_rules}
-            {color_rules}
-            --wm-animation-state: {base_animation_state};
-            --wm-interaction-animation-state: {interaction_animation_state};
-            --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);
-          }}
-          {auto_dark_color_rules}
-        </style>
-    """
-    mo.Html(appearance_style)
-    return
-
-
-@app.cell(hide_code=True)
 def _(escape, format_percent, locale, messages, mo, real_display, task_witness_hero):
     hero_svg = task_witness_hero(messages, id_prefix="wm12-hero-main")
     hero_observation = real_display.metadata["observation_summary_from_parent"]
@@ -1438,6 +870,574 @@ def _(escape, locale, messages, mo):
         """
     )
     mo.accordion({messages["sources.heading"]: sources}, lazy=True)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.Html(
+        r"""
+        <style>
+          :root {
+            color-scheme: light;
+            --wm-bg: #f7f7f3;
+            --wm-panel: #ffffff;
+            --wm-panel-2: #cbd2d8;
+            --wm-text: #17191c;
+            --wm-muted: #4f5963;
+            --wm-cyan: #006f8a;
+            --wm-gold: #8a5a00;
+            --wm-coral: #b73a37;
+            --wm-mint: #527a00;
+            --wm-violet: #5d4a9e;
+            --wm-dark-ink: #101214;
+            --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);
+          }
+
+          @media (prefers-color-scheme: dark) {
+            :root {
+              color-scheme: dark;
+              --wm-bg: #0b0d10;
+              --wm-panel: #11161c;
+              --wm-panel-2: #2a333d;
+              --wm-text: #f5f7f2;
+              --wm-muted: #b7c0c9;
+              --wm-cyan: #8bd5ff;
+              --wm-gold: #ffd166;
+              --wm-coral: #ff746c;
+              --wm-mint: #b8f26a;
+              --wm-violet: #b9a7ff;
+              --wm-dark-ink: #0b0d10;
+            }
+          }
+
+          body, marimo-app, marimo-app .app {
+            background: var(--wm-bg) !important;
+          }
+
+          .wm-shell {
+            width: min(100%, 1220px);
+            margin-inline: auto;
+            padding-inline: clamp(1rem, 3vw, 2.5rem);
+            color: var(--wm-text);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, ui-sans-serif, system-ui, sans-serif;
+          }
+
+          .wm-hero-grid,
+          .wm-scene-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
+            align-items: center;
+            gap: clamp(1.2rem, 4vw, 4rem);
+            min-width: 0;
+          }
+
+          .wm-scene-grid {
+            grid-template-columns: minmax(0, 0.78fr) minmax(20rem, 1.22fr);
+          }
+
+          .wm-copy,
+          .wm-visual {
+            min-width: 0;
+          }
+
+          .wm-visual > svg {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+          }
+
+          .wm-proposal-table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+            font-variant-numeric: tabular-nums;
+            font-size: clamp(0.7rem, 1.3vw, 0.84rem);
+          }
+
+          .wm-proposal-table th,
+          .wm-proposal-table td {
+            padding: 0.48rem 0.38rem;
+            border-bottom: 1px solid color-mix(in srgb, var(--wm-muted) 24%, transparent);
+            text-align: right;
+          }
+
+          .wm-proposal-table th:first-child,
+          .wm-proposal-table td:first-child {
+            text-align: left;
+          }
+
+          .wm-proposal-table caption {
+            margin-block-end: 0.55rem;
+            color: var(--wm-muted);
+            font-size: 0.82rem;
+            line-height: 1.4;
+            text-align: start;
+          }
+
+
+          .wm-kicker {
+            margin: 0 0 0.75rem;
+            color: var(--wm-mint);
+            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+          }
+
+          .wm-title {
+            margin: 0;
+            max-width: 12ch;
+            color: var(--wm-text);
+            font-size: clamp(3rem, 6.8vw, 5.9rem);
+            line-height: 0.94;
+            letter-spacing: -0.065em;
+          }
+
+          .wm-subtitle {
+            max-width: 27ch;
+            margin-block: 1.25rem 1rem;
+            color: var(--wm-text);
+            font-size: clamp(1.25rem, 2.3vw, 2rem);
+            font-weight: 620;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+          }
+
+          .wm-paper,
+          .wm-body {
+            max-width: 64ch;
+            color: var(--wm-muted);
+            font-size: clamp(1rem, 1.45vw, 1.16rem);
+            line-height: 1.62;
+          }
+
+          .wm-paper {
+            padding-inline-start: 0.9rem;
+            border-inline-start: 3px solid var(--wm-gold);
+          }
+
+          .wm-paper a,
+          .wm-inline-link {
+            color: var(--wm-text);
+            text-decoration-color: var(--wm-gold);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 0.22em;
+          }
+
+          .wm-dev {
+            display: block;
+            width: fit-content;
+            margin-block: 0.5rem 1.5rem;
+            padding-block-start: 0.55rem;
+            border-block-start: 1px solid var(--wm-gold);
+            color: var(--wm-muted);
+            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+          }
+
+          .wm-section {
+            margin-block: clamp(2.75rem, 5vw, 4.75rem);
+            scroll-margin-top: 2rem;
+          }
+
+          .wm-section h2 {
+            margin: 0 0 1rem;
+            color: var(--wm-text);
+            font-size: clamp(2rem, 4vw, 3.7rem);
+            line-height: 1;
+            letter-spacing: -0.045em;
+          }
+
+          .wm-takeaway {
+            margin-block-start: 1.25rem;
+            padding: 0.85rem 0 0.15rem 1rem;
+            border-inline-start: 2px solid var(--wm-mint);
+            background: transparent;
+            color: var(--wm-text);
+            font-size: clamp(1.02rem, 1.7vw, 1.28rem);
+            font-weight: 650;
+            line-height: 1.45;
+          }
+
+          .wm-control-note {
+            margin-block-start: 0.6rem;
+            color: var(--wm-muted);
+            font-size: 0.92rem;
+            line-height: 1.45;
+          }
+
+          .wm-scope {
+            margin-block-start: 1rem;
+            padding: 0.2rem 0 0.2rem 0.85rem;
+            border-inline-start: 1px solid var(--wm-coral);
+            color: var(--wm-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+          }
+
+          .wm-receipt {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.7rem;
+            margin-block-start: 1.1rem;
+          }
+
+          .wm-receipt > div {
+            min-width: 0;
+            padding-block: 0.65rem;
+            border-block-start: 2px solid var(--wm-panel-2);
+          }
+
+          .wm-receipt dt {
+            color: var(--wm-muted);
+            font-size: 0.76rem;
+            line-height: 1.25;
+          }
+
+          .wm-receipt dd {
+            margin: 0.3rem 0 0;
+            overflow-wrap: anywhere;
+            color: var(--wm-text);
+            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
+            font-size: 0.9rem;
+          }
+
+          .wm-evidence {
+            margin-block-start: 1.4rem;
+          }
+
+          .wm-evidence > svg {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+          }
+
+          .wm-duality {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-block: 1.25rem;
+          }
+
+          .wm-duality > div {
+            min-width: 0;
+            padding-inline-start: 1rem;
+            border-inline-start: 3px solid var(--wm-cyan);
+          }
+
+          .wm-duality > div:last-child {
+            border-inline-start-color: var(--wm-gold);
+          }
+
+          .wm-duality strong {
+            display: block;
+            color: var(--wm-text);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1;
+          }
+
+          .wm-duality span {
+            display: block;
+            margin-block-start: 0.45rem;
+            color: var(--wm-muted);
+            line-height: 1.35;
+          }
+
+          .wm-equation {
+            display: block;
+            max-width: 100%;
+            margin-block: 1.15rem;
+            padding: 0.85rem 0;
+            overflow-wrap: anywhere;
+            border-block: 1px solid var(--wm-rule);
+            background: transparent;
+            color: var(--wm-text);
+            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
+            font-size: clamp(0.84rem, 1.4vw, 1.05rem);
+            line-height: 1.6;
+          }
+
+          :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+            outline: 3px solid var(--wm-gold) !important;
+            outline-offset: 4px !important;
+          }
+
+          .wm-source-links {
+            display: grid;
+            gap: 0.7rem;
+            padding: 0;
+            list-style: none;
+          }
+
+          .wm-source-links a {
+            color: var(--wm-cyan);
+            text-underline-offset: 0.2em;
+          }
+
+          .wm-route {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.55rem 0.8rem;
+            margin-block: 1.4rem 0.25rem;
+            padding-block: 0.8rem;
+            border-block: 1px solid var(--wm-rule);
+            font-size: 0.86rem;
+            line-height: 1.45;
+          }
+
+          .wm-route-label {
+            color: var(--wm-muted);
+            font-family: "SFMono-Regular", Consolas, ui-monospace, monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+          }
+
+          .wm-route a {
+            color: var(--wm-text);
+            font-weight: 650;
+            text-decoration-color: var(--wm-gold);
+            text-underline-offset: 0.2em;
+          }
+
+          .wm-route-separator {
+            color: var(--wm-muted);
+          }
+
+          @media (max-width: 900px) {
+            .wm-shell {
+              padding-inline: clamp(0.9rem, 4vw, 1.5rem);
+            }
+
+            .wm-hero-grid,
+            .wm-scene-grid {
+              grid-template-columns: minmax(0, 1fr);
+              gap: 1.2rem;
+            }
+
+            .wm-title {
+              max-width: 10ch;
+              font-size: clamp(2.9rem, 15vw, 5rem);
+            }
+
+            .wm-subtitle {
+              max-width: 31ch;
+            }
+
+            .wm-visual {
+              width: min(100%, 35rem);
+              margin-inline: auto;
+            }
+
+            .wm-section {
+              margin-block: 3.25rem;
+            }
+
+            .wm-receipt {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .wm-duality {
+              grid-template-columns: minmax(0, 1fr);
+            }
+
+            .wm-proposal-table {
+              font-size: clamp(0.66rem, 2.7vw, 0.82rem);
+            }
+
+            .wm-proposal-table th,
+            .wm-proposal-table td {
+              padding-inline: 0.18rem;
+            }
+          }
+
+          @media (max-width: 430px) {
+            .wm-receipt {
+              grid-template-columns: minmax(0, 1fr);
+            }
+
+            .wm-section h2 {
+              font-size: clamp(2rem, 12vw, 3.1rem);
+            }
+          }
+
+          @media (prefers-contrast: more) {
+            :root {
+              --wm-muted: var(--wm-text) !important;
+              --wm-panel-2: var(--wm-text) !important;
+              --wm-rule: var(--wm-text) !important;
+            }
+          }
+
+          @media (forced-colors: active) {
+            .wm-kicker,
+            .wm-dev,
+            .wm-paper,
+            .wm-takeaway,
+            .wm-scope {
+              border-color: CanvasText;
+              color: CanvasText;
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+              scroll-behavior: auto !important;
+              animation-duration: 0.001ms !important;
+              animation-iteration-count: 1 !important;
+              transition-duration: 0.001ms !important;
+            }
+          }
+        </style>
+        """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(appearance_picker, color_encoding_picker, mo, motion_picker):
+    light_tokens = {
+        "scheme": "light",
+        "bg": "#f7f7f3",
+        "panel": "#ffffff",
+        "panel_2": "#cbd2d8",
+        "text": "#17191c",
+        "muted": "#4f5963",
+        "cyan": "#006f8a",
+        "gold": "#8a5a00",
+        "coral": "#b73a37",
+        "mint": "#527a00",
+        "violet": "#5d4a9e",
+        "ink": "#101214",
+    }
+    dark_tokens = {
+        "scheme": "dark",
+        "bg": "#0b0d10",
+        "panel": "#11161c",
+        "panel_2": "#2a333d",
+        "text": "#f5f7f2",
+        "muted": "#b7c0c9",
+        "cyan": "#8bd5ff",
+        "gold": "#ffd166",
+        "coral": "#ff746c",
+        "mint": "#b8f26a",
+        "violet": "#b9a7ff",
+        "ink": "#0b0d10",
+    }
+    selected_appearance = str(appearance_picker.value or "light")
+    tokens = None if selected_appearance == "auto" else (
+        light_tokens if selected_appearance == "light" else dark_tokens
+    )
+    selected_encoding = str(color_encoding_picker.value or "semantic")
+    auto_dark_color_tokens = None
+    if selected_encoding == "cvd":
+        cvd_light = {
+            "cyan": "#005a8d",
+            "gold": "#704900",
+            "coral": "#a53a00",
+            "mint": "#006b50",
+            "violet": "#713d78",
+        }
+        cvd_dark = {
+            "cyan": "#56b4e9",
+            "gold": "#f0c15c",
+            "coral": "#ff8a5b",
+            "mint": "#65d2b1",
+            "violet": "#e58fd8",
+        }
+        if selected_appearance == "auto":
+            color_tokens = cvd_light
+            auto_dark_color_tokens = cvd_dark
+        else:
+            color_tokens = cvd_light if selected_appearance == "light" else cvd_dark
+    elif selected_encoding == "monochrome":
+        monochrome_light = {
+            "cyan": "#17191c",
+            "gold": "#59616a",
+            "coral": "#17191c",
+            "mint": "#59616a",
+            "violet": "#17191c",
+        }
+        monochrome_dark = {
+            "cyan": "#f5f7f2",
+            "gold": "#b7c0c9",
+            "coral": "#f5f7f2",
+            "mint": "#b7c0c9",
+            "violet": "#f5f7f2",
+        }
+        if selected_appearance == "auto":
+            color_tokens = monochrome_light
+            auto_dark_color_tokens = monochrome_dark
+        else:
+            color_tokens = (
+                monochrome_light if selected_appearance == "light" else monochrome_dark
+            )
+    else:
+        color_tokens = None
+    selected_motion = str(motion_picker.value or "focus")
+    base_animation_state = "running" if selected_motion == "continuous" else "paused"
+    interaction_animation_state = "paused" if selected_motion == "still" else "running"
+    if tokens is None:
+        token_rules = ""
+    else:
+        token_rules = f"""
+            color-scheme: {tokens['scheme']};
+            --wm-bg: {tokens['bg']};
+            --wm-panel: {tokens['panel']};
+            --wm-panel-2: {tokens['panel_2']};
+            --wm-text: {tokens['text']};
+            --wm-muted: {tokens['muted']};
+            --wm-cyan: {tokens['cyan']};
+            --wm-gold: {tokens['gold']};
+            --wm-coral: {tokens['coral']};
+            --wm-mint: {tokens['mint']};
+            --wm-violet: {tokens['violet']};
+            --wm-dark-ink: {tokens['ink']};
+        """
+    if color_tokens is None:
+        color_rules = ""
+    else:
+        color_rules = f"""
+            --wm-cyan: {color_tokens['cyan']};
+            --wm-gold: {color_tokens['gold']};
+            --wm-coral: {color_tokens['coral']};
+            --wm-mint: {color_tokens['mint']};
+            --wm-violet: {color_tokens['violet']};
+        """
+    if auto_dark_color_tokens is None:
+        auto_dark_color_rules = ""
+    else:
+        auto_dark_color_rules = f"""
+          @media (prefers-color-scheme: dark) {{
+            :root {{
+              --wm-cyan: {auto_dark_color_tokens['cyan']};
+              --wm-gold: {auto_dark_color_tokens['gold']};
+              --wm-coral: {auto_dark_color_tokens['coral']};
+              --wm-mint: {auto_dark_color_tokens['mint']};
+              --wm-violet: {auto_dark_color_tokens['violet']};
+            }}
+          }}
+        """
+    appearance_style = f"""
+        <style data-wm-explicit-appearance="{selected_appearance}"
+               data-wm-color-encoding="{selected_encoding}"
+               data-wm-motion="{selected_motion}">
+          :root {{
+            {token_rules}
+            {color_rules}
+            --wm-animation-state: {base_animation_state};
+            --wm-interaction-animation-state: {interaction_animation_state};
+            --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);
+          }}
+          {auto_dark_color_rules}
+        </style>
+    """
+    mo.Html(appearance_style)
     return
 
 

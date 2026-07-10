@@ -7,32 +7,6 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "25ab2d4b7190413f26fa16af5ab9eb50",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n    <style>\n      :root {\n        color-scheme: light;\n        --wm-bg: #f7f7f3;\n        --wm-panel: #ffffff;\n        --wm-panel-2: #cbd2d8;\n        --wm-text: #17191c;\n        --wm-muted: #4f5963;\n        --wm-cyan: #006f8a;\n        --wm-gold: #8a5a00;\n        --wm-coral: #b73a37;\n        --wm-mint: #527a00;\n        --wm-violet: #5d4a9e;\n        --wm-dark-ink: #101214;\n        --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);\n      }\n\n      @media (prefers-color-scheme: dark) {\n        :root {\n          color-scheme: dark;\n          --wm-bg: #0b0d10;\n          --wm-panel: #11161c;\n          --wm-panel-2: #2a333d;\n          --wm-text: #f5f7f2;\n          --wm-muted: #b7c0c9;\n          --wm-cyan: #8bd5ff;\n          --wm-gold: #ffd166;\n          --wm-coral: #ff746c;\n          --wm-mint: #b8f26a;\n          --wm-violet: #b9a7ff;\n          --wm-dark-ink: #0b0d10;\n        }\n      }\n\n      body, marimo-app, marimo-app .app {\n        background: var(--wm-bg) !important;\n      }\n\n      .wm-shell {\n        width: min(100%, 1220px);\n        margin-inline: auto;\n        padding-inline: clamp(1rem, 3vw, 2.5rem);\n        color: var(--wm-text);\n        font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", Inter, ui-sans-serif, system-ui, sans-serif;\n      }\n\n      .wm-hero-grid,\n      .wm-scene-grid {\n        display: grid;\n        grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);\n        align-items: center;\n        gap: clamp(1.2rem, 4vw, 4rem);\n        min-width: 0;\n      }\n\n      .wm-scene-grid {\n        grid-template-columns: minmax(0, 0.78fr) minmax(20rem, 1.22fr);\n      }\n\n      .wm-copy,\n      .wm-visual {\n        min-width: 0;\n      }\n\n      .wm-visual > svg {\n        width: 100%;\n        max-width: 100%;\n        height: auto;\n      }\n\n      .wm-proposal-table {\n        width: 100%;\n        margin-top: 1rem;\n        border-collapse: collapse;\n        font-variant-numeric: tabular-nums;\n        font-size: clamp(0.7rem, 1.3vw, 0.84rem);\n      }\n\n      .wm-proposal-table th,\n      .wm-proposal-table td {\n        padding: 0.48rem 0.38rem;\n        border-bottom: 1px solid color-mix(in srgb, var(--wm-muted) 24%, transparent);\n        text-align: right;\n      }\n\n      .wm-proposal-table th:first-child,\n      .wm-proposal-table td:first-child {\n        text-align: left;\n      }\n\n      .wm-proposal-table caption {\n        margin-block-end: 0.55rem;\n        color: var(--wm-muted);\n        font-size: 0.82rem;\n        line-height: 1.4;\n        text-align: start;\n      }\n\n\n      .wm-kicker {\n        margin: 0 0 0.75rem;\n        color: var(--wm-mint);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.74rem;\n        font-weight: 700;\n        letter-spacing: 0.16em;\n      }\n\n      .wm-title {\n        margin: 0;\n        max-width: 12ch;\n        color: var(--wm-text);\n        font-size: clamp(3rem, 6.8vw, 5.9rem);\n        line-height: 0.94;\n        letter-spacing: -0.065em;\n      }\n\n      .wm-subtitle {\n        max-width: 27ch;\n        margin-block: 1.25rem 1rem;\n        color: var(--wm-text);\n        font-size: clamp(1.25rem, 2.3vw, 2rem);\n        font-weight: 620;\n        line-height: 1.2;\n        letter-spacing: -0.025em;\n      }\n\n      .wm-paper,\n      .wm-body {\n        max-width: 64ch;\n        color: var(--wm-muted);\n        font-size: clamp(1rem, 1.45vw, 1.16rem);\n        line-height: 1.62;\n      }\n\n      .wm-paper {\n        padding-inline-start: 0.9rem;\n        border-inline-start: 3px solid var(--wm-gold);\n      }\n\n      .wm-paper a,\n      .wm-inline-link {\n        color: var(--wm-text);\n        text-decoration-color: var(--wm-gold);\n        text-decoration-thickness: 2px;\n        text-underline-offset: 0.22em;\n      }\n\n      .wm-dev {\n        display: block;\n        width: fit-content;\n        margin-block: 0.5rem 1.5rem;\n        padding-block-start: 0.55rem;\n        border-block-start: 1px solid var(--wm-gold);\n        color: var(--wm-muted);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.72rem;\n        letter-spacing: 0.04em;\n        line-height: 1.35;\n      }\n\n      .wm-section {\n        margin-block: clamp(2.75rem, 5vw, 4.75rem);\n        scroll-margin-top: 2rem;\n      }\n\n      .wm-section h2 {\n        margin: 0 0 1rem;\n        color: var(--wm-text);\n        font-size: clamp(2rem, 4vw, 3.7rem);\n        line-height: 1;\n        letter-spacing: -0.045em;\n      }\n\n      .wm-takeaway {\n        margin-block-start: 1.25rem;\n        padding: 0.85rem 0 0.15rem 1rem;\n        border-inline-start: 2px solid var(--wm-mint);\n        background: transparent;\n        color: var(--wm-text);\n        font-size: clamp(1.02rem, 1.7vw, 1.28rem);\n        font-weight: 650;\n        line-height: 1.45;\n      }\n\n      .wm-control-note {\n        margin-block-start: 0.6rem;\n        color: var(--wm-muted);\n        font-size: 0.92rem;\n        line-height: 1.45;\n      }\n\n      .wm-scope {\n        margin-block-start: 1rem;\n        padding: 0.2rem 0 0.2rem 0.85rem;\n        border-inline-start: 1px solid var(--wm-coral);\n        color: var(--wm-muted);\n        font-size: 0.9rem;\n        line-height: 1.5;\n      }\n\n      .wm-receipt {\n        display: grid;\n        grid-template-columns: repeat(4, minmax(0, 1fr));\n        gap: 0.7rem;\n        margin-block-start: 1.1rem;\n      }\n\n      .wm-receipt > div {\n        min-width: 0;\n        padding-block: 0.65rem;\n        border-block-start: 2px solid var(--wm-panel-2);\n      }\n\n      .wm-receipt dt {\n        color: var(--wm-muted);\n        font-size: 0.76rem;\n        line-height: 1.25;\n      }\n\n      .wm-receipt dd {\n        margin: 0.3rem 0 0;\n        overflow-wrap: anywhere;\n        color: var(--wm-text);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.9rem;\n      }\n\n      .wm-evidence {\n        margin-block-start: 1.4rem;\n      }\n\n      .wm-evidence > svg {\n        display: block;\n        width: 100%;\n        max-width: 100%;\n        height: auto;\n      }\n\n      .wm-duality {\n        display: grid;\n        grid-template-columns: repeat(2, minmax(0, 1fr));\n        gap: 1rem;\n        margin-block: 1.25rem;\n      }\n\n      .wm-duality > div {\n        min-width: 0;\n        padding-inline-start: 1rem;\n        border-inline-start: 3px solid var(--wm-cyan);\n      }\n\n      .wm-duality > div:last-child {\n        border-inline-start-color: var(--wm-gold);\n      }\n\n      .wm-duality strong {\n        display: block;\n        color: var(--wm-text);\n        font-size: clamp(1.5rem, 3vw, 2.5rem);\n        line-height: 1;\n      }\n\n      .wm-duality span {\n        display: block;\n        margin-block-start: 0.45rem;\n        color: var(--wm-muted);\n        line-height: 1.35;\n      }\n\n      .wm-equation {\n        display: block;\n        max-width: 100%;\n        margin-block: 1.15rem;\n        padding: 0.85rem 0;\n        overflow-wrap: anywhere;\n        border-block: 1px solid var(--wm-rule);\n        background: transparent;\n        color: var(--wm-text);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: clamp(0.84rem, 1.4vw, 1.05rem);\n        line-height: 1.6;\n      }\n\n      :where(a, button, input, select, textarea, [tabindex]):focus-visible {\n        outline: 3px solid var(--wm-gold) !important;\n        outline-offset: 4px !important;\n      }\n\n      .wm-source-links {\n        display: grid;\n        gap: 0.7rem;\n        padding: 0;\n        list-style: none;\n      }\n\n      .wm-source-links a {\n        color: var(--wm-cyan);\n        text-underline-offset: 0.2em;\n      }\n\n      .wm-route {\n        display: flex;\n        flex-wrap: wrap;\n        align-items: baseline;\n        gap: 0.55rem 0.8rem;\n        margin-block: 1.4rem 0.25rem;\n        padding-block: 0.8rem;\n        border-block: 1px solid var(--wm-rule);\n        font-size: 0.86rem;\n        line-height: 1.45;\n      }\n\n      .wm-route-label {\n        color: var(--wm-muted);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.72rem;\n        font-weight: 700;\n        letter-spacing: 0.12em;\n      }\n\n      .wm-route a {\n        color: var(--wm-text);\n        font-weight: 650;\n        text-decoration-color: var(--wm-gold);\n        text-underline-offset: 0.2em;\n      }\n\n      .wm-route-separator {\n        color: var(--wm-muted);\n      }\n\n      @media (max-width: 900px) {\n        .wm-shell {\n          padding-inline: clamp(0.9rem, 4vw, 1.5rem);\n        }\n\n        .wm-hero-grid,\n        .wm-scene-grid {\n          grid-template-columns: minmax(0, 1fr);\n          gap: 1.2rem;\n        }\n\n        .wm-title {\n          max-width: 10ch;\n          font-size: clamp(2.9rem, 15vw, 5rem);\n        }\n\n        .wm-subtitle {\n          max-width: 31ch;\n        }\n\n        .wm-visual {\n          width: min(100%, 35rem);\n          margin-inline: auto;\n        }\n\n        .wm-section {\n          margin-block: 3.25rem;\n        }\n\n        .wm-receipt {\n          grid-template-columns: repeat(2, minmax(0, 1fr));\n        }\n\n        .wm-duality {\n          grid-template-columns: minmax(0, 1fr);\n        }\n\n        .wm-proposal-table {\n          font-size: clamp(0.66rem, 2.7vw, 0.82rem);\n        }\n\n        .wm-proposal-table th,\n        .wm-proposal-table td {\n          padding-inline: 0.18rem;\n        }\n      }\n\n      @media (max-width: 430px) {\n        .wm-receipt {\n          grid-template-columns: minmax(0, 1fr);\n        }\n\n        .wm-section h2 {\n          font-size: clamp(2rem, 12vw, 3.1rem);\n        }\n      }\n\n      @media (prefers-contrast: more) {\n        :root {\n          --wm-muted: var(--wm-text) !important;\n          --wm-panel-2: var(--wm-text) !important;\n          --wm-rule: var(--wm-text) !important;\n        }\n      }\n\n      @media (forced-colors: active) {\n        .wm-kicker,\n        .wm-dev,\n        .wm-paper,\n        .wm-takeaway,\n        .wm-scope {\n          border-color: CanvasText;\n          color: CanvasText;\n        }\n      }\n\n      @media (prefers-reduced-motion: reduce) {\n        *, *::before, *::after {\n          scroll-behavior: auto !important;\n          animation-duration: 0.001ms !important;\n          animation-iteration-count: 1 !important;\n          transition-duration: 0.001ms !important;\n        }\n      }\n    </style>\n    "
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "MJUe",
-      "code_hash": "5be4aa458121a3ce02f56453a2bed857",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n    <style data-wm-explicit-appearance=\"light\"\n           data-wm-color-encoding=\"semantic\"\n           data-wm-motion=\"focus\">\n      :root {\n        \n        color-scheme: light;\n        --wm-bg: #f7f7f3;\n        --wm-panel: #ffffff;\n        --wm-panel-2: #cbd2d8;\n        --wm-text: #17191c;\n        --wm-muted: #4f5963;\n        --wm-cyan: #006f8a;\n        --wm-gold: #8a5a00;\n        --wm-coral: #b73a37;\n        --wm-mint: #527a00;\n        --wm-violet: #5d4a9e;\n        --wm-dark-ink: #101214;\n    \n        \n        --wm-animation-state: paused;\n        --wm-interaction-animation-state: running;\n        --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);\n      }\n      \n    </style>\n"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "vblA",
       "code_hash": "6fb8ad88b7982a722cbc3c501c51d1df",
       "outputs": [
         {
@@ -45,7 +19,7 @@
       "console": []
     },
     {
-      "id": "bkHC",
+      "id": "MJUe",
       "code_hash": "78df666cbd7ebe7b4726d4374caa07ab",
       "outputs": [
         {
@@ -58,7 +32,7 @@
       "console": []
     },
     {
-      "id": "lEQa",
+      "id": "vblA",
       "code_hash": "bed877d56ba61f0a1d6f72995953c0dd",
       "outputs": [
         {
@@ -71,20 +45,20 @@
       "console": []
     },
     {
-      "id": "PKri",
+      "id": "bkHC",
       "code_hash": "4a44e77455588f5ed94f21cfe7979691",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.55rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='AjVT-0' random-id='06b14a3a-2ef1-6082-df1a-2b362515960e'><marimo-dropdown data-initial-value='[&quot;English&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLanguage / Idioma&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;English&quot;,&quot;Espa\u00f1ol&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><marimo-ui-element object-id='TXez-0' random-id='4525be50-bd2b-8a81-f51d-4d2ea815f50e'><marimo-slider data-initial-value='12.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAllowed first-order loss budget B&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='4.0' data-stop='32.0' data-step='1.0' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>The paper controller spends this declared local budget across coefficients. Larger B permits coarser regional tables; it is not a measured task loss or score.</p><p class='wm-takeaway'>[TOY][DERIVATION] START HERE \u00b7 Move B. One reactive state recomputes the receiver balance, the paper-controller table allocation, and the final carrier bids. Follow the same pressure from equation to witness.</p><marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eDisplay &amp;amp; accessibility / Pantalla y accesibilidad&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.45rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 1.0rem'><marimo-ui-element object-id='pHFh-0' random-id='55d73321-9c2f-eb20-39ac-5763753d6aab'><marimo-dropdown data-initial-value='[&quot;Light \u00b7 Claro&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance / Apariencia&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Light \u00b7 Claro&quot;,&quot;Dark \u00b7 Oscuro&quot;,&quot;Auto&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='NCOB-0' random-id='8ad6867a-a223-c71c-7953-b6e953c4a0bc'><marimo-dropdown data-initial-value='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eColor encoding / Codificaci\u00f3n&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;,&quot;Color-vision safe \u00b7 Visi\u00f3n crom\u00e1tica&quot;,&quot;Monochrome \u00b7 Monocromo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='aqbW-0' random-id='31b1096e-ee05-e2b9-c486-2c11b19d76d2'><marimo-dropdown data-initial-value='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMotion / Movimiento&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;,&quot;Still \u00b7 Est\u00e1tico&quot;,&quot;Continuous \u00b7 Continuo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><p class='wm-control-note'>Light, dark, color-vision-safe, monochrome, and motion preferences change presentation only; the computed geometry is invariant.</p></div></div></marimo-accordion></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.55rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='AjVT-0' random-id='348faebf-3ac3-5f8e-7a29-03f0b6a6f4d1'><marimo-dropdown data-initial-value='[&quot;English&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLanguage / Idioma&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;English&quot;,&quot;Espa\u00f1ol&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><marimo-ui-element object-id='TXez-0' random-id='2e170060-86fc-9b34-fabd-be28fea83331'><marimo-slider data-initial-value='12.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAllowed first-order loss budget B&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='4.0' data-stop='32.0' data-step='1.0' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>The paper controller spends this declared local budget across coefficients. Larger B permits coarser regional tables; it is not a measured task loss or score.</p><p class='wm-takeaway'>[TOY][DERIVATION] START HERE \u00b7 Move B. One reactive state recomputes the receiver balance, the paper-controller table allocation, and the final carrier bids. Follow the same pressure from equation to witness.</p><marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eDisplay &amp;amp; accessibility / Pantalla y accesibilidad&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.45rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 1.0rem'><marimo-ui-element object-id='pHFh-0' random-id='24ada087-04de-4270-4d00-fc246e458d24'><marimo-dropdown data-initial-value='[&quot;Light \u00b7 Claro&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance / Apariencia&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Light \u00b7 Claro&quot;,&quot;Dark \u00b7 Oscuro&quot;,&quot;Auto&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='NCOB-0' random-id='da93abc8-5446-0eb1-96ef-0bb54d0755d6'><marimo-dropdown data-initial-value='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eColor encoding / Codificaci\u00f3n&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;,&quot;Color-vision safe \u00b7 Visi\u00f3n crom\u00e1tica&quot;,&quot;Monochrome \u00b7 Monocromo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='aqbW-0' random-id='c3bda21f-c675-de5a-b136-19e41c8faad6'><marimo-dropdown data-initial-value='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMotion / Movimiento&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;,&quot;Still \u00b7 Est\u00e1tico&quot;,&quot;Continuous \u00b7 Continuo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><p class='wm-control-note'>Light, dark, color-vision-safe, monochrome, and motion preferences change presentation only; the computed geometry is invariant.</p></div></div></marimo-accordion></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "Xref",
+      "id": "lEQa",
       "code_hash": "dc2ee02550a16eda4375619feee4b2f7",
       "outputs": [
         {
@@ -97,20 +71,20 @@
       "console": []
     },
     {
-      "id": "SFPL",
+      "id": "PKri",
       "code_hash": "019a3ab0df3070960f73ff860f030d45",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.35rem'><span id=\"wm-paper-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='SFPL-0' random-id='2a38ac0d-d811-6e64-b2b4-823bf7db724f'><marimo-slider data-initial-value='4.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eOutline precision ratio \u03c1&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='1.0' data-stop='8.0' data-step='0.25' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>At \u03c1=1 the outline-only policy is uniform. Larger \u03c1 spends more of the same declared precision proxy on the semantic outline and less away from it.</p><p class='wm-scope'>[TOY][DERIVATION] Try \u03c1=1, then \u03c1=8. At matched \u03a31/q, does outline-only still beat uniform?</p></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.35rem'><span id=\"wm-paper-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='PKri-0' random-id='a4d9470b-55bf-282d-d742-21800112e5f6'><marimo-slider data-initial-value='4.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eOutline precision ratio \u03c1&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='1.0' data-stop='8.0' data-step='0.25' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>At \u03c1=1 the outline-only policy is uniform. Larger \u03c1 spends more of the same declared precision proxy on the semantic outline and less away from it.</p><p class='wm-scope'>[TOY][DERIVATION] Try \u03c1=1, then \u03c1=8. At matched \u03a31/q, does outline-only still beat uniform?</p></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "BYtC",
+      "id": "Xref",
       "code_hash": "fd8cffe800a9ab09943db18ff12dfd5c",
       "outputs": [
         {
@@ -123,7 +97,7 @@
       "console": []
     },
     {
-      "id": "RGSE",
+      "id": "SFPL",
       "code_hash": "693e27a262fe6c23f3ce36e26b1c9aa7",
       "outputs": [
         {
@@ -136,20 +110,20 @@
       "console": []
     },
     {
-      "id": "Kclp",
+      "id": "BYtC",
       "code_hash": "418d0d0e2f80f530b212867538770724",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='Kclp-0' random-id='c213fc43-db8c-b8f9-e7ee-ae000c1a74bf'><marimo-slider data-initial-value='0.45' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance retained&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='BYtC-0' random-id='4c4b28cd-b5dc-2737-792b-32929a1e9cd9'><marimo-slider data-initial-value='0.45' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance retained&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "emfo",
+      "id": "RGSE",
       "code_hash": "c2134fdee8c1b1c52c1535fba9e26f63",
       "outputs": [
         {
@@ -162,20 +136,20 @@
       "console": []
     },
     {
-      "id": "Hstk",
+      "id": "Kclp",
       "code_hash": "ba37ed8dc66d22795f3780c3d43cd082",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span id=\"wm-wall-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='Hstk-0' random-id='16d96b5d-d336-13d2-894a-e9e75a6a0ece'><marimo-slider data-initial-value='0.1' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eNormal boundary displacement&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-0.22' data-stop='0.22' data-step='0.01' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Move one analytic circular SDF zero set. The partition, swept annulus, exact area, and first variation use the same normal displacement.</span></span></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span id=\"wm-wall-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='Kclp-0' random-id='40bb6798-8174-4322-9a52-78935fa91e13'><marimo-slider data-initial-value='0.1' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eNormal boundary displacement&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-0.22' data-stop='0.22' data-step='0.01' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Move one analytic circular SDF zero set. The partition, swept annulus, exact area, and first variation use the same normal displacement.</span></span></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "nWHF",
+      "id": "emfo",
       "code_hash": "f426a3cd5480bc0cb4930580c8948120",
       "outputs": [
         {
@@ -188,20 +162,20 @@
       "console": []
     },
     {
-      "id": "iLit",
+      "id": "Hstk",
       "code_hash": "cc6258725d8900f8e49ee5ae68e7ce11",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='iLit-0' random-id='e4d8d925-7ffa-1671-b7d6-646078195bdf'><marimo-slider data-initial-value='0.25' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSoft-max temperature&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.05' data-stop='1.2' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='Hstk-0' random-id='b362e204-8233-d894-3af3-c113c2c93111'><marimo-slider data-initial-value='0.25' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSoft-max temperature&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.05' data-stop='1.2' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ZHCJ",
+      "id": "nWHF",
       "code_hash": "6b85f6b61b36e64e1feb1edcb5b37446",
       "outputs": [
         {
@@ -214,20 +188,20 @@
       "console": []
     },
     {
-      "id": "ROlb",
+      "id": "iLit",
       "code_hash": "fc3dcf7dd2b2e9dc13841042ca727585",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='ROlb-0' random-id='08ae295c-e602-6728-05f3-60f49b714841'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRoad weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='ROlb-1' random-id='cd81a267-ff36-1b3a-7ee2-2a8ad586df55'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLane weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='ROlb-2' random-id='e4ce9013-2ada-5181-65f5-f78952239dbe'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMovable weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='iLit-0' random-id='b2a2d4c7-79e4-06a8-3967-a013a9713a22'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRoad weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='iLit-1' random-id='879bd906-706e-1e76-d5cd-dcd6138579d1'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLane weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='iLit-2' random-id='54f4745d-a208-ed5c-486c-396228f886e0'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMovable weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "qnkX",
+      "id": "ZHCJ",
       "code_hash": "91f79acf49275ada550c271648fcbe38",
       "outputs": [
         {
@@ -240,7 +214,7 @@
       "console": []
     },
     {
-      "id": "TqIu",
+      "id": "ROlb",
       "code_hash": "30ca9fd77fc06383f3b220bf888efa2c",
       "outputs": [
         {
@@ -253,20 +227,20 @@
       "console": []
     },
     {
-      "id": "Vxnm",
+      "id": "qnkX",
       "code_hash": "90a98dcef5f06d87f24a78033fbef1f9",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='Vxnm-0' random-id='ecb7ae05-ee3e-e7f9-f914-4120385cb1f6'><marimo-slider data-initial-value='0.65' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eTemporal texture aperture&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='Vxnm-1' random-id='9127111c-9bad-97e1-5abf-730c674ef948'><marimo-slider data-initial-value='0.35' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRefresh pressure&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='qnkX-0' random-id='cefbfb3b-841c-71aa-295b-7c431cc8e0f9'><marimo-slider data-initial-value='0.65' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eTemporal texture aperture&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='qnkX-1' random-id='523dcfee-df38-1bed-8d78-9dd35967ac21'><marimo-slider data-initial-value='0.35' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRefresh pressure&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "DnEU",
+      "id": "TqIu",
       "code_hash": "fdbb629a9e032732cb2f4a62aa4fd8ef",
       "outputs": [
         {
@@ -279,7 +253,7 @@
       "console": []
     },
     {
-      "id": "ulZA",
+      "id": "Vxnm",
       "code_hash": "101065250b549dd6b107a5a6884c9f3e",
       "outputs": [
         {
@@ -292,20 +266,20 @@
       "console": []
     },
     {
-      "id": "ecfG",
+      "id": "DnEU",
       "code_hash": "6d8cf1a0e3f9179e3cc216490b31459d",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.0rem'><span id=\"wm-gpu-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='ecfG-0' random-id='a1229048-6421-d602-d08d-da3153f70df3'><marimo-button data-initial-value='0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRun 256 \u00d7 196,608 locked-evidence robustness sweep&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-kind='&quot;success&quot;' data-disabled='false' data-full-width='true'></marimo-button></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.0rem'><span id=\"wm-gpu-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='DnEU-0' random-id='cdc6c2bb-87c6-3f71-ad89-594c8a40189e'><marimo-button data-initial-value='0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRun 256 \u00d7 196,608 locked-evidence robustness sweep&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-kind='&quot;success&quot;' data-disabled='false' data-full-width='true'></marimo-button></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "Pvdt",
+      "id": "ulZA",
       "code_hash": "5a069cfa5c06aee447e86376394a0978",
       "outputs": [
         {
@@ -318,7 +292,7 @@
       "console": []
     },
     {
-      "id": "ZBYS",
+      "id": "ecfG",
       "code_hash": "ad3915f07f44485523103f58ec750c27",
       "outputs": [
         {
@@ -331,13 +305,39 @@
       "console": []
     },
     {
-      "id": "aLJB",
+      "id": "Pvdt",
       "code_hash": "c85b4e7210a51ec1ce91d5022ddc749f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSources, scope, and reproducibility&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><marimo-ui-element object-id='aLJB-0' random-id='c8fcd50e-fb86-b906-a692-3a7e9f675eb1'><marimo-lazy data-initial-value='false' data-label='null' data-show-loading-indicator='false'></marimo-lazy></marimo-ui-element></div></marimo-accordion>"
+            "text/html": "<marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSources, scope, and reproducibility&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><marimo-ui-element object-id='Pvdt-0' random-id='fcf9696d-f864-89a8-5eee-6f028fd5750b'><marimo-lazy data-initial-value='false' data-label='null' data-show-loading-indicator='false'></marimo-lazy></marimo-ui-element></div></marimo-accordion>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "25ab2d4b7190413f26fa16af5ab9eb50",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "\n    <style>\n      :root {\n        color-scheme: light;\n        --wm-bg: #f7f7f3;\n        --wm-panel: #ffffff;\n        --wm-panel-2: #cbd2d8;\n        --wm-text: #17191c;\n        --wm-muted: #4f5963;\n        --wm-cyan: #006f8a;\n        --wm-gold: #8a5a00;\n        --wm-coral: #b73a37;\n        --wm-mint: #527a00;\n        --wm-violet: #5d4a9e;\n        --wm-dark-ink: #101214;\n        --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);\n      }\n\n      @media (prefers-color-scheme: dark) {\n        :root {\n          color-scheme: dark;\n          --wm-bg: #0b0d10;\n          --wm-panel: #11161c;\n          --wm-panel-2: #2a333d;\n          --wm-text: #f5f7f2;\n          --wm-muted: #b7c0c9;\n          --wm-cyan: #8bd5ff;\n          --wm-gold: #ffd166;\n          --wm-coral: #ff746c;\n          --wm-mint: #b8f26a;\n          --wm-violet: #b9a7ff;\n          --wm-dark-ink: #0b0d10;\n        }\n      }\n\n      body, marimo-app, marimo-app .app {\n        background: var(--wm-bg) !important;\n      }\n\n      .wm-shell {\n        width: min(100%, 1220px);\n        margin-inline: auto;\n        padding-inline: clamp(1rem, 3vw, 2.5rem);\n        color: var(--wm-text);\n        font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", Inter, ui-sans-serif, system-ui, sans-serif;\n      }\n\n      .wm-hero-grid,\n      .wm-scene-grid {\n        display: grid;\n        grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);\n        align-items: center;\n        gap: clamp(1.2rem, 4vw, 4rem);\n        min-width: 0;\n      }\n\n      .wm-scene-grid {\n        grid-template-columns: minmax(0, 0.78fr) minmax(20rem, 1.22fr);\n      }\n\n      .wm-copy,\n      .wm-visual {\n        min-width: 0;\n      }\n\n      .wm-visual > svg {\n        width: 100%;\n        max-width: 100%;\n        height: auto;\n      }\n\n      .wm-proposal-table {\n        width: 100%;\n        margin-top: 1rem;\n        border-collapse: collapse;\n        font-variant-numeric: tabular-nums;\n        font-size: clamp(0.7rem, 1.3vw, 0.84rem);\n      }\n\n      .wm-proposal-table th,\n      .wm-proposal-table td {\n        padding: 0.48rem 0.38rem;\n        border-bottom: 1px solid color-mix(in srgb, var(--wm-muted) 24%, transparent);\n        text-align: right;\n      }\n\n      .wm-proposal-table th:first-child,\n      .wm-proposal-table td:first-child {\n        text-align: left;\n      }\n\n      .wm-proposal-table caption {\n        margin-block-end: 0.55rem;\n        color: var(--wm-muted);\n        font-size: 0.82rem;\n        line-height: 1.4;\n        text-align: start;\n      }\n\n\n      .wm-kicker {\n        margin: 0 0 0.75rem;\n        color: var(--wm-mint);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.74rem;\n        font-weight: 700;\n        letter-spacing: 0.16em;\n      }\n\n      .wm-title {\n        margin: 0;\n        max-width: 12ch;\n        color: var(--wm-text);\n        font-size: clamp(3rem, 6.8vw, 5.9rem);\n        line-height: 0.94;\n        letter-spacing: -0.065em;\n      }\n\n      .wm-subtitle {\n        max-width: 27ch;\n        margin-block: 1.25rem 1rem;\n        color: var(--wm-text);\n        font-size: clamp(1.25rem, 2.3vw, 2rem);\n        font-weight: 620;\n        line-height: 1.2;\n        letter-spacing: -0.025em;\n      }\n\n      .wm-paper,\n      .wm-body {\n        max-width: 64ch;\n        color: var(--wm-muted);\n        font-size: clamp(1rem, 1.45vw, 1.16rem);\n        line-height: 1.62;\n      }\n\n      .wm-paper {\n        padding-inline-start: 0.9rem;\n        border-inline-start: 3px solid var(--wm-gold);\n      }\n\n      .wm-paper a,\n      .wm-inline-link {\n        color: var(--wm-text);\n        text-decoration-color: var(--wm-gold);\n        text-decoration-thickness: 2px;\n        text-underline-offset: 0.22em;\n      }\n\n      .wm-dev {\n        display: block;\n        width: fit-content;\n        margin-block: 0.5rem 1.5rem;\n        padding-block-start: 0.55rem;\n        border-block-start: 1px solid var(--wm-gold);\n        color: var(--wm-muted);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.72rem;\n        letter-spacing: 0.04em;\n        line-height: 1.35;\n      }\n\n      .wm-section {\n        margin-block: clamp(2.75rem, 5vw, 4.75rem);\n        scroll-margin-top: 2rem;\n      }\n\n      .wm-section h2 {\n        margin: 0 0 1rem;\n        color: var(--wm-text);\n        font-size: clamp(2rem, 4vw, 3.7rem);\n        line-height: 1;\n        letter-spacing: -0.045em;\n      }\n\n      .wm-takeaway {\n        margin-block-start: 1.25rem;\n        padding: 0.85rem 0 0.15rem 1rem;\n        border-inline-start: 2px solid var(--wm-mint);\n        background: transparent;\n        color: var(--wm-text);\n        font-size: clamp(1.02rem, 1.7vw, 1.28rem);\n        font-weight: 650;\n        line-height: 1.45;\n      }\n\n      .wm-control-note {\n        margin-block-start: 0.6rem;\n        color: var(--wm-muted);\n        font-size: 0.92rem;\n        line-height: 1.45;\n      }\n\n      .wm-scope {\n        margin-block-start: 1rem;\n        padding: 0.2rem 0 0.2rem 0.85rem;\n        border-inline-start: 1px solid var(--wm-coral);\n        color: var(--wm-muted);\n        font-size: 0.9rem;\n        line-height: 1.5;\n      }\n\n      .wm-receipt {\n        display: grid;\n        grid-template-columns: repeat(4, minmax(0, 1fr));\n        gap: 0.7rem;\n        margin-block-start: 1.1rem;\n      }\n\n      .wm-receipt > div {\n        min-width: 0;\n        padding-block: 0.65rem;\n        border-block-start: 2px solid var(--wm-panel-2);\n      }\n\n      .wm-receipt dt {\n        color: var(--wm-muted);\n        font-size: 0.76rem;\n        line-height: 1.25;\n      }\n\n      .wm-receipt dd {\n        margin: 0.3rem 0 0;\n        overflow-wrap: anywhere;\n        color: var(--wm-text);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.9rem;\n      }\n\n      .wm-evidence {\n        margin-block-start: 1.4rem;\n      }\n\n      .wm-evidence > svg {\n        display: block;\n        width: 100%;\n        max-width: 100%;\n        height: auto;\n      }\n\n      .wm-duality {\n        display: grid;\n        grid-template-columns: repeat(2, minmax(0, 1fr));\n        gap: 1rem;\n        margin-block: 1.25rem;\n      }\n\n      .wm-duality > div {\n        min-width: 0;\n        padding-inline-start: 1rem;\n        border-inline-start: 3px solid var(--wm-cyan);\n      }\n\n      .wm-duality > div:last-child {\n        border-inline-start-color: var(--wm-gold);\n      }\n\n      .wm-duality strong {\n        display: block;\n        color: var(--wm-text);\n        font-size: clamp(1.5rem, 3vw, 2.5rem);\n        line-height: 1;\n      }\n\n      .wm-duality span {\n        display: block;\n        margin-block-start: 0.45rem;\n        color: var(--wm-muted);\n        line-height: 1.35;\n      }\n\n      .wm-equation {\n        display: block;\n        max-width: 100%;\n        margin-block: 1.15rem;\n        padding: 0.85rem 0;\n        overflow-wrap: anywhere;\n        border-block: 1px solid var(--wm-rule);\n        background: transparent;\n        color: var(--wm-text);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: clamp(0.84rem, 1.4vw, 1.05rem);\n        line-height: 1.6;\n      }\n\n      :where(a, button, input, select, textarea, [tabindex]):focus-visible {\n        outline: 3px solid var(--wm-gold) !important;\n        outline-offset: 4px !important;\n      }\n\n      .wm-source-links {\n        display: grid;\n        gap: 0.7rem;\n        padding: 0;\n        list-style: none;\n      }\n\n      .wm-source-links a {\n        color: var(--wm-cyan);\n        text-underline-offset: 0.2em;\n      }\n\n      .wm-route {\n        display: flex;\n        flex-wrap: wrap;\n        align-items: baseline;\n        gap: 0.55rem 0.8rem;\n        margin-block: 1.4rem 0.25rem;\n        padding-block: 0.8rem;\n        border-block: 1px solid var(--wm-rule);\n        font-size: 0.86rem;\n        line-height: 1.45;\n      }\n\n      .wm-route-label {\n        color: var(--wm-muted);\n        font-family: \"SFMono-Regular\", Consolas, ui-monospace, monospace;\n        font-size: 0.72rem;\n        font-weight: 700;\n        letter-spacing: 0.12em;\n      }\n\n      .wm-route a {\n        color: var(--wm-text);\n        font-weight: 650;\n        text-decoration-color: var(--wm-gold);\n        text-underline-offset: 0.2em;\n      }\n\n      .wm-route-separator {\n        color: var(--wm-muted);\n      }\n\n      @media (max-width: 900px) {\n        .wm-shell {\n          padding-inline: clamp(0.9rem, 4vw, 1.5rem);\n        }\n\n        .wm-hero-grid,\n        .wm-scene-grid {\n          grid-template-columns: minmax(0, 1fr);\n          gap: 1.2rem;\n        }\n\n        .wm-title {\n          max-width: 10ch;\n          font-size: clamp(2.9rem, 15vw, 5rem);\n        }\n\n        .wm-subtitle {\n          max-width: 31ch;\n        }\n\n        .wm-visual {\n          width: min(100%, 35rem);\n          margin-inline: auto;\n        }\n\n        .wm-section {\n          margin-block: 3.25rem;\n        }\n\n        .wm-receipt {\n          grid-template-columns: repeat(2, minmax(0, 1fr));\n        }\n\n        .wm-duality {\n          grid-template-columns: minmax(0, 1fr);\n        }\n\n        .wm-proposal-table {\n          font-size: clamp(0.66rem, 2.7vw, 0.82rem);\n        }\n\n        .wm-proposal-table th,\n        .wm-proposal-table td {\n          padding-inline: 0.18rem;\n        }\n      }\n\n      @media (max-width: 430px) {\n        .wm-receipt {\n          grid-template-columns: minmax(0, 1fr);\n        }\n\n        .wm-section h2 {\n          font-size: clamp(2rem, 12vw, 3.1rem);\n        }\n      }\n\n      @media (prefers-contrast: more) {\n        :root {\n          --wm-muted: var(--wm-text) !important;\n          --wm-panel-2: var(--wm-text) !important;\n          --wm-rule: var(--wm-text) !important;\n        }\n      }\n\n      @media (forced-colors: active) {\n        .wm-kicker,\n        .wm-dev,\n        .wm-paper,\n        .wm-takeaway,\n        .wm-scope {\n          border-color: CanvasText;\n          color: CanvasText;\n        }\n      }\n\n      @media (prefers-reduced-motion: reduce) {\n        *, *::before, *::after {\n          scroll-behavior: auto !important;\n          animation-duration: 0.001ms !important;\n          animation-iteration-count: 1 !important;\n          transition-duration: 0.001ms !important;\n        }\n      }\n    </style>\n    "
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "5be4aa458121a3ce02f56453a2bed857",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "\n    <style data-wm-explicit-appearance=\"light\"\n           data-wm-color-encoding=\"semantic\"\n           data-wm-motion=\"focus\">\n      :root {\n        \n        color-scheme: light;\n        --wm-bg: #f7f7f3;\n        --wm-panel: #ffffff;\n        --wm-panel-2: #cbd2d8;\n        --wm-text: #17191c;\n        --wm-muted: #4f5963;\n        --wm-cyan: #006f8a;\n        --wm-gold: #8a5a00;\n        --wm-coral: #b73a37;\n        --wm-mint: #527a00;\n        --wm-violet: #5d4a9e;\n        --wm-dark-ink: #101214;\n    \n        \n        --wm-animation-state: paused;\n        --wm-interaction-animation-state: running;\n        --wm-rule: color-mix(in srgb, var(--wm-muted) 26%, transparent);\n      }\n      \n    </style>\n"
           }
         }
       ],
