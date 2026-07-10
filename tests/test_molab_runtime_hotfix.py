@@ -73,7 +73,18 @@ def _bootstrap_namespace() -> dict[str, object]:
             for decorator in node.decorator_list
         )
     ]
-    bootstrap_cell = app_cells[1]
+    bootstrap_cell = next(
+        cell
+        for cell in app_cells
+        if any(
+            isinstance(statement, ast.Assign)
+            and any(
+                isinstance(target, ast.Name) and target.id == "BUNDLE_URL"
+                for target in statement.targets
+            )
+            for statement in cell.body
+        )
+    )
     selected_body: list[ast.stmt] = []
     for statement in bootstrap_cell.body:
         if isinstance(statement, ast.Assign):

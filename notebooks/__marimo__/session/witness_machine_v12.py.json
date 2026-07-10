@@ -7,32 +7,6 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "MJUe",
-      "code_hash": "c6b4f6de5b60cb0d5c812c6273eb5482",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "vblA",
       "code_hash": "25ab2d4b7190413f26fa16af5ab9eb50",
       "outputs": [
         {
@@ -45,59 +19,7 @@
       "console": []
     },
     {
-      "id": "bkHC",
-      "code_hash": "be27e854a6fcf4305872d39bddbc1d2a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "lEQa",
-      "code_hash": "ff82bd50a618acf828f468fc2088c15a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "PKri",
-      "code_hash": "3612df69e626468ba6e8a9c7b68d4685",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "Xref",
-      "code_hash": "6964972731868bed057ea6b74d53118b",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "SFPL",
+      "id": "MJUe",
       "code_hash": "5be4aa458121a3ce02f56453a2bed857",
       "outputs": [
         {
@@ -110,137 +32,33 @@
       "console": []
     },
     {
-      "id": "BYtC",
-      "code_hash": "41389cc437a0965096f98ce5b3feffd3",
+      "id": "vblA",
+      "code_hash": "6fb8ad88b7982a722cbc3c501c51d1df",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/html": "\n    <header class=\"wm-shell\" lang=\"en-US\" aria-label=\"The Witness Machine interactive notebook opening\">\n      <section class=\"wm-hero-grid\" aria-labelledby=\"wm-main-title\">\n        <div class=\"wm-copy\">\n          <p class=\"wm-dev\">Interactive paper implementation \u00b7 move the mathematics, inspect the evidence</p>\n          <p class=\"wm-kicker\">COMPRESSION FOR A FROZEN MACHINE</p>\n          <h1 class=\"wm-title\" id=\"wm-main-title\">The Witness Machine</h1>\n          <p class=\"wm-subtitle\">What is the smallest video that makes a frozen driving machine reach the same decision?</p>\n          <p class=\"wm-paper\">\n            Interactive implementation and extension of\n            <a href=\"https://www.alphaxiv.org/abs/2203.14481\" target=\"_blank\" rel=\"noreferrer\">\n              <strong>DNN-Driven Compressive Offloading for Edge-Assisted Semantic Video Segmentation</strong>\n            </a>.\n          </p>\n          <p class=\"wm-body\">STAC asks where compression hurts. The Witness Machine asks which compact geometric coordinate should carry that debt. This challenge preserves a semantic partition, a two-frame motion signal, and a counted archive\u2014not every pixel uniformly. Move one control and watch the representation follow the receiver.</p>\n          <div class=\"wm-duality\" aria-label=\"Headline measured result\">\n            <div><strong>2.7%</strong><span>of pixels are decision boundary</span></div>\n            <div><strong>99.9%</strong><span>of the sensitivity mass sits there</span></div>\n          </div>\n          <p class=\"wm-scope\">Headline result, measured on one locked real comma.ai pair through the frozen SegNet \u00b7 [macOS-CPU advisory]</p>\n        </div>\n        <div class=\"wm-visual\"><svg viewBox=\"0 0 640 560\" width=\"100%\" role=\"img\" tabindex=\"0\"\n  aria-labelledby=\"wm12-hero-main-title wm12-hero-main-desc\" preserveAspectRatio=\"xMidYMid meet\"\n  data-v12-visual=\"task-witness-hero\"\n  style=\"display:block;width:100%;max-width:100%;height:auto;overflow:visible\">\n  <title id=\"wm12-hero-main-title\">The Witness Machine</title>\n  <desc id=\"wm12-hero-main-desc\">A source driving frame passes through frozen perception. A compact witness keeps task evidence where the frozen receiver is sensitive\u2014on and away from decision boundaries\u2014instead of copying every pixel uniformly.</desc>\n  <style>\n    .wm12-hero-main-bg { fill: var(--wm-bg, #F7F7F3); }\n    .wm12-hero-main-panel { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-hero-main-panel-alt { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-hero-main-text { fill: var(--wm-text, #17191C); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-hero-main-muted { fill: var(--wm-muted, #4F5963); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-hero-main-title { font-size: 34px; font-weight: 720; letter-spacing: -0.6px; }\n    .wm12-hero-main-label { font-size: 22px; font-weight: 680; }\n    .wm12-hero-main-small { font-size: 17px; font-weight: 560; }\n    .wm12-hero-main-math { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }\n    .wm12-hero-main-line { fill: none; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }\n    .wm12-hero-main-flow { stroke-dasharray: 8 10; animation: wm12-hero-main-flow 8s linear infinite; animation-play-state: var(--wm-animation-state, paused); }\n    .wm12-hero-main-pulse { transform-box: fill-box; transform-origin: center; animation: wm12-hero-main-pulse 3.2s ease-in-out infinite; animation-play-state: var(--wm-animation-state, paused); }\n    svg:hover .wm12-hero-main-flow, svg:focus .wm12-hero-main-flow,\n    svg:hover .wm12-hero-main-pulse, svg:focus .wm12-hero-main-pulse {\n      animation-play-state: var(--wm-interaction-animation-state, running);\n    }\n    @keyframes wm12-hero-main-flow { to { stroke-dashoffset: -72; } }\n    @keyframes wm12-hero-main-pulse { 0%, 100% { opacity: .62; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .wm12-hero-main-flow, .wm12-hero-main-pulse { animation: none !important; }\n    }\n    </style>\n  <defs>\n    <marker id=\"wm12-hero-main-arrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\"\n      markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--wm-cyan, #006F8A)\"/>\n    </marker>\n  </defs>\n  <rect class=\"wm12-hero-main-bg\" width=\"640\" height=\"560\"/>\n\n  <g aria-hidden=\"true\">\n    <rect x=\"36\" y=\"56\" width=\"244\" height=\"304\" rx=\"4\" fill=\"var(--wm-panel, #FFFFFF)\"\n      stroke=\"var(--wm-panel-2, #CBD2D8)\" stroke-width=\"2\"/>\n    <path d=\"M36 238 L122 166 L188 207 L280 132 L280 360 L36 360Z\" fill=\"#122B37\"/>\n    <path d=\"M36 360 L128 212 L194 212 L280 360Z\" fill=\"#233B50\"/>\n    <path class=\"wm12-hero-main-line\" d=\"M95 360 Q151 271 161 214 M224 360 Q193 270 161 214\"\n      stroke=\"var(--wm-gold, #8A5A00)\" stroke-width=\"3\" stroke-dasharray=\"12 12\"/>\n    <rect x=\"106\" y=\"271\" width=\"48\" height=\"29\" rx=\"2\" fill=\"var(--wm-coral, #B73A37)\"/>\n    <circle cx=\"116\" cy=\"302\" r=\"5\" fill=\"var(--wm-dark-ink, #101214)\"/>\n    <circle cx=\"144\" cy=\"302\" r=\"5\" fill=\"var(--wm-dark-ink, #101214)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-label\" x=\"52\" y=\"122\">source video</text>\n    <text class=\"wm12-hero-main-muted wm12-hero-main-small\" x=\"52\" y=\"342\">many pixels</text>\n\n    <path class=\"wm12-hero-main-line wm12-hero-main-flow\" d=\"M288 224 L347 224\" stroke=\"var(--wm-cyan, #006F8A)\"\n      stroke-width=\"4\" marker-end=\"url(#wm12-hero-main-arrow)\"/>\n    <circle cx=\"380\" cy=\"224\" r=\"48\" fill=\"var(--wm-panel-2, #CBD2D8)\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\"/>\n    <circle class=\"wm12-hero-main-pulse\" cx=\"380\" cy=\"224\" r=\"24\" fill=\"none\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\"/>\n    <circle cx=\"380\" cy=\"224\" r=\"7\" fill=\"var(--wm-gold, #8A5A00)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-small\" x=\"380\" y=\"294\" text-anchor=\"middle\">frozen perception</text>\n\n    <path class=\"wm12-hero-main-line wm12-hero-main-flow\" d=\"M431 224 L474 224\" stroke=\"var(--wm-cyan, #006F8A)\"\n      stroke-width=\"4\" marker-end=\"url(#wm12-hero-main-arrow)\"/>\n    <rect class=\"wm12-hero-main-panel\" x=\"490\" y=\"126\" width=\"114\" height=\"196\" rx=\"4\"/>\n    <path d=\"M504 286 Q526 238 548 245 Q573 251 590 174\" fill=\"none\" stroke=\"var(--wm-gold, #8A5A00)\"\n      stroke-width=\"11\" opacity=\".25\"/>\n    <path class=\"wm12-hero-main-line\" d=\"M504 286 Q526 238 548 245 Q573 251 590 174\" stroke=\"var(--wm-gold, #8A5A00)\" stroke-width=\"3\"/>\n    <circle cx=\"526\" cy=\"238\" r=\"5\" fill=\"var(--wm-coral, #B73A37)\"/>\n    <circle cx=\"573\" cy=\"235\" r=\"5\" fill=\"var(--wm-mint, #527A00)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-small\" x=\"547\" y=\"350\" text-anchor=\"middle\">compact witness</text>\n  </g>\n\n  <g transform=\"translate(36 396)\">\n    <rect class=\"wm12-hero-main-panel\" width=\"568\" height=\"126\" rx=\"4\"/>\n    <circle cx=\"36\" cy=\"40\" r=\"8\" fill=\"var(--wm-gold, #8A5A00)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-label\" x=\"58\" y=\"48\">decision boundary</text>\n    <text class=\"wm12-hero-main-muted wm12-hero-main-small\" x=\"28\" y=\"83\">Preserve the evidence the judge consumes.</text>\n    <text class=\"wm12-hero-main-text wm12-hero-main-small\" x=\"540\" y=\"104\" text-anchor=\"end\" fill=\"var(--wm-mint, #527A00)\">task evidence</text>\n  </g>\n</svg></div>\n      </section>\n    </header>\n    "
           }
         }
       ],
       "console": []
     },
     {
-      "id": "RGSE",
-      "code_hash": "b2be04dc4d7f24816f4d9df6e1204150",
+      "id": "bkHC",
+      "code_hash": "78df666cbd7ebe7b4726d4374caa07ab",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/html": "\n    <nav class=\"wm-shell wm-route\" lang=\"en-US\"\n         aria-label=\"Five-minute judge path\">\n      <span class=\"wm-route-label\">5-MINUTE PATH</span>\n      <a href=\"#wm-real-heading\">real evidence</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-paper-experiment\">paper experiment</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-wall-experiment\">move the wall</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-gpu-experiment\">stress the proxy</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-close-heading\">conclusion</a>\n    </nav>\n    "
           }
         }
       ],
       "console": []
     },
     {
-      "id": "Kclp",
-      "code_hash": "21e61915e671ae70c2e7f94e8162d09a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n    <header class=\"wm-shell\" lang=\"en-US\" aria-label=\"The Witness Machine interactive notebook opening\">\n      <section class=\"wm-hero-grid\" aria-labelledby=\"wm-main-title\">\n        <div class=\"wm-copy\">\n          <p class=\"wm-dev\">Interactive paper implementation \u00b7 move the mathematics, inspect the evidence</p>\n          <p class=\"wm-kicker\">COMPRESSION FOR A FROZEN MACHINE</p>\n          <h1 class=\"wm-title\" id=\"wm-main-title\">The Witness Machine</h1>\n          <p class=\"wm-subtitle\">What is the smallest video that makes a frozen driving machine reach the same decision?</p>\n          <p class=\"wm-paper\">\n            Interactive implementation and extension of\n            <a href=\"https://www.alphaxiv.org/abs/2203.14481\" target=\"_blank\" rel=\"noreferrer\">\n              <strong>DNN-Driven Compressive Offloading for Edge-Assisted Semantic Video Segmentation</strong>\n            </a>.\n          </p>\n          <p class=\"wm-body\">STAC asks where compression hurts. The Witness Machine asks which compact geometric coordinate should carry that debt. This challenge preserves a semantic partition, a two-frame motion signal, and a counted archive\u2014not every pixel uniformly. Move one control and watch the representation follow the receiver.</p>\n        </div>\n        <div class=\"wm-visual\"><svg viewBox=\"0 0 640 560\" width=\"100%\" role=\"img\" tabindex=\"0\"\n  aria-labelledby=\"wm12-hero-main-title wm12-hero-main-desc\" preserveAspectRatio=\"xMidYMid meet\"\n  data-v12-visual=\"task-witness-hero\"\n  style=\"display:block;width:100%;max-width:100%;height:auto;overflow:visible\">\n  <title id=\"wm12-hero-main-title\">The Witness Machine</title>\n  <desc id=\"wm12-hero-main-desc\">A source driving frame passes through frozen perception. A compact witness keeps task evidence where the frozen receiver is sensitive\u2014on and away from decision boundaries\u2014instead of copying every pixel uniformly.</desc>\n  <style>\n    .wm12-hero-main-bg { fill: var(--wm-bg, #F7F7F3); }\n    .wm12-hero-main-panel { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-hero-main-panel-alt { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-hero-main-text { fill: var(--wm-text, #17191C); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-hero-main-muted { fill: var(--wm-muted, #4F5963); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-hero-main-title { font-size: 34px; font-weight: 720; letter-spacing: -0.6px; }\n    .wm12-hero-main-label { font-size: 22px; font-weight: 680; }\n    .wm12-hero-main-small { font-size: 17px; font-weight: 560; }\n    .wm12-hero-main-math { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }\n    .wm12-hero-main-line { fill: none; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }\n    .wm12-hero-main-flow { stroke-dasharray: 8 10; animation: wm12-hero-main-flow 8s linear infinite; animation-play-state: var(--wm-animation-state, paused); }\n    .wm12-hero-main-pulse { transform-box: fill-box; transform-origin: center; animation: wm12-hero-main-pulse 3.2s ease-in-out infinite; animation-play-state: var(--wm-animation-state, paused); }\n    svg:hover .wm12-hero-main-flow, svg:focus .wm12-hero-main-flow,\n    svg:hover .wm12-hero-main-pulse, svg:focus .wm12-hero-main-pulse {\n      animation-play-state: var(--wm-interaction-animation-state, running);\n    }\n    @keyframes wm12-hero-main-flow { to { stroke-dashoffset: -72; } }\n    @keyframes wm12-hero-main-pulse { 0%, 100% { opacity: .62; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .wm12-hero-main-flow, .wm12-hero-main-pulse { animation: none !important; }\n    }\n    </style>\n  <defs>\n    <marker id=\"wm12-hero-main-arrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\"\n      markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--wm-cyan, #006F8A)\"/>\n    </marker>\n  </defs>\n  <rect class=\"wm12-hero-main-bg\" width=\"640\" height=\"560\"/>\n\n  <g aria-hidden=\"true\">\n    <rect x=\"36\" y=\"56\" width=\"244\" height=\"304\" rx=\"4\" fill=\"var(--wm-panel, #FFFFFF)\"\n      stroke=\"var(--wm-panel-2, #CBD2D8)\" stroke-width=\"2\"/>\n    <path d=\"M36 238 L122 166 L188 207 L280 132 L280 360 L36 360Z\" fill=\"#122B37\"/>\n    <path d=\"M36 360 L128 212 L194 212 L280 360Z\" fill=\"#233B50\"/>\n    <path class=\"wm12-hero-main-line\" d=\"M95 360 Q151 271 161 214 M224 360 Q193 270 161 214\"\n      stroke=\"var(--wm-gold, #8A5A00)\" stroke-width=\"3\" stroke-dasharray=\"12 12\"/>\n    <rect x=\"106\" y=\"271\" width=\"48\" height=\"29\" rx=\"2\" fill=\"var(--wm-coral, #B73A37)\"/>\n    <circle cx=\"116\" cy=\"302\" r=\"5\" fill=\"var(--wm-dark-ink, #101214)\"/>\n    <circle cx=\"144\" cy=\"302\" r=\"5\" fill=\"var(--wm-dark-ink, #101214)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-label\" x=\"52\" y=\"122\">source video</text>\n    <text class=\"wm12-hero-main-muted wm12-hero-main-small\" x=\"52\" y=\"342\">many pixels</text>\n\n    <path class=\"wm12-hero-main-line wm12-hero-main-flow\" d=\"M288 224 L347 224\" stroke=\"var(--wm-cyan, #006F8A)\"\n      stroke-width=\"4\" marker-end=\"url(#wm12-hero-main-arrow)\"/>\n    <circle cx=\"380\" cy=\"224\" r=\"48\" fill=\"var(--wm-panel-2, #CBD2D8)\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\"/>\n    <circle class=\"wm12-hero-main-pulse\" cx=\"380\" cy=\"224\" r=\"24\" fill=\"none\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\"/>\n    <circle cx=\"380\" cy=\"224\" r=\"7\" fill=\"var(--wm-gold, #8A5A00)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-small\" x=\"380\" y=\"294\" text-anchor=\"middle\">frozen perception</text>\n\n    <path class=\"wm12-hero-main-line wm12-hero-main-flow\" d=\"M431 224 L474 224\" stroke=\"var(--wm-cyan, #006F8A)\"\n      stroke-width=\"4\" marker-end=\"url(#wm12-hero-main-arrow)\"/>\n    <rect class=\"wm12-hero-main-panel\" x=\"490\" y=\"126\" width=\"114\" height=\"196\" rx=\"4\"/>\n    <path d=\"M504 286 Q526 238 548 245 Q573 251 590 174\" fill=\"none\" stroke=\"var(--wm-gold, #8A5A00)\"\n      stroke-width=\"11\" opacity=\".25\"/>\n    <path class=\"wm12-hero-main-line\" d=\"M504 286 Q526 238 548 245 Q573 251 590 174\" stroke=\"var(--wm-gold, #8A5A00)\" stroke-width=\"3\"/>\n    <circle cx=\"526\" cy=\"238\" r=\"5\" fill=\"var(--wm-coral, #B73A37)\"/>\n    <circle cx=\"573\" cy=\"235\" r=\"5\" fill=\"var(--wm-mint, #527A00)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-small\" x=\"547\" y=\"350\" text-anchor=\"middle\">compact witness</text>\n  </g>\n\n  <g transform=\"translate(36 396)\">\n    <rect class=\"wm12-hero-main-panel\" width=\"568\" height=\"126\" rx=\"4\"/>\n    <circle cx=\"36\" cy=\"40\" r=\"8\" fill=\"var(--wm-gold, #8A5A00)\"/>\n    <text class=\"wm12-hero-main-text wm12-hero-main-label\" x=\"58\" y=\"48\">decision boundary</text>\n    <text class=\"wm12-hero-main-muted wm12-hero-main-small\" x=\"28\" y=\"83\">Preserve the evidence the judge consumes.</text>\n    <text class=\"wm12-hero-main-text wm12-hero-main-small\" x=\"540\" y=\"104\" text-anchor=\"end\" fill=\"var(--wm-mint, #527A00)\">task evidence</text>\n  </g>\n</svg></div>\n      </section>\n    </header>\n    "
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "emfo",
-      "code_hash": "43c682ea2e171afdcf66b4272202213e",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n    <nav class=\"wm-shell wm-route\" lang=\"en-US\"\n         aria-label=\"Five-minute judge path\">\n      <span class=\"wm-route-label\">5-MINUTE PATH</span>\n      <a href=\"#wm-paper-experiment\">paper experiment</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-real-heading\">real evidence</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-wall-experiment\">move the wall</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-gpu-experiment\">stress the proxy</a><span class=\"wm-route-separator\" aria-hidden=\"true\">\u2192</span><a href=\"#wm-close-heading\">conclusion</a>\n    </nav>\n    "
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "Hstk",
-      "code_hash": "4a44e77455588f5ed94f21cfe7979691",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.55rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='bkHC-0' random-id='6fe31498-5aff-cbda-2f07-83a13986e0a4'><marimo-dropdown data-initial-value='[&quot;English&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLanguage / Idioma&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;English&quot;,&quot;Espa\u00f1ol&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><marimo-ui-element object-id='RGSE-0' random-id='536d6c0b-8885-1488-f0fe-52e8a44ab529'><marimo-slider data-initial-value='12.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAllowed first-order loss budget B&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='4.0' data-stop='32.0' data-step='1.0' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>The paper controller spends this declared local budget across coefficients. Larger B permits coarser regional tables; it is not a measured task loss or score.</p><p class='wm-takeaway'>[TOY][DERIVATION] START HERE \u00b7 Move B. One reactive state recomputes the receiver balance, the paper-controller table allocation, and the final carrier bids. Follow the same pressure from equation to witness.</p><marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eDisplay &amp;amp; accessibility / Pantalla y accesibilidad&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.45rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 1.0rem'><marimo-ui-element object-id='lEQa-0' random-id='bd6bf5f5-e211-7404-f365-d78bc005d776'><marimo-dropdown data-initial-value='[&quot;Light \u00b7 Claro&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance / Apariencia&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Light \u00b7 Claro&quot;,&quot;Dark \u00b7 Oscuro&quot;,&quot;Auto&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='PKri-0' random-id='c63057f1-9ecc-cd3f-cc4e-670178028983'><marimo-dropdown data-initial-value='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eColor encoding / Codificaci\u00f3n&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;,&quot;Color-vision safe \u00b7 Visi\u00f3n crom\u00e1tica&quot;,&quot;Monochrome \u00b7 Monocromo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='Xref-0' random-id='455a4fb9-9fbf-c032-fbc3-ecfd9d00e80c'><marimo-dropdown data-initial-value='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMotion / Movimiento&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;,&quot;Still \u00b7 Est\u00e1tico&quot;,&quot;Continuous \u00b7 Continuo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><p class='wm-control-note'>Light, dark, color-vision-safe, monochrome, and motion preferences change presentation only; the computed geometry is invariant.</p></div></div></marimo-accordion></div>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "nWHF",
-      "code_hash": "dc2ee02550a16eda4375619feee4b2f7",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n    <section class=\"wm-shell wm-section\" lang=\"en-US\" aria-labelledby=\"wm-score-heading\">\n      <div class=\"wm-scene-grid\">\n        <div class=\"wm-copy\">\n          <p class=\"wm-kicker\">01 \u00b7 FROZEN RECEIVER</p>\n          <h2 id=\"wm-score-heading\">One receiver, three debts</h2>\n          <p class=\"wm-body\">Segmentation disagreement is linear, pose disagreement enters through a square root, and every archive byte pays rate. The equation is official; the dial is an explorable design question, not a candidate result.</p>\n          <p class=\"wm-takeaway\" aria-live=\"polite\">A byte has value only through the decision it protects.</p>\n        </div>\n        <div class=\"wm-visual\"><svg viewBox=\"0 0 640 500\" width=\"100%\" role=\"img\" tabindex=\"0\"\n  aria-labelledby=\"wm12-score-main-title wm12-score-main-desc\" preserveAspectRatio=\"xMidYMid meet\"\n  data-v12-visual=\"score-law-balance\"\n  style=\"display:block;width:100%;max-width:100%;height:auto;overflow:visible\">\n  <title id=\"wm12-score-main-title\">Three debts, one score</title>\n  <desc id=\"wm12-score-main-desc\">The official objective combines segmentation distance, pose distance, and archive rate. The dial is conceptual and reports no evaluation result.</desc>\n  <style>\n    .wm12-score-main-bg { fill: var(--wm-bg, #F7F7F3); }\n    .wm12-score-main-panel { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-score-main-panel-alt { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-score-main-text { fill: var(--wm-text, #17191C); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-score-main-muted { fill: var(--wm-muted, #4F5963); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-score-main-title { font-size: 34px; font-weight: 720; letter-spacing: -0.6px; }\n    .wm12-score-main-label { font-size: 22px; font-weight: 680; }\n    .wm12-score-main-small { font-size: 17px; font-weight: 560; }\n    .wm12-score-main-math { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }\n    .wm12-score-main-line { fill: none; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }\n    .wm12-score-main-flow { stroke-dasharray: 8 10; animation: wm12-score-main-flow 8s linear infinite; animation-play-state: var(--wm-animation-state, paused); }\n    .wm12-score-main-pulse { transform-box: fill-box; transform-origin: center; animation: wm12-score-main-pulse 3.2s ease-in-out infinite; animation-play-state: var(--wm-animation-state, paused); }\n    svg:hover .wm12-score-main-flow, svg:focus .wm12-score-main-flow,\n    svg:hover .wm12-score-main-pulse, svg:focus .wm12-score-main-pulse {\n      animation-play-state: var(--wm-interaction-animation-state, running);\n    }\n    @keyframes wm12-score-main-flow { to { stroke-dashoffset: -72; } }\n    @keyframes wm12-score-main-pulse { 0%, 100% { opacity: .62; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .wm12-score-main-flow, .wm12-score-main-pulse { animation: none !important; }\n    }\n    </style>\n  <rect class=\"wm12-score-main-bg\" width=\"640\" height=\"500\"/>\n\n  <g transform=\"translate(36 56)\">\n    <rect class=\"wm12-score-main-panel\" width=\"568\" height=\"146\" rx=\"4\"/>\n    <text class=\"wm12-score-main-text wm12-score-main-label wm12-score-main-math\" x=\"284\" y=\"54\" text-anchor=\"middle\">\n      S = 100 d<tspan baseline-shift=\"sub\" font-size=\"15\">seg</tspan> + \u221a(10 d<tspan baseline-shift=\"sub\" font-size=\"15\">pose</tspan>) + 25 r\n    </text>\n    <g transform=\"translate(30 92)\">\n      <circle cx=\"8\" cy=\"0\" r=\"7\" fill=\"var(--wm-cyan, #006F8A)\"/><text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"24\" y=\"6\">segmentation</text>\n      <circle cx=\"196\" cy=\"0\" r=\"7\" fill=\"var(--wm-mint, #527A00)\"/><text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"212\" y=\"6\">pose</text>\n      <circle cx=\"374\" cy=\"0\" r=\"7\" fill=\"var(--wm-gold, #8A5A00)\"/><text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"390\" y=\"6\">archive rate</text>\n    </g>\n  </g>\n\n  <g transform=\"translate(320 345)\" aria-hidden=\"true\">\n    <path class=\"wm12-score-main-line\" d=\"M-188 46 A194 194 0 0 1 188 46\" stroke=\"var(--wm-panel-2, #CBD2D8)\" stroke-width=\"22\"/>\n    <path class=\"wm12-score-main-line\" d=\"M-188 46 A194 194 0 0 1 0 -149\" stroke=\"var(--wm-gold, #8A5A00)\" stroke-width=\"10\"/>\n    <path class=\"wm12-score-main-line\" d=\"M0 -149 A194 194 0 0 1 188 46\" stroke=\"var(--wm-mint, #527A00)\" stroke-width=\"10\"/>\n    <g transform=\"rotate(-64.286)\">\n      <path d=\"M0 12 L-7 -116 Q0 -135 7 -116Z\" fill=\"var(--wm-text, #17191C)\"/>\n    </g>\n    <circle r=\"18\" fill=\"var(--wm-cyan, #006F8A)\"/><circle r=\"7\" fill=\"var(--wm-dark-ink, #101214)\"/>\n  </g>\n  <text class=\"wm12-score-main-text wm12-score-main-small\" x=\"108\" y=\"423\" text-anchor=\"middle\">fewer bytes</text>\n  <text class=\"wm12-score-main-text wm12-score-main-small\" x=\"532\" y=\"423\" text-anchor=\"middle\">task evidence</text>\n  <text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"320\" y=\"456\" text-anchor=\"middle\">representation balance</text>\n  <text class=\"wm12-score-main-text wm12-score-main-small\" x=\"320\" y=\"482\" text-anchor=\"middle\">Move bytes toward evidence that changes the frozen judge.</text>\n</svg></div>\n      </div>\n    </section>\n    "
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "iLit",
-      "code_hash": "019a3ab0df3070960f73ff860f030d45",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.35rem'><span id=\"wm-paper-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='iLit-0' random-id='a723180d-d27d-b531-de46-fe5d05b79431'><marimo-slider data-initial-value='4.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eOutline precision ratio \u03c1&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='1.0' data-stop='8.0' data-step='0.25' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>At \u03c1=1 the outline-only policy is uniform. Larger \u03c1 spends more of the same declared precision proxy on the semantic outline and less away from it.</p><p class='wm-scope'>[TOY][DERIVATION] Try \u03c1=1, then \u03c1=8. At matched \u03a31/q, does outline-only still beat uniform?</p></div>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ZHCJ",
-      "code_hash": "aa41cca754a59bca85f4bbe729021957",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ROlb",
-      "code_hash": "fd8cffe800a9ab09943db18ff12dfd5c",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n    <section class=\"wm-shell wm-section\" lang=\"en-US\" aria-labelledby=\"wm-stac-heading\">\n      <div class=\"wm-scene-grid\">\n        <div class=\"wm-copy\">\n          <p class=\"wm-kicker\">02 \u00b7 PAPER CONTROLLER</p>\n          <h2 id=\"wm-stac-heading\">The network, not the outline, sets the price</h2>\n          <p class=\"wm-body\">STAC differentiates a frozen segmentation loss with respect to transform coefficients. Its first-order bound assigns smaller quantization steps where the loss is more sensitive, then approximates that ideal with regional table choices (\u00a7III, Eq. 2 and Algorithm 1; \u00a7IV, Algorithm 2).</p>\n          <code class=\"wm-equation\">\n            \u0394Q<sub>max</sub> = \u03a3 |g<sub>i</sub>| q<sub>i</sub> / 2 \u2264 B<br/>\n            q<sub>i</sub><sup>*</sup> = 2B / (M |g<sub>i</sub>|)\n          </code>\n          <dl class=\"wm-receipt\" aria-live=\"polite\">\n            <div><dt>declared B</dt><dd>12.000</dd></div>\n            <div><dt>realized bound</dt><dd>9.917</dd></div>\n            <div><dt>remaining slack</dt><dd>2.083</dd></div>\n            <div><dt>finite-bank gate</dt><dd>PASS \u00b7 \u2264 B</dd></div>\n          </dl>\n          <p class=\"wm-scope\">This first view is an analytic sensitivity field passed through the implemented STAC allocation kernel. It demonstrates the controller; it is not a SegNet backward pass.</p>\n          <table class=\"wm-proposal-table\">\n            <caption>Matched-effort counterexample: uniform, outline-only, and sensitivity-projected policies</caption>\n            <thead><tr>\n              <th>policy</th>\n              <th>first-order bound</th>\n              <th>matched \u03a31/q</th>\n            </tr></thead>\n            <tbody><tr><td>uniform</td><td>29.0852</td><td>24.00</td></tr><tr><td>outline-only</td><td>33.4061</td><td>24.00</td></tr><tr><td>sensitivity-projected</td><td>25.3568</td><td>24.00</td></tr></tbody>\n          </table>\n          <p class=\"wm-scope\" aria-live=\"polite\">At this field and matched proxy, outline-only loses to uniform.</p>\n          <p class=\"wm-control-note\">TOY \u00b7 same analytic field and matched reciprocal-step precision proxy \u00b7 not JPEG \u00b7 not an evaluated score</p>\n          <p class=\"wm-takeaway\">A boundary is a powerful coordinate, but frozen-network sensitivity can also live away from it. The residual is part of the model, not an embarrassment.</p>\n        </div>\n        <div class=\"wm-visual\"><svg viewBox=\"0 0 640 520\" width=\"100%\" role=\"img\" tabindex=\"0\"\n  aria-labelledby=\"wm12-stac-main-title wm12-stac-main-desc\" preserveAspectRatio=\"xMidYMid meet\"\n  data-v12-visual=\"stac-sensitivity-allocation\"\n  style=\"display:block;width:100%;max-width:100%;height:auto;overflow:visible\">\n  <title id=\"wm12-stac-main-title\">Ask where compression hurts</title>\n  <desc id=\"wm12-stac-main-desc\">A frozen-network sensitivity map drives regional quantization. A highlighted off-boundary hotspot shows why semantic edges are a hypothesis, not a complete oracle.</desc>\n  <style>\n    .wm12-stac-main-bg { fill: var(--wm-bg, #F7F7F3); }\n    .wm12-stac-main-panel { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-stac-main-panel-alt { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-stac-main-text { fill: var(--wm-text, #17191C); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-stac-main-muted { fill: var(--wm-muted, #4F5963); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-stac-main-title { font-size: 34px; font-weight: 720; letter-spacing: -0.6px; }\n    .wm12-stac-main-label { font-size: 22px; font-weight: 680; }\n    .wm12-stac-main-small { font-size: 17px; font-weight: 560; }\n    .wm12-stac-main-math { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }\n    .wm12-stac-main-line { fill: none; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }\n    .wm12-stac-main-flow { stroke-dasharray: 8 10; animation: wm12-stac-main-flow 8s linear infinite; animation-play-state: var(--wm-animation-state, paused); }\n    .wm12-stac-main-pulse { transform-box: fill-box; transform-origin: center; animation: wm12-stac-main-pulse 3.2s ease-in-out infinite; animation-play-state: var(--wm-animation-state, paused); }\n    svg:hover .wm12-stac-main-flow, svg:focus .wm12-stac-main-flow,\n    svg:hover .wm12-stac-main-pulse, svg:focus .wm12-stac-main-pulse {\n      animation-play-state: var(--wm-interaction-animation-state, running);\n    }\n    @keyframes wm12-stac-main-flow { to { stroke-dashoffset: -72; } }\n    @keyframes wm12-stac-main-pulse { 0%, 100% { opacity: .62; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .wm12-stac-main-flow, .wm12-stac-main-pulse { animation: none !important; }\n    }\n    </style>\n  <rect class=\"wm12-stac-main-bg\" width=\"640\" height=\"520\"/>\n  <g data-controller=\"stac-first-order\" aria-hidden=\"true\">\n    <rect class=\"wm12-stac-main-panel\" x=\"34\" y=\"60\" width=\"272\" height=\"356\" rx=\"4\"/>\n    <rect class=\"wm12-stac-main-panel\" x=\"334\" y=\"60\" width=\"272\" height=\"356\" rx=\"4\"/>\n    <text class=\"wm12-stac-main-text wm12-stac-main-small\" x=\"170\" y=\"126\" text-anchor=\"middle\">network sensitivity</text>\n    <text class=\"wm12-stac-main-text wm12-stac-main-small\" x=\"470\" y=\"126\" text-anchor=\"middle\">finer quantization</text>\n    <rect x=\"48.00\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.255198\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.287\"/><rect x=\"75.11\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.682133\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.567\"/><rect x=\"102.22\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.682134\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.567\"/><rect x=\"129.33\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.255226\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.287\"/><rect x=\"156.44\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0956416\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.183\"/><rect x=\"183.56\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0870645\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.177\"/><rect x=\"210.67\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.092205\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.180\"/><rect x=\"237.78\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0882146\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.178\"/><rect x=\"264.89\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0855609\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.176\"/><rect x=\"48.00\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.403471\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.384\"/><rect x=\"75.11\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"1.19086\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.900\"/><rect x=\"102.22\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"1.19109\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.900\"/><rect x=\"129.33\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.407097\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.387\"/><rect x=\"156.44\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.147671\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.217\"/><rect x=\"183.56\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.235574\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.274\"/><rect x=\"210.67\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.30048\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.317\"/><rect x=\"237.78\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.254969\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.287\"/><rect x=\"264.89\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.218388\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.263\"/><rect x=\"48.00\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.178417\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.237\"/><rect x=\"75.11\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.360797\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.356\"/><rect x=\"102.22\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.372028\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.364\"/><rect x=\"129.33\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.269298\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.296\"/><rect x=\"156.44\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.507193\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.452\"/><rect x=\"183.56\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.830918\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.664\"/><rect x=\"210.67\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.915002\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.719\"/><rect x=\"237.78\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.86118\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.684\"/><rect x=\"264.89\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.801881\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.645\"/><rect x=\"48.00\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.381092\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.370\"/><rect x=\"75.11\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.332731\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.338\"/><rect x=\"102.22\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.422645\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.397\"/><rect x=\"129.33\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.748917\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.610\"/><rect x=\"156.44\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"1.0002\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.775\"/><rect x=\"183.56\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.842717\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.672\"/><rect x=\"210.67\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.742873\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.606\"/><rect x=\"237.78\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.811066\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.651\"/><rect x=\"264.89\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.869309\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.689\"/><rect x=\"48.00\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.971704\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.756\"/><rect x=\"75.11\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.93656\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.733\"/><rect x=\"102.22\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.986402\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.766\"/><rect x=\"129.33\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.912503\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.718\"/><rect x=\"156.44\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.501777\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.449\"/><rect x=\"183.56\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.242419\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.279\"/><rect x=\"210.67\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.190303\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.245\"/><rect x=\"237.78\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.223409\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.266\"/><rect x=\"264.89\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.260902\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.291\"/><rect x=\"48.00\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.638008\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.538\"/><rect x=\"75.11\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.709098\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.584\"/><rect x=\"102.22\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.595008\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.510\"/><rect x=\"129.33\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.297958\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.315\"/><rect x=\"156.44\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.120531\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.199\"/><rect x=\"183.56\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0872498\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.177\"/><rect x=\"210.67\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0838473\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.175\"/><rect x=\"237.78\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0858967\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.176\"/><rect x=\"264.89\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0886907\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.178\"/>\n    <rect x=\"348.00\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"456.44\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"483.56\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"510.67\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"348.00\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"456.44\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"483.56\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"510.67\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"348.00\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"375.11\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"402.22\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"429.33\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"456.44\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"483.56\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"510.67\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"537.78\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"564.89\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"348.00\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"375.11\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"402.22\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"429.33\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"456.44\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"483.56\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"510.67\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"537.78\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"564.89\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"348.00\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"456.44\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"483.56\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"510.67\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"348.00\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"456.44\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"483.56\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"510.67\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/>\n    <path class=\"wm12-stac-main-line\" d=\"M54 334 Q112 282 166 306 T286 224\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\"/>\n    <path class=\"wm12-stac-main-line\" d=\"M354 334 Q412 282 466 306 T586 224\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\" opacity=\".75\"/>\n    <circle cx=\"104\" cy=\"184\" r=\"13\" fill=\"none\" stroke=\"var(--wm-dark-ink, #101214)\" stroke-width=\"2.25\"/>\n    <path class=\"wm12-stac-main-line\" d=\"M116 176 L162 144\" stroke=\"var(--wm-dark-ink, #101214)\" stroke-width=\"1.25\"/>\n    <text class=\"wm12-stac-main-text wm12-stac-main-small\" x=\"168\" y=\"148\">off-boundary debt</text>\n    <text class=\"wm12-stac-main-muted wm12-stac-main-small\" x=\"170\" y=\"399\" text-anchor=\"middle\">semantic boundary</text>\n  </g>\n  <line x1=\"70\" y1=\"444\" x2=\"570\" y2=\"444\" stroke=\"var(--wm-panel-2, #CBD2D8)\" stroke-width=\"2\"/>\n  <text class=\"wm12-stac-main-muted wm12-stac-main-small\" x=\"320\" y=\"473\" text-anchor=\"middle\">TOY \u00b7 SYNTHETIC CONSTRUCTION \u00b7 first-order controller \u00b7 not an evaluated score</text>\n</svg></div>\n      </div>\n    </section>\n    "
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "qnkX",
-      "code_hash": "e86c90ba5f3549fe4e656a4d87438b15",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TqIu",
+      "id": "lEQa",
       "code_hash": "bed877d56ba61f0a1d6f72995953c0dd",
       "outputs": [
         {
@@ -253,7 +71,59 @@
       "console": []
     },
     {
-      "id": "Vxnm",
+      "id": "PKri",
+      "code_hash": "4a44e77455588f5ed94f21cfe7979691",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.55rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='AjVT-0' random-id='06b14a3a-2ef1-6082-df1a-2b362515960e'><marimo-dropdown data-initial-value='[&quot;English&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLanguage / Idioma&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;English&quot;,&quot;Espa\u00f1ol&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><marimo-ui-element object-id='TXez-0' random-id='4525be50-bd2b-8a81-f51d-4d2ea815f50e'><marimo-slider data-initial-value='12.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAllowed first-order loss budget B&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='4.0' data-stop='32.0' data-step='1.0' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>The paper controller spends this declared local budget across coefficients. Larger B permits coarser regional tables; it is not a measured task loss or score.</p><p class='wm-takeaway'>[TOY][DERIVATION] START HERE \u00b7 Move B. One reactive state recomputes the receiver balance, the paper-controller table allocation, and the final carrier bids. Follow the same pressure from equation to witness.</p><marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eDisplay &amp;amp; accessibility / Pantalla y accesibilidad&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.45rem'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 1.0rem'><marimo-ui-element object-id='pHFh-0' random-id='55d73321-9c2f-eb20-39ac-5763753d6aab'><marimo-dropdown data-initial-value='[&quot;Light \u00b7 Claro&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance / Apariencia&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Light \u00b7 Claro&quot;,&quot;Dark \u00b7 Oscuro&quot;,&quot;Auto&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='NCOB-0' random-id='8ad6867a-a223-c71c-7953-b6e953c4a0bc'><marimo-dropdown data-initial-value='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eColor encoding / Codificaci\u00f3n&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Semantic color \u00b7 Color sem\u00e1ntico&quot;,&quot;Color-vision safe \u00b7 Visi\u00f3n crom\u00e1tica&quot;,&quot;Monochrome \u00b7 Monocromo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='aqbW-0' random-id='31b1096e-ee05-e2b9-c486-2c11b19d76d2'><marimo-dropdown data-initial-value='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMotion / Movimiento&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;Wake on focus \u00b7 Activa al enfocar&quot;,&quot;Still \u00b7 Est\u00e1tico&quot;,&quot;Continuous \u00b7 Continuo&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div><p class='wm-control-note'>Light, dark, color-vision-safe, monochrome, and motion preferences change presentation only; the computed geometry is invariant.</p></div></div></marimo-accordion></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "dc2ee02550a16eda4375619feee4b2f7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "\n    <section class=\"wm-shell wm-section\" lang=\"en-US\" aria-labelledby=\"wm-score-heading\">\n      <div class=\"wm-scene-grid\">\n        <div class=\"wm-copy\">\n          <p class=\"wm-kicker\">01 \u00b7 FROZEN RECEIVER</p>\n          <h2 id=\"wm-score-heading\">One receiver, three debts</h2>\n          <p class=\"wm-body\">Segmentation disagreement is linear, pose disagreement enters through a square root, and every archive byte pays rate. The equation is official; the dial is an explorable design question, not a candidate result.</p>\n          <p class=\"wm-takeaway\" aria-live=\"polite\">A byte has value only through the decision it protects.</p>\n        </div>\n        <div class=\"wm-visual\"><svg viewBox=\"0 0 640 500\" width=\"100%\" role=\"img\" tabindex=\"0\"\n  aria-labelledby=\"wm12-score-main-title wm12-score-main-desc\" preserveAspectRatio=\"xMidYMid meet\"\n  data-v12-visual=\"score-law-balance\"\n  style=\"display:block;width:100%;max-width:100%;height:auto;overflow:visible\">\n  <title id=\"wm12-score-main-title\">Three debts, one score</title>\n  <desc id=\"wm12-score-main-desc\">The official objective combines segmentation distance, pose distance, and archive rate. The dial is conceptual and reports no evaluation result.</desc>\n  <style>\n    .wm12-score-main-bg { fill: var(--wm-bg, #F7F7F3); }\n    .wm12-score-main-panel { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-score-main-panel-alt { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-score-main-text { fill: var(--wm-text, #17191C); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-score-main-muted { fill: var(--wm-muted, #4F5963); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-score-main-title { font-size: 34px; font-weight: 720; letter-spacing: -0.6px; }\n    .wm12-score-main-label { font-size: 22px; font-weight: 680; }\n    .wm12-score-main-small { font-size: 17px; font-weight: 560; }\n    .wm12-score-main-math { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }\n    .wm12-score-main-line { fill: none; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }\n    .wm12-score-main-flow { stroke-dasharray: 8 10; animation: wm12-score-main-flow 8s linear infinite; animation-play-state: var(--wm-animation-state, paused); }\n    .wm12-score-main-pulse { transform-box: fill-box; transform-origin: center; animation: wm12-score-main-pulse 3.2s ease-in-out infinite; animation-play-state: var(--wm-animation-state, paused); }\n    svg:hover .wm12-score-main-flow, svg:focus .wm12-score-main-flow,\n    svg:hover .wm12-score-main-pulse, svg:focus .wm12-score-main-pulse {\n      animation-play-state: var(--wm-interaction-animation-state, running);\n    }\n    @keyframes wm12-score-main-flow { to { stroke-dashoffset: -72; } }\n    @keyframes wm12-score-main-pulse { 0%, 100% { opacity: .62; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .wm12-score-main-flow, .wm12-score-main-pulse { animation: none !important; }\n    }\n    </style>\n  <rect class=\"wm12-score-main-bg\" width=\"640\" height=\"500\"/>\n\n  <g transform=\"translate(36 56)\">\n    <rect class=\"wm12-score-main-panel\" width=\"568\" height=\"146\" rx=\"4\"/>\n    <text class=\"wm12-score-main-text wm12-score-main-label wm12-score-main-math\" x=\"284\" y=\"54\" text-anchor=\"middle\">\n      S = 100 d<tspan baseline-shift=\"sub\" font-size=\"15\">seg</tspan> + \u221a(10 d<tspan baseline-shift=\"sub\" font-size=\"15\">pose</tspan>) + 25 r\n    </text>\n    <g transform=\"translate(30 92)\">\n      <circle cx=\"8\" cy=\"0\" r=\"7\" fill=\"var(--wm-cyan, #006F8A)\"/><text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"24\" y=\"6\">segmentation</text>\n      <circle cx=\"196\" cy=\"0\" r=\"7\" fill=\"var(--wm-mint, #527A00)\"/><text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"212\" y=\"6\">pose</text>\n      <circle cx=\"374\" cy=\"0\" r=\"7\" fill=\"var(--wm-gold, #8A5A00)\"/><text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"390\" y=\"6\">archive rate</text>\n    </g>\n  </g>\n\n  <g transform=\"translate(320 345)\" aria-hidden=\"true\">\n    <path class=\"wm12-score-main-line\" d=\"M-188 46 A194 194 0 0 1 188 46\" stroke=\"var(--wm-panel-2, #CBD2D8)\" stroke-width=\"22\"/>\n    <path class=\"wm12-score-main-line\" d=\"M-188 46 A194 194 0 0 1 0 -149\" stroke=\"var(--wm-gold, #8A5A00)\" stroke-width=\"10\"/>\n    <path class=\"wm12-score-main-line\" d=\"M0 -149 A194 194 0 0 1 188 46\" stroke=\"var(--wm-mint, #527A00)\" stroke-width=\"10\"/>\n    <g transform=\"rotate(-64.286)\">\n      <path d=\"M0 12 L-7 -116 Q0 -135 7 -116Z\" fill=\"var(--wm-text, #17191C)\"/>\n    </g>\n    <circle r=\"18\" fill=\"var(--wm-cyan, #006F8A)\"/><circle r=\"7\" fill=\"var(--wm-dark-ink, #101214)\"/>\n  </g>\n  <text class=\"wm12-score-main-text wm12-score-main-small\" x=\"108\" y=\"423\" text-anchor=\"middle\">fewer bytes</text>\n  <text class=\"wm12-score-main-text wm12-score-main-small\" x=\"532\" y=\"423\" text-anchor=\"middle\">task evidence</text>\n  <text class=\"wm12-score-main-muted wm12-score-main-small\" x=\"320\" y=\"456\" text-anchor=\"middle\">representation balance</text>\n  <text class=\"wm12-score-main-text wm12-score-main-small\" x=\"320\" y=\"482\" text-anchor=\"middle\">Move bytes toward evidence that changes the frozen judge.</text>\n</svg></div>\n      </div>\n    </section>\n    "
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "019a3ab0df3070960f73ff860f030d45",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.35rem'><span id=\"wm-paper-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='SFPL-0' random-id='2a38ac0d-d811-6e64-b2b4-823bf7db724f'><marimo-slider data-initial-value='4.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eOutline precision ratio \u03c1&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='1.0' data-stop='8.0' data-step='0.25' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><p class='wm-control-note'>At \u03c1=1 the outline-only policy is uniform. Larger \u03c1 spends more of the same declared precision proxy on the semantic outline and less away from it.</p><p class='wm-scope'>[TOY][DERIVATION] Try \u03c1=1, then \u03c1=8. At matched \u03a31/q, does outline-only still beat uniform?</p></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "fd8cffe800a9ab09943db18ff12dfd5c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "\n    <section class=\"wm-shell wm-section\" lang=\"en-US\" aria-labelledby=\"wm-stac-heading\">\n      <div class=\"wm-scene-grid\">\n        <div class=\"wm-copy\">\n          <p class=\"wm-kicker\">02 \u00b7 PAPER CONTROLLER</p>\n          <h2 id=\"wm-stac-heading\">The network, not the outline, sets the price</h2>\n          <p class=\"wm-body\">STAC differentiates a frozen segmentation loss with respect to transform coefficients. Its first-order bound assigns smaller quantization steps where the loss is more sensitive, then approximates that ideal with regional table choices (\u00a7III, Eq. 2 and Algorithm 1; \u00a7IV, Algorithm 2).</p>\n          <code class=\"wm-equation\">\n            \u0394Q<sub>max</sub> = \u03a3 |g<sub>i</sub>| q<sub>i</sub> / 2 \u2264 B<br/>\n            q<sub>i</sub><sup>*</sup> = 2B / (M |g<sub>i</sub>|)\n          </code>\n          <dl class=\"wm-receipt\" aria-live=\"polite\">\n            <div><dt>declared B</dt><dd>12.000</dd></div>\n            <div><dt>realized bound</dt><dd>9.917</dd></div>\n            <div><dt>remaining slack</dt><dd>2.083</dd></div>\n            <div><dt>finite-bank gate</dt><dd>PASS \u00b7 \u2264 B</dd></div>\n          </dl>\n          <p class=\"wm-scope\">This first view is an analytic sensitivity field passed through the implemented STAC allocation kernel. It demonstrates the controller; it is not a SegNet backward pass.</p>\n          <table class=\"wm-proposal-table\">\n            <caption>Matched-effort counterexample: uniform, outline-only, and sensitivity-projected policies</caption>\n            <thead><tr>\n              <th>policy</th>\n              <th>first-order bound</th>\n              <th>matched \u03a31/q</th>\n            </tr></thead>\n            <tbody><tr><td>uniform</td><td>29.0852</td><td>24.00</td></tr><tr><td>outline-only</td><td>33.4061</td><td>24.00</td></tr><tr><td>sensitivity-projected</td><td>25.3568</td><td>24.00</td></tr></tbody>\n          </table>\n          <p class=\"wm-scope\" aria-live=\"polite\">At this field and matched proxy, outline-only loses to uniform.</p>\n          <p class=\"wm-control-note\">TOY \u00b7 same analytic field and matched reciprocal-step precision proxy \u00b7 not JPEG \u00b7 not an evaluated score</p>\n          <p class=\"wm-takeaway\">A boundary is a powerful coordinate, but frozen-network sensitivity can also live away from it. The residual is part of the model, not an embarrassment.</p>\n        </div>\n        <div class=\"wm-visual\"><svg viewBox=\"0 0 640 520\" width=\"100%\" role=\"img\" tabindex=\"0\"\n  aria-labelledby=\"wm12-stac-main-title wm12-stac-main-desc\" preserveAspectRatio=\"xMidYMid meet\"\n  data-v12-visual=\"stac-sensitivity-allocation\"\n  style=\"display:block;width:100%;max-width:100%;height:auto;overflow:visible\">\n  <title id=\"wm12-stac-main-title\">Ask where compression hurts</title>\n  <desc id=\"wm12-stac-main-desc\">A frozen-network sensitivity map drives regional quantization. A highlighted off-boundary hotspot shows why semantic edges are a hypothesis, not a complete oracle.</desc>\n  <style>\n    .wm12-stac-main-bg { fill: var(--wm-bg, #F7F7F3); }\n    .wm12-stac-main-panel { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-stac-main-panel-alt { fill: var(--wm-panel, #FFFFFF); stroke: var(--wm-panel-2, #CBD2D8); stroke-width: 1.5; }\n    .wm12-stac-main-text { fill: var(--wm-text, #17191C); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-stac-main-muted { fill: var(--wm-muted, #4F5963); font-family: -apple-system, BlinkMacSystemFont, \"SF Pro Text\", ui-sans-serif, system-ui, sans-serif; }\n    .wm12-stac-main-title { font-size: 34px; font-weight: 720; letter-spacing: -0.6px; }\n    .wm12-stac-main-label { font-size: 22px; font-weight: 680; }\n    .wm12-stac-main-small { font-size: 17px; font-weight: 560; }\n    .wm12-stac-main-math { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }\n    .wm12-stac-main-line { fill: none; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }\n    .wm12-stac-main-flow { stroke-dasharray: 8 10; animation: wm12-stac-main-flow 8s linear infinite; animation-play-state: var(--wm-animation-state, paused); }\n    .wm12-stac-main-pulse { transform-box: fill-box; transform-origin: center; animation: wm12-stac-main-pulse 3.2s ease-in-out infinite; animation-play-state: var(--wm-animation-state, paused); }\n    svg:hover .wm12-stac-main-flow, svg:focus .wm12-stac-main-flow,\n    svg:hover .wm12-stac-main-pulse, svg:focus .wm12-stac-main-pulse {\n      animation-play-state: var(--wm-interaction-animation-state, running);\n    }\n    @keyframes wm12-stac-main-flow { to { stroke-dashoffset: -72; } }\n    @keyframes wm12-stac-main-pulse { 0%, 100% { opacity: .62; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .wm12-stac-main-flow, .wm12-stac-main-pulse { animation: none !important; }\n    }\n    </style>\n  <rect class=\"wm12-stac-main-bg\" width=\"640\" height=\"520\"/>\n  <g data-controller=\"stac-first-order\" aria-hidden=\"true\">\n    <rect class=\"wm12-stac-main-panel\" x=\"34\" y=\"60\" width=\"272\" height=\"356\" rx=\"4\"/>\n    <rect class=\"wm12-stac-main-panel\" x=\"334\" y=\"60\" width=\"272\" height=\"356\" rx=\"4\"/>\n    <text class=\"wm12-stac-main-text wm12-stac-main-small\" x=\"170\" y=\"126\" text-anchor=\"middle\">network sensitivity</text>\n    <text class=\"wm12-stac-main-text wm12-stac-main-small\" x=\"470\" y=\"126\" text-anchor=\"middle\">finer quantization</text>\n    <rect x=\"48.00\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.255198\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.287\"/><rect x=\"75.11\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.682133\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.567\"/><rect x=\"102.22\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.682134\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.567\"/><rect x=\"129.33\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.255226\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.287\"/><rect x=\"156.44\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0956416\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.183\"/><rect x=\"183.56\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0870645\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.177\"/><rect x=\"210.67\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.092205\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.180\"/><rect x=\"237.78\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0882146\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.178\"/><rect x=\"264.89\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0855609\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.176\"/><rect x=\"48.00\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.403471\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.384\"/><rect x=\"75.11\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"1.19086\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.900\"/><rect x=\"102.22\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"1.19109\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.900\"/><rect x=\"129.33\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.407097\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.387\"/><rect x=\"156.44\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.147671\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.217\"/><rect x=\"183.56\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.235574\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.274\"/><rect x=\"210.67\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.30048\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.317\"/><rect x=\"237.78\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.254969\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.287\"/><rect x=\"264.89\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.218388\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.263\"/><rect x=\"48.00\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.178417\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.237\"/><rect x=\"75.11\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.360797\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.356\"/><rect x=\"102.22\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.372028\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.364\"/><rect x=\"129.33\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.269298\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.296\"/><rect x=\"156.44\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.507193\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.452\"/><rect x=\"183.56\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.830918\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.664\"/><rect x=\"210.67\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.915002\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.719\"/><rect x=\"237.78\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.86118\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.684\"/><rect x=\"264.89\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.801881\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.645\"/><rect x=\"48.00\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.381092\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.370\"/><rect x=\"75.11\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.332731\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.338\"/><rect x=\"102.22\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.422645\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.397\"/><rect x=\"129.33\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.748917\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.610\"/><rect x=\"156.44\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"1.0002\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.775\"/><rect x=\"183.56\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.842717\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.672\"/><rect x=\"210.67\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.742873\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.606\"/><rect x=\"237.78\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.811066\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.651\"/><rect x=\"264.89\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.869309\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.689\"/><rect x=\"48.00\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.971704\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.756\"/><rect x=\"75.11\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.93656\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.733\"/><rect x=\"102.22\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.986402\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.766\"/><rect x=\"129.33\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.912503\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.718\"/><rect x=\"156.44\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.501777\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.449\"/><rect x=\"183.56\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.242419\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.279\"/><rect x=\"210.67\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.190303\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.245\"/><rect x=\"237.78\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.223409\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.266\"/><rect x=\"264.89\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.260902\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.291\"/><rect x=\"48.00\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.638008\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.538\"/><rect x=\"75.11\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.709098\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.584\"/><rect x=\"102.22\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.595008\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.510\"/><rect x=\"129.33\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.297958\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.315\"/><rect x=\"156.44\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.120531\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.199\"/><rect x=\"183.56\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0872498\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.177\"/><rect x=\"210.67\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0838473\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.175\"/><rect x=\"237.78\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0858967\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.176\"/><rect x=\"264.89\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-sensitivity=\"0.0886907\" fill=\"var(--wm-coral, #B73A37)\" fill-opacity=\"0.178\"/>\n    <rect x=\"348.00\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"456.44\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"483.56\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"510.67\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"146.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"348.00\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"456.44\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"483.56\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"510.67\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"185.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"348.00\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"375.11\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"402.22\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"429.33\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"456.44\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"483.56\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"510.67\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"537.78\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"564.89\" y=\"224.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"348.00\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"375.11\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"402.22\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"429.33\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"456.44\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"483.56\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"510.67\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"537.78\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"564.89\" y=\"264.00\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"348.00\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"456.44\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"483.56\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"510.67\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"303.33\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"348.00\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"375.11\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"402.22\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"0.5\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.640\"/><rect x=\"429.33\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"456.44\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"483.56\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"1\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.510\"/><rect x=\"510.67\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"537.78\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/><rect x=\"564.89\" y=\"342.67\" width=\"27.46\" height=\"39.68\" data-quant-step=\"2\" fill=\"var(--wm-gold, #8A5A00)\" fill-opacity=\"0.380\"/>\n    <path class=\"wm12-stac-main-line\" d=\"M54 334 Q112 282 166 306 T286 224\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\"/>\n    <path class=\"wm12-stac-main-line\" d=\"M354 334 Q412 282 466 306 T586 224\" stroke=\"var(--wm-cyan, #006F8A)\" stroke-width=\"3\" opacity=\".75\"/>\n    <circle cx=\"104\" cy=\"184\" r=\"13\" fill=\"none\" stroke=\"var(--wm-dark-ink, #101214)\" stroke-width=\"2.25\"/>\n    <path class=\"wm12-stac-main-line\" d=\"M116 176 L162 144\" stroke=\"var(--wm-dark-ink, #101214)\" stroke-width=\"1.25\"/>\n    <text class=\"wm12-stac-main-text wm12-stac-main-small\" x=\"168\" y=\"148\">off-boundary debt</text>\n    <text class=\"wm12-stac-main-muted wm12-stac-main-small\" x=\"170\" y=\"399\" text-anchor=\"middle\">semantic boundary</text>\n  </g>\n  <line x1=\"70\" y1=\"444\" x2=\"570\" y2=\"444\" stroke=\"var(--wm-panel-2, #CBD2D8)\" stroke-width=\"2\"/>\n  <text class=\"wm12-stac-main-muted wm12-stac-main-small\" x=\"320\" y=\"473\" text-anchor=\"middle\">TOY \u00b7 SYNTHETIC CONSTRUCTION \u00b7 first-order controller \u00b7 not an evaluated score</text>\n</svg></div>\n      </div>\n    </section>\n    "
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
       "code_hash": "693e27a262fe6c23f3ce36e26b1c9aa7",
       "outputs": [
         {
@@ -266,20 +136,20 @@
       "console": []
     },
     {
-      "id": "DnEU",
+      "id": "Kclp",
       "code_hash": "418d0d0e2f80f530b212867538770724",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='DnEU-0' random-id='75ed4f98-5095-807b-2077-543d6d2d7c50'><marimo-slider data-initial-value='0.45' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance retained&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='Kclp-0' random-id='c213fc43-db8c-b8f9-e7ee-ae000c1a74bf'><marimo-slider data-initial-value='0.45' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eAppearance retained&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ulZA",
+      "id": "emfo",
       "code_hash": "c2134fdee8c1b1c52c1535fba9e26f63",
       "outputs": [
         {
@@ -292,33 +162,20 @@
       "console": []
     },
     {
-      "id": "ecfG",
+      "id": "Hstk",
       "code_hash": "ba37ed8dc66d22795f3780c3d43cd082",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span id=\"wm-wall-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='ecfG-0' random-id='7944ae6b-db88-b8ad-864a-f2c6488fedc2'><marimo-slider data-initial-value='0.1' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eNormal boundary displacement&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-0.22' data-stop='0.22' data-step='0.01' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Move one analytic circular SDF zero set. The partition, swept annulus, exact area, and first variation use the same normal displacement.</span></span></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span id=\"wm-wall-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='Hstk-0' random-id='16d96b5d-d336-13d2-894a-e9e75a6a0ece'><marimo-slider data-initial-value='0.1' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eNormal boundary displacement&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-0.22' data-stop='0.22' data-step='0.01' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Move one analytic circular SDF zero set. The partition, swept annulus, exact area, and first variation use the same normal displacement.</span></span></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "Pvdt",
-      "code_hash": "b3d55edc88f74f5c38514346c5208794",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ZBYS",
+      "id": "nWHF",
       "code_hash": "f426a3cd5480bc0cb4930580c8948120",
       "outputs": [
         {
@@ -331,33 +188,20 @@
       "console": []
     },
     {
-      "id": "aLJB",
+      "id": "iLit",
       "code_hash": "cc6258725d8900f8e49ee5ae68e7ce11",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='aLJB-0' random-id='2f17283f-c650-c77e-b8c7-f5e28b2eec9f'><marimo-slider data-initial-value='0.25' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSoft-max temperature&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.05' data-stop='1.2' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='iLit-0' random-id='e4d8d925-7ffa-1671-b7d6-646078195bdf'><marimo-slider data-initial-value='0.25' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSoft-max temperature&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.05' data-stop='1.2' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "nHfw",
-      "code_hash": "51ece3b90b55f37020bea17619567e58",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "xXTn",
+      "id": "ZHCJ",
       "code_hash": "6b85f6b61b36e64e1feb1edcb5b37446",
       "outputs": [
         {
@@ -370,20 +214,20 @@
       "console": []
     },
     {
-      "id": "AjVT",
+      "id": "ROlb",
       "code_hash": "fc3dcf7dd2b2e9dc13841042ca727585",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='AjVT-0' random-id='8d4a7aa5-5e14-f619-e711-18699930256a'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRoad weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='AjVT-1' random-id='34047b1c-d940-babe-c47e-fb6b8892c56c'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLane weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='AjVT-2' random-id='829e174e-a3de-2b56-0091-34d620030124'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMovable weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='ROlb-0' random-id='08ae295c-e602-6728-05f3-60f49b714841'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRoad weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='ROlb-1' random-id='cd81a267-ff36-1b3a-7ee2-2a8ad586df55'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLane weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='ROlb-2' random-id='e4ce9013-2ada-5181-65f5-f78952239dbe'><marimo-slider data-initial-value='0.0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eMovable weight&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='-1.5' data-stop='1.5' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "pHFh",
+      "id": "qnkX",
       "code_hash": "91f79acf49275ada550c271648fcbe38",
       "outputs": [
         {
@@ -396,7 +240,7 @@
       "console": []
     },
     {
-      "id": "NCOB",
+      "id": "TqIu",
       "code_hash": "30ca9fd77fc06383f3b220bf888efa2c",
       "outputs": [
         {
@@ -409,33 +253,20 @@
       "console": []
     },
     {
-      "id": "aqbW",
+      "id": "Vxnm",
       "code_hash": "90a98dcef5f06d87f24a78033fbef1f9",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='aqbW-0' random-id='c230171d-6884-3b2a-f383-29605b63c320'><marimo-slider data-initial-value='0.65' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eTemporal texture aperture&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='aqbW-1' random-id='ed3f2a8b-d301-b67c-7953-93c9db8a004c'><marimo-slider data-initial-value='0.35' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRefresh pressure&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='Vxnm-0' random-id='ecb7ae05-ee3e-e7f9-f914-4120385cb1f6'><marimo-slider data-initial-value='0.65' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eTemporal texture aperture&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='Vxnm-1' random-id='9127111c-9bad-97e1-5abf-730c674ef948'><marimo-slider data-initial-value='0.35' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRefresh pressure&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.0' data-stop='1.0' data-step='0.05' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "TRpd",
-      "code_hash": "993728f1c75ed872e11ec3c685042ab7",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TXez",
+      "id": "DnEU",
       "code_hash": "fdbb629a9e032732cb2f4a62aa4fd8ef",
       "outputs": [
         {
@@ -448,20 +279,7 @@
       "console": []
     },
     {
-      "id": "dNNg",
-      "code_hash": "10c95a5bd92999b45bdb75494c0ba19d",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "yCnT",
+      "id": "ulZA",
       "code_hash": "101065250b549dd6b107a5a6884c9f3e",
       "outputs": [
         {
@@ -474,46 +292,20 @@
       "console": []
     },
     {
-      "id": "wlCL",
+      "id": "ecfG",
       "code_hash": "6d8cf1a0e3f9179e3cc216490b31459d",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.0rem'><span id=\"wm-gpu-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='wlCL-0' random-id='195d40fe-aad7-d822-72cc-2c8fa3b56f75'><marimo-button data-initial-value='0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRun 256 \u00d7 196,608 locked-evidence robustness sweep&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-kind='&quot;success&quot;' data-disabled='false' data-full-width='true'></marimo-button></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.0rem'><span id=\"wm-gpu-experiment\" aria-hidden=\"true\"></span><marimo-ui-element object-id='ecfG-0' random-id='a1229048-6421-d602-d08d-da3153f70df3'><marimo-button data-initial-value='0' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eRun 256 \u00d7 196,608 locked-evidence robustness sweep&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-kind='&quot;success&quot;' data-disabled='false' data-full-width='true'></marimo-button></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "kqZH",
-      "code_hash": "5a7933f0d46304b2e1a18683ece3fd7c",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "wAgl",
-      "code_hash": "727dc1f61c70543d34c3ebf5436a0432",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "rEll",
+      "id": "Pvdt",
       "code_hash": "5a069cfa5c06aee447e86376394a0978",
       "outputs": [
         {
@@ -526,7 +318,7 @@
       "console": []
     },
     {
-      "id": "dGlV",
+      "id": "ZBYS",
       "code_hash": "ad3915f07f44485523103f58ec750c27",
       "outputs": [
         {
@@ -539,13 +331,221 @@
       "console": []
     },
     {
-      "id": "SdmI",
+      "id": "aLJB",
       "code_hash": "c85b4e7210a51ec1ce91d5022ddc749f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSources, scope, and reproducibility&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><marimo-ui-element object-id='SdmI-0' random-id='2c01cc09-1f04-910e-a815-9abb97cd2c70'><marimo-lazy data-initial-value='false' data-label='null' data-show-loading-indicator='false'></marimo-lazy></marimo-ui-element></div></marimo-accordion>"
+            "text/html": "<marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eSources, scope, and reproducibility&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false'><div><marimo-ui-element object-id='aLJB-0' random-id='c8fcd50e-fb86-b906-a692-3a7e9f675eb1'><marimo-lazy data-initial-value='false' data-label='null' data-show-loading-indicator='false'></marimo-lazy></marimo-ui-element></div></marimo-accordion>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "c6b4f6de5b60cb0d5c812c6273eb5482",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "be27e854a6fcf4305872d39bddbc1d2a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pHFh",
+      "code_hash": "ff82bd50a618acf828f468fc2088c15a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
+      "code_hash": "3612df69e626468ba6e8a9c7b68d4685",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aqbW",
+      "code_hash": "6964972731868bed057ea6b74d53118b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "41389cc437a0965096f98ce5b3feffd3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TXez",
+      "code_hash": "b2be04dc4d7f24816f4d9df6e1204150",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": "aa41cca754a59bca85f4bbe729021957",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": "e86c90ba5f3549fe4e656a4d87438b15",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "b3d55edc88f74f5c38514346c5208794",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "51ece3b90b55f37020bea17619567e58",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wAgl",
+      "code_hash": "993728f1c75ed872e11ec3c685042ab7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "rEll",
+      "code_hash": "10c95a5bd92999b45bdb75494c0ba19d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dGlV",
+      "code_hash": "5a7933f0d46304b2e1a18683ece3fd7c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "727dc1f61c70543d34c3ebf5436a0432",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
           }
         }
       ],

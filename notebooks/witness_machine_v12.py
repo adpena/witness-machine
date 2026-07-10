@@ -16,259 +16,6 @@ app = marimo.App(width="full", app_title="The Witness Machine")
 
 
 @app.cell(hide_code=True)
-def _():
-    import marimo as mo
-
-    return (mo,)
-
-
-@app.cell(hide_code=True)
-def _():
-    from html import escape
-    import hashlib
-    import importlib
-    import os
-    from pathlib import Path, PurePosixPath
-    import shutil
-    import sys
-    import tempfile
-    import urllib.request
-    import zipfile
-
-    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.2.1/witness_machine_v12_molab_bundle.zip"
-    BUNDLE_BYTES = 3_705_237
-    BUNDLE_SHA256 = "e8494c72f46341c8be0055163f673b1ef840cb6df50047697efbca4a041e5472"
-    BUNDLE_TOP_LEVEL = "witness_machine_v12"
-    BUNDLE_MARKER = ".bundle-sha256"
-    REQUIRED_ROOT_FILES = (
-        "src/molab_witness_machine/__init__.py",
-        "src/molab_witness_machine/score_law.py",
-        "src/molab_witness_machine/v12_copy.py",
-        "src/molab_witness_machine/v12_control.py",
-        "src/molab_witness_machine/v12_geometry.py",
-        "src/molab_witness_machine/v12_gpu.py",
-        "src/molab_witness_machine/v12_policy_compare.py",
-        "src/molab_witness_machine/v12_real_evidence.py",
-        "src/molab_witness_machine/v12_stac.py",
-        "src/molab_witness_machine/v12_temporal.py",
-        "src/molab_witness_machine/v12_visuals.py",
-        "artifacts/v12_public/v12_temporal_transport_display.svg",
-        "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
-        "artifacts/v12_public/v12_real_frozen_scorer_display.npz",
-        "artifacts/v12_public/v12_real_frozen_scorer_display.manifest.json",
-        "artifacts/v12_public/v12_real_frozen_scorer_evidence.npz",
-        "artifacts/v12_public/v12_real_frozen_scorer_evidence.manifest.json",
-    )
-
-    def _fail_bundle(message: str) -> None:
-        raise RuntimeError(f"Molab runtime bootstrap failed for {BUNDLE_URL}: {message}")
-
-    def _missing_required_root_files(root: Path) -> tuple[str, ...]:
-        return tuple(
-            relative_path
-            for relative_path in REQUIRED_ROOT_FILES
-            if not (root / relative_path).is_file()
-        )
-
-    def _is_valid_root(root: Path) -> bool:
-        return not _missing_required_root_files(root)
-
-    def _candidate_roots(notebook_file: str | Path) -> tuple[Path, ...]:
-        seen: set[Path] = set()
-        candidates: list[Path] = []
-        for start in (Path(notebook_file).resolve().parent, Path.cwd().resolve()):
-            for candidate in (start, *start.parents):
-                if candidate not in seen:
-                    seen.add(candidate)
-                    candidates.append(candidate)
-        return tuple(candidates)
-
-    def _cache_base() -> Path:
-        xdg_cache_home = os.environ.get("XDG_CACHE_HOME")
-        if xdg_cache_home:
-            return Path(xdg_cache_home).expanduser().resolve() / "witness-machine"
-        return Path.home().expanduser().resolve() / ".cache" / "witness-machine"
-
-    def _cache_slot() -> Path:
-        return _cache_base() / BUNDLE_SHA256
-
-    def _cache_root(cache_slot: Path) -> Path:
-        return cache_slot / BUNDLE_TOP_LEVEL
-
-    def _cache_marker_path(cache_slot: Path) -> Path:
-        return cache_slot / BUNDLE_MARKER
-
-    def _is_valid_cache_slot(cache_slot: Path) -> bool:
-        marker_path = _cache_marker_path(cache_slot)
-        try:
-            marker_text = marker_path.read_text(encoding="utf-8").strip()
-        except OSError:
-            return False
-        return marker_text == BUNDLE_SHA256 and _is_valid_root(_cache_root(cache_slot))
-
-    def _remove_path(path: Path) -> None:
-        if path.is_dir() and not path.is_symlink():
-            shutil.rmtree(path)
-        elif path.exists():
-            path.unlink()
-
-    def _download_bundle_bytes(*, urlopen=None) -> bytes:
-        opener = urllib.request.urlopen if urlopen is None else urlopen
-        try:
-            with opener(BUNDLE_URL, timeout=30) as response:
-                payload = response.read(BUNDLE_BYTES + 1)
-        except OSError as exc:
-            _fail_bundle(f"download failed: {exc}")
-        actual_bytes = len(payload)
-        if actual_bytes != BUNDLE_BYTES:
-            actual_label = str(actual_bytes) if actual_bytes <= BUNDLE_BYTES else f"at least {actual_bytes}"
-            _fail_bundle(f"expected {BUNDLE_BYTES} bytes, got {actual_label}")
-        actual_sha256 = hashlib.sha256(payload).hexdigest()
-        if actual_sha256 != BUNDLE_SHA256:
-            _fail_bundle(f"expected SHA-256 {BUNDLE_SHA256}, got {actual_sha256}")
-        return payload
-
-    def _validate_zip_members(members: list[zipfile.ZipInfo]) -> None:
-        if not members:
-            _fail_bundle("archive is empty")
-        for info in members:
-            member_path = PurePosixPath(info.filename)
-            raw_parts = info.filename.split("/")
-            if raw_parts and raw_parts[-1] == "":
-                raw_parts = raw_parts[:-1]
-            if member_path.is_absolute():
-                _fail_bundle(f"unsafe ZIP member {info.filename!r}")
-            if not raw_parts or any(part in ("", ".", "..") for part in raw_parts):
-                _fail_bundle(f"unsafe ZIP member {info.filename!r}")
-            if raw_parts[0] != BUNDLE_TOP_LEVEL:
-                _fail_bundle(
-                    f"expected top-level directory {BUNDLE_TOP_LEVEL!r}, got {raw_parts[0]!r}"
-                )
-
-    def _materialize_cache_root(*, urlopen=None) -> Path:
-        cache_slot = _cache_slot()
-        if _is_valid_cache_slot(cache_slot):
-            return _cache_root(cache_slot)
-        if cache_slot.exists():
-            _remove_path(cache_slot)
-        cache_parent = cache_slot.parent
-        cache_parent.mkdir(parents=True, exist_ok=True)
-        staging_dir = Path(tempfile.mkdtemp(prefix="witness-machine-", dir=cache_parent))
-        staging_slot = staging_dir / BUNDLE_SHA256
-        staging_slot.mkdir()
-        try:
-            archive_path = staging_dir / "bundle.zip"
-            archive_path.write_bytes(_download_bundle_bytes(urlopen=urlopen))
-            with zipfile.ZipFile(archive_path) as archive:
-                members = archive.infolist()
-                _validate_zip_members(members)
-                archive.extractall(staging_slot)
-            _cache_marker_path(staging_slot).write_text(f"{BUNDLE_SHA256}\n", encoding="utf-8")
-            missing_files = _missing_required_root_files(_cache_root(staging_slot))
-            if missing_files:
-                _fail_bundle(f"extracted bundle is missing {missing_files[0]}")
-            try:
-                staging_slot.replace(cache_slot)
-            except FileExistsError:
-                if not _is_valid_cache_slot(cache_slot):
-                    _remove_path(cache_slot)
-                    staging_slot.replace(cache_slot)
-            if not _is_valid_cache_slot(cache_slot):
-                missing_files = _missing_required_root_files(_cache_root(cache_slot))
-                if missing_files:
-                    _fail_bundle(f"cache is missing {missing_files[0]}")
-                _fail_bundle("cache marker does not match the sealed bundle SHA-256")
-            return _cache_root(cache_slot)
-        finally:
-            shutil.rmtree(staging_dir, ignore_errors=True)
-
-    def _resolve_project_root(notebook_file: str | Path, *, urlopen=None) -> Path:
-        for candidate in _candidate_roots(notebook_file):
-            if _is_valid_root(candidate):
-                return candidate
-        return _materialize_cache_root(urlopen=urlopen)
-
-    project_root = _resolve_project_root(__file__)
-    source_root = project_root / "src"
-    if not sys.path or sys.path[0] != str(source_root):
-        if str(source_root) in sys.path:
-            sys.path.remove(str(source_root))
-        sys.path.insert(0, str(source_root))
-
-    import numpy as np
-
-    copy_module = importlib.import_module("molab_witness_machine.v12_copy")
-    control_module = importlib.import_module("molab_witness_machine.v12_control")
-    geometry_module = importlib.import_module("molab_witness_machine.v12_geometry")
-    policy_compare_module = importlib.import_module("molab_witness_machine.v12_policy_compare")
-    real_evidence_module = importlib.import_module("molab_witness_machine.v12_real_evidence")
-    stac_module = importlib.import_module("molab_witness_machine.v12_stac")
-    temporal_module = importlib.import_module("molab_witness_machine.v12_temporal")
-    visuals_module = importlib.import_module("molab_witness_machine.v12_visuals")
-
-    boundary_sweep = geometry_module.boundary_sweep
-    catalog = copy_module.catalog
-    compare_matched_precision_policies = (
-        policy_compare_module.compare_matched_precision_policies
-    )
-    display_derivative_svg = real_evidence_module.display_derivative_svg
-    edge_carrier_graph = visuals_module.edge_carrier_graph
-    evaluator_equivalence_scene = visuals_module.evaluator_equivalence_scene
-    format_percent = copy_module.format_percent
-    integrate_negative_gradient = geometry_module.integrate_negative_gradient
-    laguerre_cells = visuals_module.laguerre_cells
-    load_display_derivative = real_evidence_module.load_display_derivative
-    load_temporal_display = temporal_module.load_temporal_display
-    localized_temporal_display_svg = temporal_module.localized_temporal_display_svg
-    morse_flow_scene = visuals_module.morse_flow_scene
-    notebook_toy_proposals = control_module.notebook_toy_proposals
-    score_law_balance = visuals_module.score_law_balance
-    select_regional_strategy = stac_module.select_regional_strategy
-    screw_trajectory = geometry_module.screw_trajectory
-    sdf_boundary_sweep = visuals_module.sdf_boundary_sweep
-    sensitivity_allocation_map = visuals_module.sensitivity_allocation_map
-    shadow_price_allocation = visuals_module.shadow_price_allocation
-    task_witness_hero = visuals_module.task_witness_hero
-    temporal_aperture_scene = visuals_module.temporal_aperture_scene
-    value_carrier_proposals = control_module.value_carrier_proposals
-
-    temporal_display = load_temporal_display(
-        project_root / "artifacts/v12_public/v12_temporal_transport_display.svg",
-        project_root / "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
-    )
-
-    return (
-        boundary_sweep,
-        catalog,
-        compare_matched_precision_policies,
-        display_derivative_svg,
-        edge_carrier_graph,
-        evaluator_equivalence_scene,
-        escape,
-        format_percent,
-        integrate_negative_gradient,
-        laguerre_cells,
-        load_display_derivative,
-        load_temporal_display,
-        localized_temporal_display_svg,
-        morse_flow_scene,
-        notebook_toy_proposals,
-        np,
-        project_root,
-        score_law_balance,
-        select_regional_strategy,
-        screw_trajectory,
-        sdf_boundary_sweep,
-        sensitivity_allocation_map,
-        shadow_price_allocation,
-        task_witness_hero,
-        temporal_aperture_scene,
-        temporal_display,
-        value_carrier_proposals,
-    )
-
-
-@app.cell(hide_code=True)
 def _(mo):
     mo.Html(
         r"""
@@ -695,62 +442,6 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(mo):
-    locale_picker = mo.ui.dropdown(
-        options={"English": "en-US", "Español": "es-US"},
-        value="English",
-        label="Language / Idioma",
-        full_width=False,
-    )
-    return (locale_picker,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    appearance_picker = mo.ui.dropdown(
-        options={
-            "Light · Claro": "light",
-            "Dark · Oscuro": "dark",
-            "Auto": "auto",
-        },
-        value="Light · Claro",
-        label="Appearance / Apariencia",
-        full_width=False,
-    )
-    return (appearance_picker,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    color_encoding_picker = mo.ui.dropdown(
-        options={
-            "Semantic color · Color semántico": "semantic",
-            "Color-vision safe · Visión cromática": "cvd",
-            "Monochrome · Monocromo": "monochrome",
-        },
-        value="Semantic color · Color semántico",
-        label="Color encoding / Codificación",
-        full_width=False,
-    )
-    return (color_encoding_picker,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    motion_picker = mo.ui.dropdown(
-        options={
-            "Wake on focus · Activa al enfocar": "focus",
-            "Still · Estático": "still",
-            "Continuous · Continuo": "continuous",
-        },
-        value="Wake on focus · Activa al enfocar",
-        label="Motion / Movimiento",
-        full_width=False,
-    )
-    return (motion_picker,)
-
-
-@app.cell(hide_code=True)
 def _(appearance_picker, color_encoding_picker, mo, motion_picker):
     light_tokens = {
         "scheme": "light",
@@ -893,30 +584,31 @@ def _(appearance_picker, color_encoding_picker, mo, motion_picker):
 
 
 @app.cell(hide_code=True)
-def _(catalog, locale_picker):
-    locale = str(locale_picker.value or "en-US")
-    messages = catalog(locale)
-    return locale, messages
-
-
-@app.cell(hide_code=True)
-def _(messages, mo):
-    loss_budget = mo.ui.slider(
-        start=4.0,
-        stop=32.0,
-        step=1.0,
-        value=12.0,
-        label=messages["control.loss_budget"],
-        show_value=True,
-        debounce=False,
-        full_width=True,
-    )
-    return (loss_budget,)
-
-
-@app.cell(hide_code=True)
-def _(escape, locale, messages, mo, task_witness_hero):
+def _(escape, format_percent, locale, messages, mo, real_display, task_witness_hero):
     hero_svg = task_witness_hero(messages, id_prefix="wm12-hero-main")
+    hero_observation = real_display.metadata["observation_summary_from_parent"]
+    hero_boundary_share = format_percent(
+        locale, hero_observation["boundary_pixel_fraction"], digits=1
+    )
+    hero_mass_share = format_percent(
+        locale, hero_observation["flip_risk_mass_on_boundary"], digits=1
+    )
+    if locale.lower().startswith("es"):
+        hero_boundary_label = "de los píxeles son frontera de decisión"
+        hero_mass_label = "de la masa de sensibilidad se concentra allí"
+        hero_result_scope = (
+            "Resultado principal, medido en un par real fijo de comma.ai a través "
+            "del SegNet congelado · [macOS-CPU advisory]"
+        )
+        hero_result_aria = "Resultado principal medido"
+    else:
+        hero_boundary_label = "of pixels are decision boundary"
+        hero_mass_label = "of the sensitivity mass sits there"
+        hero_result_scope = (
+            "Headline result, measured on one locked real comma.ai pair through "
+            "the frozen SegNet · [macOS-CPU advisory]"
+        )
+        hero_result_aria = "Headline measured result"
     mo.Html(
         f"""
         <header class="wm-shell" lang="{escape(locale)}" aria-label="The Witness Machine interactive notebook opening">
@@ -933,6 +625,11 @@ def _(escape, locale, messages, mo, task_witness_hero):
                 </a>.
               </p>
               <p class="wm-body">{escape(messages['hero.lede'])}</p>
+              <div class="wm-duality" aria-label="{escape(hero_result_aria)}">
+                <div><strong>{escape(hero_boundary_share)}</strong><span>{escape(hero_boundary_label)}</span></div>
+                <div><strong>{escape(hero_mass_share)}</strong><span>{escape(hero_mass_label)}</span></div>
+              </div>
+              <p class="wm-scope">{escape(hero_result_scope)}</p>
             </div>
             <div class="wm-visual">{hero_svg}</div>
           </section>
@@ -945,8 +642,8 @@ def _(escape, locale, messages, mo, task_witness_hero):
 @app.cell(hide_code=True)
 def _(escape, locale, messages, mo):
     route_items = (
-        ("#wm-paper-experiment", messages["route.paper"]),
         ("#wm-real-heading", messages["route.real"]),
+        ("#wm-paper-experiment", messages["route.paper"]),
         ("#wm-wall-experiment", messages["route.wall"]),
         ("#wm-gpu-experiment", messages["route.gpu"]),
         ("#wm-close-heading", messages["route.close"]),
@@ -961,6 +658,44 @@ def _(escape, locale, messages, mo):
           <span class="wm-route-label">{escape(messages['route.label'])}</span>
           {route_html}
         </nav>
+        """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(
+    display_derivative_svg,
+    escape,
+    format_percent,
+    locale,
+    messages,
+    mo,
+    real_display,
+):
+    observation = real_display.metadata["observation_summary_from_parent"]
+    raw_outside = format_percent(locale, observation["gradient_mass_outside_3px"])
+    flip_on_boundary = format_percent(locale, observation["flip_risk_mass_on_boundary"])
+    real_svg = display_derivative_svg(
+        real_display,
+        messages=messages,
+        locale=locale,
+    )
+    mo.Html(
+        f"""
+        <section class="wm-shell wm-section" lang="{escape(locale)}" aria-labelledby="wm-real-heading">
+          <p class="wm-kicker">{escape(messages['nav.real'])}</p>
+          <h2 id="wm-real-heading">{escape(messages['real.heading'])}</h2>
+          <p class="wm-body">{escape(messages['real.body'])}</p>
+          <code class="wm-equation">s<sub>margin</sub>(x) = ‖∇<sub>x</sub>Σ<sub>p</sub>m(p)‖² / (m(x)² + ε)</code>
+          <div class="wm-duality" aria-label="{escape(messages['real.duality_aria'])}">
+            <div><strong>{escape(raw_outside)}</strong><span>{escape(messages['real.raw_metric'])}</span></div>
+            <div><strong>{escape(flip_on_boundary)}</strong><span>{escape(messages['real.flip_metric'])}</span></div>
+          </div>
+          <div class="wm-evidence">{real_svg}</div>
+          <p class="wm-scope">{escape(messages['real.scope'])}</p>
+          <p class="wm-takeaway">{escape(messages['real.takeaway'])}</p>
+        </section>
         """
     )
     return
@@ -1066,44 +801,6 @@ def _(escape, messages, mo):
 
 @app.cell(hide_code=True)
 def _(
-    boundary_focus_ratio,
-    compare_matched_precision_policies,
-    loss_budget,
-    np,
-    select_regional_strategy,
-):
-    height, width = 6, 9
-    yy, xx = np.mgrid[0:height, 0:width]
-    boundary_y = 4.2 - 0.25 * xx + 0.45 * np.sin(xx * 0.9)
-    boundary_sensitivity = np.exp(-0.5 * ((yy - boundary_y) / 0.8) ** 2)
-    off_boundary_hotspot = np.exp(-0.5 * (((xx - 1.5) / 0.9) ** 2 + ((yy - 0.8) / 0.7) ** 2))
-    sensitivity = (
-        0.08
-        + 0.92 * boundary_sensitivity
-        + 1.35 * off_boundary_hotspot
-    )
-    table_bank = np.array(
-        [[0.125], [0.25], [0.5], [1.0], [2.0], [4.0], [8.0]],
-        dtype=np.float64,
-    )
-    stac_strategy = select_regional_strategy(
-        sensitivity[:, :, None],
-        table_bank,
-        total_budget=float(loss_budget.value),
-        region_shape=(2, 3),
-    )
-    semantic_outline = np.abs(yy - boundary_y) <= 1.0
-    policy_comparison = compare_matched_precision_policies(
-        sensitivity,
-        semantic_outline,
-        precision_budget=2.0 * float(loss_budget.value),
-        boundary_focus_ratio=float(boundary_focus_ratio.value),
-    )
-    return policy_comparison, sensitivity, stac_strategy
-
-
-@app.cell(hide_code=True)
-def _(
     escape,
     locale,
     messages,
@@ -1189,54 +886,6 @@ def _(
             </div>
             <div class="wm-visual">{stac_svg}</div>
           </div>
-        </section>
-        """
-    )
-    return
-
-
-@app.cell(hide_code=True)
-def _(load_display_derivative, project_root):
-    evidence_root = project_root / "artifacts" / "v12_public"
-    real_display = load_display_derivative(
-        evidence_root / "v12_real_frozen_scorer_display.npz",
-        evidence_root / "v12_real_frozen_scorer_display.manifest.json",
-    )
-    return (real_display,)
-
-
-@app.cell(hide_code=True)
-def _(
-    display_derivative_svg,
-    escape,
-    format_percent,
-    locale,
-    messages,
-    mo,
-    real_display,
-):
-    observation = real_display.metadata["observation_summary_from_parent"]
-    raw_outside = format_percent(locale, observation["gradient_mass_outside_3px"])
-    flip_on_boundary = format_percent(locale, observation["flip_risk_mass_on_boundary"])
-    real_svg = display_derivative_svg(
-        real_display,
-        messages=messages,
-        locale=locale,
-    )
-    mo.Html(
-        f"""
-        <section class="wm-shell wm-section" lang="{escape(locale)}" aria-labelledby="wm-real-heading">
-          <p class="wm-kicker">{escape(messages['nav.real'])}</p>
-          <h2 id="wm-real-heading">{escape(messages['real.heading'])}</h2>
-          <p class="wm-body">{escape(messages['real.body'])}</p>
-          <code class="wm-equation">s<sub>margin</sub>(x) = ‖∇<sub>x</sub>Σ<sub>p</sub>m(p)‖² / (m(x)² + ε)</code>
-          <div class="wm-duality" aria-label="{escape(messages['real.duality_aria'])}">
-            <div><strong>{escape(raw_outside)}</strong><span>{escape(messages['real.raw_metric'])}</span></div>
-            <div><strong>{escape(flip_on_boundary)}</strong><span>{escape(messages['real.flip_metric'])}</span></div>
-          </div>
-          <div class="wm-evidence">{real_svg}</div>
-          <p class="wm-scope">{escape(messages['real.scope'])}</p>
-          <p class="wm-takeaway">{escape(messages['real.takeaway'])}</p>
         </section>
         """
     )
@@ -1345,12 +994,6 @@ def _(messages, mo):
 
 
 @app.cell(hide_code=True)
-def _(boundary_shift, boundary_sweep):
-    boundary_state = boundary_sweep(float(boundary_shift.value))
-    return (boundary_state,)
-
-
-@app.cell(hide_code=True)
 def _(
     boundary_state,
     escape,
@@ -1403,15 +1046,6 @@ def _(messages, mo):
     )
     soft_temperature
     return (soft_temperature,)
-
-
-@app.cell(hide_code=True)
-def _(integrate_negative_gradient):
-    morse_traces = tuple(
-        integrate_negative_gradient(start, steps=150).points.tolist()
-        for start in ((-0.18, 0.88), (0.22, 0.78), (-0.35, -0.82), (0.38, -0.72))
-    )
-    return (morse_traces,)
 
 
 @app.cell(hide_code=True)
@@ -1570,15 +1204,6 @@ def _(messages, mo):
 
 
 @app.cell(hide_code=True)
-def _(np, screw_trajectory):
-    screw_twist = np.array([0.0, 0.0, 0.12, 0.0, 0.0, 1.0], dtype=np.float64)
-    screw_seed_point = np.array([0.82, 0.0, 0.0], dtype=np.float64)
-    screw_thetas = np.linspace(0.0, 2.0 * np.pi, 81, dtype=np.float64)
-    screw_points = screw_trajectory(screw_twist, screw_seed_point, screw_thetas)
-    return (screw_points,)
-
-
-@app.cell(hide_code=True)
 def _(
     escape,
     locale,
@@ -1617,31 +1242,6 @@ def _(
         """
     )
     return
-
-
-@app.cell(hide_code=True)
-def _(
-    boundary_state,
-    loss_budget,
-    notebook_toy_proposals,
-    refresh_pressure,
-    texture_amplitude,
-    value_carrier_proposals,
-):
-    normalized_budget = (float(loss_budget.value) - 4.0) / 28.0
-    toy_operating_d_pose = 0.02
-    controller_proposals = notebook_toy_proposals(
-        boundary_sweep_fraction=boundary_state.exact_area_fraction,
-        texture_amplitude=float(texture_amplitude.value),
-        refresh_pressure=float(refresh_pressure.value),
-        normalized_budget=normalized_budget,
-    )
-    controller_rows = value_carrier_proposals(
-        controller_proposals,
-        d_pose=toy_operating_d_pose,
-    )
-    controller_bids = tuple(row.value_per_byte for row in controller_rows)
-    return controller_bids, controller_rows, toy_operating_d_pose
 
 
 @app.cell(hide_code=True)
@@ -1730,74 +1330,6 @@ def _(messages, mo):
         gap=0.0,
     )
     return (gpu_run,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    get_accelerator_state, set_accelerator_state = mo.state(
-        {"status": "idle", "request_id": 0, "receipt": None, "error": None}
-    )
-    return get_accelerator_state, set_accelerator_state
-
-
-@app.cell(hide_code=True)
-def _(gpu_run, mo, project_root, set_accelerator_state):
-    accelerator_thread = None
-    accelerator_request_id = int(gpu_run.value or 0)
-    if accelerator_request_id > 0:
-        set_accelerator_state(
-            {
-                "status": "running",
-                "request_id": accelerator_request_id,
-                "receipt": None,
-                "error": None,
-            }
-        )
-
-        def _run_accelerator_probe():
-            worker = mo.current_thread()
-            try:
-                import importlib
-
-                gpu_module = importlib.import_module("molab_witness_machine.v12_gpu")
-                run_proxy_robustness_sweep = gpu_module.run_proxy_robustness_sweep
-
-                evidence_root = project_root / "artifacts" / "v12_public"
-                receipt = run_proxy_robustness_sweep(
-                    evidence_root / "v12_real_frozen_scorer_evidence.npz",
-                    evidence_root
-                    / "v12_real_frozen_scorer_evidence.manifest.json",
-                    epsilon_count=256,
-                    use_accelerator=True,
-                    chunk_size=32,
-                )
-                if not worker.should_exit:
-                    set_accelerator_state(
-                        {
-                            "status": "complete",
-                            "request_id": accelerator_request_id,
-                            "receipt": receipt,
-                            "error": None,
-                        }
-                    )
-            except Exception as exc:
-                if not worker.should_exit:
-                    set_accelerator_state(
-                        {
-                            "status": "error",
-                            "request_id": accelerator_request_id,
-                            "receipt": None,
-                            "error": f"{type(exc).__name__}: {exc}",
-                        }
-                    )
-
-        accelerator_thread = mo.Thread(
-            target=_run_accelerator_probe,
-            name=f"wm-accelerator-{accelerator_request_id}",
-            daemon=True,
-        )
-        accelerator_thread.start()
-    return (accelerator_thread,)
 
 
 @app.cell(hide_code=True)
@@ -1907,6 +1439,502 @@ def _(escape, locale, messages, mo):
     )
     mo.accordion({messages["sources.heading"]: sources}, lazy=True)
     return
+
+
+@app.cell(hide_code=True)
+def _():
+    import marimo as mo
+
+    return (mo,)
+
+
+@app.cell(hide_code=True)
+def _():
+    from html import escape
+    import hashlib
+    import importlib
+    import os
+    from pathlib import Path, PurePosixPath
+    import shutil
+    import sys
+    import tempfile
+    import urllib.request
+    import zipfile
+
+    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.2.1/witness_machine_v12_molab_bundle.zip"
+    BUNDLE_BYTES = 3_705_237
+    BUNDLE_SHA256 = "e8494c72f46341c8be0055163f673b1ef840cb6df50047697efbca4a041e5472"
+    BUNDLE_TOP_LEVEL = "witness_machine_v12"
+    BUNDLE_MARKER = ".bundle-sha256"
+    REQUIRED_ROOT_FILES = (
+        "src/molab_witness_machine/__init__.py",
+        "src/molab_witness_machine/score_law.py",
+        "src/molab_witness_machine/v12_copy.py",
+        "src/molab_witness_machine/v12_control.py",
+        "src/molab_witness_machine/v12_geometry.py",
+        "src/molab_witness_machine/v12_gpu.py",
+        "src/molab_witness_machine/v12_policy_compare.py",
+        "src/molab_witness_machine/v12_real_evidence.py",
+        "src/molab_witness_machine/v12_stac.py",
+        "src/molab_witness_machine/v12_temporal.py",
+        "src/molab_witness_machine/v12_visuals.py",
+        "artifacts/v12_public/v12_temporal_transport_display.svg",
+        "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
+        "artifacts/v12_public/v12_real_frozen_scorer_display.npz",
+        "artifacts/v12_public/v12_real_frozen_scorer_display.manifest.json",
+        "artifacts/v12_public/v12_real_frozen_scorer_evidence.npz",
+        "artifacts/v12_public/v12_real_frozen_scorer_evidence.manifest.json",
+    )
+
+    def _fail_bundle(message: str) -> None:
+        raise RuntimeError(f"Molab runtime bootstrap failed for {BUNDLE_URL}: {message}")
+
+    def _missing_required_root_files(root: Path) -> tuple[str, ...]:
+        return tuple(
+            relative_path
+            for relative_path in REQUIRED_ROOT_FILES
+            if not (root / relative_path).is_file()
+        )
+
+    def _is_valid_root(root: Path) -> bool:
+        return not _missing_required_root_files(root)
+
+    def _candidate_roots(notebook_file: str | Path) -> tuple[Path, ...]:
+        seen: set[Path] = set()
+        candidates: list[Path] = []
+        for start in (Path(notebook_file).resolve().parent, Path.cwd().resolve()):
+            for candidate in (start, *start.parents):
+                if candidate not in seen:
+                    seen.add(candidate)
+                    candidates.append(candidate)
+        return tuple(candidates)
+
+    def _cache_base() -> Path:
+        xdg_cache_home = os.environ.get("XDG_CACHE_HOME")
+        if xdg_cache_home:
+            return Path(xdg_cache_home).expanduser().resolve() / "witness-machine"
+        return Path.home().expanduser().resolve() / ".cache" / "witness-machine"
+
+    def _cache_slot() -> Path:
+        return _cache_base() / BUNDLE_SHA256
+
+    def _cache_root(cache_slot: Path) -> Path:
+        return cache_slot / BUNDLE_TOP_LEVEL
+
+    def _cache_marker_path(cache_slot: Path) -> Path:
+        return cache_slot / BUNDLE_MARKER
+
+    def _is_valid_cache_slot(cache_slot: Path) -> bool:
+        marker_path = _cache_marker_path(cache_slot)
+        try:
+            marker_text = marker_path.read_text(encoding="utf-8").strip()
+        except OSError:
+            return False
+        return marker_text == BUNDLE_SHA256 and _is_valid_root(_cache_root(cache_slot))
+
+    def _remove_path(path: Path) -> None:
+        if path.is_dir() and not path.is_symlink():
+            shutil.rmtree(path)
+        elif path.exists():
+            path.unlink()
+
+    def _download_bundle_bytes(*, urlopen=None) -> bytes:
+        opener = urllib.request.urlopen if urlopen is None else urlopen
+        try:
+            with opener(BUNDLE_URL, timeout=30) as response:
+                payload = response.read(BUNDLE_BYTES + 1)
+        except OSError as exc:
+            _fail_bundle(f"download failed: {exc}")
+        actual_bytes = len(payload)
+        if actual_bytes != BUNDLE_BYTES:
+            actual_label = str(actual_bytes) if actual_bytes <= BUNDLE_BYTES else f"at least {actual_bytes}"
+            _fail_bundle(f"expected {BUNDLE_BYTES} bytes, got {actual_label}")
+        actual_sha256 = hashlib.sha256(payload).hexdigest()
+        if actual_sha256 != BUNDLE_SHA256:
+            _fail_bundle(f"expected SHA-256 {BUNDLE_SHA256}, got {actual_sha256}")
+        return payload
+
+    def _validate_zip_members(members: list[zipfile.ZipInfo]) -> None:
+        if not members:
+            _fail_bundle("archive is empty")
+        for info in members:
+            member_path = PurePosixPath(info.filename)
+            raw_parts = info.filename.split("/")
+            if raw_parts and raw_parts[-1] == "":
+                raw_parts = raw_parts[:-1]
+            if member_path.is_absolute():
+                _fail_bundle(f"unsafe ZIP member {info.filename!r}")
+            if not raw_parts or any(part in ("", ".", "..") for part in raw_parts):
+                _fail_bundle(f"unsafe ZIP member {info.filename!r}")
+            if raw_parts[0] != BUNDLE_TOP_LEVEL:
+                _fail_bundle(
+                    f"expected top-level directory {BUNDLE_TOP_LEVEL!r}, got {raw_parts[0]!r}"
+                )
+
+    def _materialize_cache_root(*, urlopen=None) -> Path:
+        cache_slot = _cache_slot()
+        if _is_valid_cache_slot(cache_slot):
+            return _cache_root(cache_slot)
+        if cache_slot.exists():
+            _remove_path(cache_slot)
+        cache_parent = cache_slot.parent
+        cache_parent.mkdir(parents=True, exist_ok=True)
+        staging_dir = Path(tempfile.mkdtemp(prefix="witness-machine-", dir=cache_parent))
+        staging_slot = staging_dir / BUNDLE_SHA256
+        staging_slot.mkdir()
+        try:
+            archive_path = staging_dir / "bundle.zip"
+            archive_path.write_bytes(_download_bundle_bytes(urlopen=urlopen))
+            with zipfile.ZipFile(archive_path) as archive:
+                members = archive.infolist()
+                _validate_zip_members(members)
+                archive.extractall(staging_slot)
+            _cache_marker_path(staging_slot).write_text(f"{BUNDLE_SHA256}\n", encoding="utf-8")
+            missing_files = _missing_required_root_files(_cache_root(staging_slot))
+            if missing_files:
+                _fail_bundle(f"extracted bundle is missing {missing_files[0]}")
+            try:
+                staging_slot.replace(cache_slot)
+            except FileExistsError:
+                if not _is_valid_cache_slot(cache_slot):
+                    _remove_path(cache_slot)
+                    staging_slot.replace(cache_slot)
+            if not _is_valid_cache_slot(cache_slot):
+                missing_files = _missing_required_root_files(_cache_root(cache_slot))
+                if missing_files:
+                    _fail_bundle(f"cache is missing {missing_files[0]}")
+                _fail_bundle("cache marker does not match the sealed bundle SHA-256")
+            return _cache_root(cache_slot)
+        finally:
+            shutil.rmtree(staging_dir, ignore_errors=True)
+
+    def _resolve_project_root(notebook_file: str | Path, *, urlopen=None) -> Path:
+        for candidate in _candidate_roots(notebook_file):
+            if _is_valid_root(candidate):
+                return candidate
+        return _materialize_cache_root(urlopen=urlopen)
+
+    project_root = _resolve_project_root(__file__)
+    source_root = project_root / "src"
+    if not sys.path or sys.path[0] != str(source_root):
+        if str(source_root) in sys.path:
+            sys.path.remove(str(source_root))
+        sys.path.insert(0, str(source_root))
+
+    import numpy as np
+
+    copy_module = importlib.import_module("molab_witness_machine.v12_copy")
+    control_module = importlib.import_module("molab_witness_machine.v12_control")
+    geometry_module = importlib.import_module("molab_witness_machine.v12_geometry")
+    policy_compare_module = importlib.import_module("molab_witness_machine.v12_policy_compare")
+    real_evidence_module = importlib.import_module("molab_witness_machine.v12_real_evidence")
+    stac_module = importlib.import_module("molab_witness_machine.v12_stac")
+    temporal_module = importlib.import_module("molab_witness_machine.v12_temporal")
+    visuals_module = importlib.import_module("molab_witness_machine.v12_visuals")
+
+    boundary_sweep = geometry_module.boundary_sweep
+    catalog = copy_module.catalog
+    compare_matched_precision_policies = (
+        policy_compare_module.compare_matched_precision_policies
+    )
+    display_derivative_svg = real_evidence_module.display_derivative_svg
+    edge_carrier_graph = visuals_module.edge_carrier_graph
+    evaluator_equivalence_scene = visuals_module.evaluator_equivalence_scene
+    format_percent = copy_module.format_percent
+    integrate_negative_gradient = geometry_module.integrate_negative_gradient
+    laguerre_cells = visuals_module.laguerre_cells
+    load_display_derivative = real_evidence_module.load_display_derivative
+    load_temporal_display = temporal_module.load_temporal_display
+    localized_temporal_display_svg = temporal_module.localized_temporal_display_svg
+    morse_flow_scene = visuals_module.morse_flow_scene
+    notebook_toy_proposals = control_module.notebook_toy_proposals
+    score_law_balance = visuals_module.score_law_balance
+    select_regional_strategy = stac_module.select_regional_strategy
+    screw_trajectory = geometry_module.screw_trajectory
+    sdf_boundary_sweep = visuals_module.sdf_boundary_sweep
+    sensitivity_allocation_map = visuals_module.sensitivity_allocation_map
+    shadow_price_allocation = visuals_module.shadow_price_allocation
+    task_witness_hero = visuals_module.task_witness_hero
+    temporal_aperture_scene = visuals_module.temporal_aperture_scene
+    value_carrier_proposals = control_module.value_carrier_proposals
+
+    temporal_display = load_temporal_display(
+        project_root / "artifacts/v12_public/v12_temporal_transport_display.svg",
+        project_root / "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
+    )
+
+    return (
+        boundary_sweep,
+        catalog,
+        compare_matched_precision_policies,
+        display_derivative_svg,
+        edge_carrier_graph,
+        evaluator_equivalence_scene,
+        escape,
+        format_percent,
+        integrate_negative_gradient,
+        laguerre_cells,
+        load_display_derivative,
+        load_temporal_display,
+        localized_temporal_display_svg,
+        morse_flow_scene,
+        notebook_toy_proposals,
+        np,
+        project_root,
+        score_law_balance,
+        select_regional_strategy,
+        screw_trajectory,
+        sdf_boundary_sweep,
+        sensitivity_allocation_map,
+        shadow_price_allocation,
+        task_witness_hero,
+        temporal_aperture_scene,
+        temporal_display,
+        value_carrier_proposals,
+    )
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    locale_picker = mo.ui.dropdown(
+        options={"English": "en-US", "Español": "es-US"},
+        value="English",
+        label="Language / Idioma",
+        full_width=False,
+    )
+    return (locale_picker,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    appearance_picker = mo.ui.dropdown(
+        options={
+            "Light · Claro": "light",
+            "Dark · Oscuro": "dark",
+            "Auto": "auto",
+        },
+        value="Light · Claro",
+        label="Appearance / Apariencia",
+        full_width=False,
+    )
+    return (appearance_picker,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    color_encoding_picker = mo.ui.dropdown(
+        options={
+            "Semantic color · Color semántico": "semantic",
+            "Color-vision safe · Visión cromática": "cvd",
+            "Monochrome · Monocromo": "monochrome",
+        },
+        value="Semantic color · Color semántico",
+        label="Color encoding / Codificación",
+        full_width=False,
+    )
+    return (color_encoding_picker,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    motion_picker = mo.ui.dropdown(
+        options={
+            "Wake on focus · Activa al enfocar": "focus",
+            "Still · Estático": "still",
+            "Continuous · Continuo": "continuous",
+        },
+        value="Wake on focus · Activa al enfocar",
+        label="Motion / Movimiento",
+        full_width=False,
+    )
+    return (motion_picker,)
+
+
+@app.cell(hide_code=True)
+def _(catalog, locale_picker):
+    locale = str(locale_picker.value or "en-US")
+    messages = catalog(locale)
+    return locale, messages
+
+
+@app.cell(hide_code=True)
+def _(messages, mo):
+    loss_budget = mo.ui.slider(
+        start=4.0,
+        stop=32.0,
+        step=1.0,
+        value=12.0,
+        label=messages["control.loss_budget"],
+        show_value=True,
+        debounce=False,
+        full_width=True,
+    )
+    return (loss_budget,)
+
+
+@app.cell(hide_code=True)
+def _(
+    boundary_focus_ratio,
+    compare_matched_precision_policies,
+    loss_budget,
+    np,
+    select_regional_strategy,
+):
+    height, width = 6, 9
+    yy, xx = np.mgrid[0:height, 0:width]
+    boundary_y = 4.2 - 0.25 * xx + 0.45 * np.sin(xx * 0.9)
+    boundary_sensitivity = np.exp(-0.5 * ((yy - boundary_y) / 0.8) ** 2)
+    off_boundary_hotspot = np.exp(-0.5 * (((xx - 1.5) / 0.9) ** 2 + ((yy - 0.8) / 0.7) ** 2))
+    sensitivity = (
+        0.08
+        + 0.92 * boundary_sensitivity
+        + 1.35 * off_boundary_hotspot
+    )
+    table_bank = np.array(
+        [[0.125], [0.25], [0.5], [1.0], [2.0], [4.0], [8.0]],
+        dtype=np.float64,
+    )
+    stac_strategy = select_regional_strategy(
+        sensitivity[:, :, None],
+        table_bank,
+        total_budget=float(loss_budget.value),
+        region_shape=(2, 3),
+    )
+    semantic_outline = np.abs(yy - boundary_y) <= 1.0
+    policy_comparison = compare_matched_precision_policies(
+        sensitivity,
+        semantic_outline,
+        precision_budget=2.0 * float(loss_budget.value),
+        boundary_focus_ratio=float(boundary_focus_ratio.value),
+    )
+    return policy_comparison, sensitivity, stac_strategy
+
+
+@app.cell(hide_code=True)
+def _(load_display_derivative, project_root):
+    evidence_root = project_root / "artifacts" / "v12_public"
+    real_display = load_display_derivative(
+        evidence_root / "v12_real_frozen_scorer_display.npz",
+        evidence_root / "v12_real_frozen_scorer_display.manifest.json",
+    )
+    return (real_display,)
+
+
+@app.cell(hide_code=True)
+def _(boundary_shift, boundary_sweep):
+    boundary_state = boundary_sweep(float(boundary_shift.value))
+    return (boundary_state,)
+
+
+@app.cell(hide_code=True)
+def _(integrate_negative_gradient):
+    morse_traces = tuple(
+        integrate_negative_gradient(start, steps=150).points.tolist()
+        for start in ((-0.18, 0.88), (0.22, 0.78), (-0.35, -0.82), (0.38, -0.72))
+    )
+    return (morse_traces,)
+
+
+@app.cell(hide_code=True)
+def _(np, screw_trajectory):
+    screw_twist = np.array([0.0, 0.0, 0.12, 0.0, 0.0, 1.0], dtype=np.float64)
+    screw_seed_point = np.array([0.82, 0.0, 0.0], dtype=np.float64)
+    screw_thetas = np.linspace(0.0, 2.0 * np.pi, 81, dtype=np.float64)
+    screw_points = screw_trajectory(screw_twist, screw_seed_point, screw_thetas)
+    return (screw_points,)
+
+
+@app.cell(hide_code=True)
+def _(
+    boundary_state,
+    loss_budget,
+    notebook_toy_proposals,
+    refresh_pressure,
+    texture_amplitude,
+    value_carrier_proposals,
+):
+    normalized_budget = (float(loss_budget.value) - 4.0) / 28.0
+    toy_operating_d_pose = 0.02
+    controller_proposals = notebook_toy_proposals(
+        boundary_sweep_fraction=boundary_state.exact_area_fraction,
+        texture_amplitude=float(texture_amplitude.value),
+        refresh_pressure=float(refresh_pressure.value),
+        normalized_budget=normalized_budget,
+    )
+    controller_rows = value_carrier_proposals(
+        controller_proposals,
+        d_pose=toy_operating_d_pose,
+    )
+    controller_bids = tuple(row.value_per_byte for row in controller_rows)
+    return controller_bids, controller_rows, toy_operating_d_pose
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    get_accelerator_state, set_accelerator_state = mo.state(
+        {"status": "idle", "request_id": 0, "receipt": None, "error": None}
+    )
+    return get_accelerator_state, set_accelerator_state
+
+
+@app.cell(hide_code=True)
+def _(gpu_run, mo, project_root, set_accelerator_state):
+    accelerator_thread = None
+    accelerator_request_id = int(gpu_run.value or 0)
+    if accelerator_request_id > 0:
+        set_accelerator_state(
+            {
+                "status": "running",
+                "request_id": accelerator_request_id,
+                "receipt": None,
+                "error": None,
+            }
+        )
+
+        def _run_accelerator_probe():
+            worker = mo.current_thread()
+            try:
+                import importlib
+
+                gpu_module = importlib.import_module("molab_witness_machine.v12_gpu")
+                run_proxy_robustness_sweep = gpu_module.run_proxy_robustness_sweep
+
+                evidence_root = project_root / "artifacts" / "v12_public"
+                receipt = run_proxy_robustness_sweep(
+                    evidence_root / "v12_real_frozen_scorer_evidence.npz",
+                    evidence_root
+                    / "v12_real_frozen_scorer_evidence.manifest.json",
+                    epsilon_count=256,
+                    use_accelerator=True,
+                    chunk_size=32,
+                )
+                if not worker.should_exit:
+                    set_accelerator_state(
+                        {
+                            "status": "complete",
+                            "request_id": accelerator_request_id,
+                            "receipt": receipt,
+                            "error": None,
+                        }
+                    )
+            except Exception as exc:
+                if not worker.should_exit:
+                    set_accelerator_state(
+                        {
+                            "status": "error",
+                            "request_id": accelerator_request_id,
+                            "receipt": None,
+                            "error": f"{type(exc).__name__}: {exc}",
+                        }
+                    )
+
+        accelerator_thread = mo.Thread(
+            target=_run_accelerator_probe,
+            name=f"wm-accelerator-{accelerator_request_id}",
+            daemon=True,
+        )
+        accelerator_thread.start()
+    return (accelerator_thread,)
 
 
 if __name__ == "__main__":
