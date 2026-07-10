@@ -177,6 +177,82 @@ _EN_US = {
         "not STAC DCT sensitivity"
     ),
     "real.duality_aria": "Two boundary-sensitivity observations from one locked real pair",
+    "realsection.kicker": "THE REAL FRAME",
+    "realsection.heading": "Where a frozen machine actually looks",
+    "realsection.body": (
+        "This is the locked real pair from the challenge video, at the frozen scorer's own "
+        "working resolution. The frozen SegNet cuts the frame into five regions, and nearly "
+        "all of its sensitivity presses against the thin boundary between them — the "
+        "separatrix. Everything this notebook builds happens on this road."
+    ),
+    "realsection.scope": (
+        "[EMPIRICAL][macOS-CPU advisory][one fixed preselected pair] · the photographic "
+        "panels are display substrates; every measured field and number comes from the "
+        "sealed evidence artifact"
+    ),
+    "realsection.takeaway": (
+        "The task is not to keep the pixels. It is to keep the boundary the machine reads."
+    ),
+    "realframe.title": "The real road, its partition, and where the score lives",
+    "realframe.description": (
+        "Locked real pair {pair} on {axis}. The frozen SegNet cuts the frame into five "
+        "regions; the margin-normalized sensitivity proxy concentrates on the partition "
+        "boundary: {boundary} of pixels carry {mass} of the mass. Display only; no score claim."
+    ),
+    "realframe.panel_road": "The road the camera saw",
+    "realframe.panel_road_aria": "Real challenge-video frame at the scorer's 384 by 512 grid",
+    "realframe.panel_partition": "The frozen scorer's partition",
+    "realframe.panel_partition_aria": (
+        "The same frame blended with the frozen SegNet's five-class argmax; boundary pixels in white"
+    ),
+    "realframe.panel_annulus": "Sensitivity on the road",
+    "realframe.panel_annulus_aria": (
+        "Dimmed frame with the margin-normalized sensitivity proxy glowing along the partition boundary"
+    ),
+    "realframe.stat_boundary": "of pixels are boundary",
+    "realframe.stat_mass": "of the sensitivity mass sits there",
+    "realframe.scale_note": "sensitivity glow: coral → gold · log display scale",
+    "evosection.kicker": "ACROSS TRAINING",
+    "evosection.heading": "The texture is alien; the reading is right",
+    "evosection.body": (
+        "The witness never tries to look like the road. It paints whatever texture makes "
+        "the frozen scorer read the same partition — and across the training stages of one "
+        "real n600 run, the realized reading converges onto the sealed target, lane "
+        "markings included. The top row is what the witness paints; the bottom row is what "
+        "the frozen scorer reads from it."
+    ),
+    "evosection.scope": (
+        "[EMPIRICAL][macOS-MLX training-gradient]/[macOS-CPU advisory][one locked pair] · "
+        "per-stage EMA checkpoints of one n600 training run · no score, promotion, or "
+        "exact-eval claim; the disagreement shown is this single pair's realized fraction, "
+        "not the run-level d_seg"
+    ),
+    "evosection.takeaway": (
+        "Compression for a machine optimizes the machine's reading, not the human's picture."
+    ),
+    "evolution.title": "Watching the witness learn the boundary",
+    "evolution.description": (
+        "Locked real pair {pair} on {axis}: {count} per-stage EMA checkpoints of one real "
+        "n600 training run. Top: the witness's rendered frame. Bottom: the partition the "
+        "frozen scorer reads from that frame after the contest roundtrip, closing on the "
+        "sealed frozen-scorer partition. No score claim."
+    ),
+    "evolution.row_witness": "What the witness paints",
+    "evolution.row_witness_aria": "The witness's rendered RGB frame at this training stage",
+    "evolution.row_realized": "What the frozen scorer reads from it",
+    "evolution.row_realized_aria": (
+        "Frozen SegNet argmax of the witness render pushed through the contest roundtrip"
+    ),
+    "evolution.epoch": "epoch",
+    "evolution.disagreement": "disagrees",
+    "evolution.reference": "frozen-scorer target",
+    "evolution.reference_note": "sealed partition of the real frame",
+    "evolution.reference_frame_aria": "The real challenge-video frame the witness stands in for",
+    "evolution.footnote": (
+        "Per-stage EMA checkpoints of one real n600 training run; disagreement is this single "
+        "pair's realized fraction, not the run-level d_seg; top-row frames shown at 2.2x display "
+        "gain (night scene). No score claim."
+    ),
     "real.visual.title": "Frozen-scorer sensitivity: field and margin proxy",
     "real.visual.description": (
         "Advisory factor-{factor} display of locked real pair {pair} on {axis}. Semantic "
@@ -619,6 +695,83 @@ _ES_US = {
         "no es sensibilidad DCT de STAC"
     ),
     "real.duality_aria": "Dos observaciones de sensibilidad fronteriza de un par real bloqueado",
+    "realsection.kicker": "EL CUADRO REAL",
+    "realsection.heading": "Donde una máquina congelada realmente mira",
+    "realsection.body": (
+        "Este es el par real bloqueado del video del desafío, a la resolución de trabajo "
+        "del evaluador congelado. El SegNet congelado corta el cuadro en cinco regiones, y "
+        "casi toda su sensibilidad se concentra en la delgada frontera entre ellas: la "
+        "separatriz. Todo lo que construye este cuaderno ocurre sobre esta carretera."
+    ),
+    "realsection.scope": (
+        "[EMPIRICAL][macOS-CPU advisory][un par fijo preseleccionado] · los paneles "
+        "fotográficos son sustratos de despliegue; cada campo y número medido proviene del "
+        "artefacto de evidencia sellado"
+    ),
+    "realsection.takeaway": (
+        "La tarea no es conservar los píxeles. Es conservar la frontera que la máquina lee."
+    ),
+    "realframe.title": "La carretera real, su partición y dónde vive la puntuación",
+    "realframe.description": (
+        "Par real bloqueado {pair} en {axis}. El SegNet congelado corta el cuadro en cinco "
+        "regiones; el proxy de sensibilidad normalizado se concentra en la frontera de la "
+        "partición: {boundary} de los píxeles llevan {mass} de la masa. Solo despliegue; "
+        "sin afirmación de puntuación."
+    ),
+    "realframe.panel_road": "La carretera que vio la cámara",
+    "realframe.panel_road_aria": "Cuadro real del video del desafío en la malla 384 por 512 del evaluador",
+    "realframe.panel_partition": "La partición del evaluador congelado",
+    "realframe.panel_partition_aria": (
+        "El mismo cuadro mezclado con el argmax de cinco clases del SegNet congelado; frontera en blanco"
+    ),
+    "realframe.panel_annulus": "Sensibilidad sobre la carretera",
+    "realframe.panel_annulus_aria": (
+        "Cuadro atenuado con el proxy de sensibilidad normalizado brillando a lo largo de la frontera"
+    ),
+    "realframe.stat_boundary": "de los píxeles son frontera",
+    "realframe.stat_mass": "de la masa de sensibilidad se concentra allí",
+    "realframe.scale_note": "brillo de sensibilidad: coral → dorado · escala log de despliegue",
+    "evosection.kicker": "A LO LARGO DEL ENTRENAMIENTO",
+    "evosection.heading": "La textura es ajena; la lectura es correcta",
+    "evosection.body": (
+        "El testigo nunca intenta parecerse a la carretera. Pinta la textura que haga que "
+        "el evaluador congelado lea la misma partición — y a lo largo de las etapas de "
+        "entrenamiento de una corrida real n600, la lectura realizada converge hacia el "
+        "objetivo sellado, incluidas las marcas de carril. La fila superior es lo que pinta "
+        "el testigo; la inferior, lo que el evaluador congelado lee de ello."
+    ),
+    "evosection.scope": (
+        "[EMPIRICAL][macOS-MLX training-gradient]/[macOS-CPU advisory][un par bloqueado] · "
+        "puntos de control EMA por etapa de una corrida n600 · sin afirmación de "
+        "puntuación, promoción ni evaluación exacta; el desacuerdo mostrado es la fracción "
+        "realizada de este único par, no el d_seg de la corrida"
+    ),
+    "evosection.takeaway": (
+        "Comprimir para una máquina optimiza la lectura de la máquina, no la imagen humana."
+    ),
+    "evolution.title": "Viendo al testigo aprender la frontera",
+    "evolution.description": (
+        "Par real bloqueado {pair} en {axis}: {count} puntos de control EMA por etapa de "
+        "una corrida real n600. Arriba: el cuadro pintado por el testigo. Abajo: la "
+        "partición que el evaluador congelado lee de ese cuadro tras el ciclo del "
+        "concurso, cerrando sobre la partición sellada. Sin afirmación de puntuación."
+    ),
+    "evolution.row_witness": "Lo que pinta el testigo",
+    "evolution.row_witness_aria": "El cuadro RGB pintado por el testigo en esta etapa de entrenamiento",
+    "evolution.row_realized": "Lo que el evaluador congelado lee de ello",
+    "evolution.row_realized_aria": (
+        "Argmax del SegNet congelado sobre el cuadro del testigo tras el ciclo del concurso"
+    ),
+    "evolution.epoch": "época",
+    "evolution.disagreement": "desacuerdo",
+    "evolution.reference": "objetivo del evaluador congelado",
+    "evolution.reference_note": "partición sellada del cuadro real",
+    "evolution.reference_frame_aria": "El cuadro real del video del desafío que el testigo sustituye",
+    "evolution.footnote": (
+        "Puntos de control EMA por etapa de una corrida real n600; el desacuerdo es la "
+        "fracción realizada de este único par, no el d_seg de la corrida; fila superior con "
+        "ganancia de despliegue 2,2x (escena nocturna). Sin afirmación de puntuación."
+    ),
     "real.visual.title": "Sensibilidad del evaluador congelado: campo y proxy de margen",
     "real.visual.description": (
         "Vista orientativa con factor {factor} del par real bloqueado {pair} en {axis}. Las "

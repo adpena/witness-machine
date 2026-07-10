@@ -72,6 +72,38 @@ def _(escape, format_percent, locale, messages, mo, real_display, task_witness_h
 
 
 @app.cell(hide_code=True)
+def _(
+    escape,
+    locale,
+    messages,
+    mo,
+    real_evidence_full,
+    real_frames_display,
+    real_road_partition_svg,
+):
+    road_svg = real_road_partition_svg(
+        real_frames_display,
+        real_evidence_full.arrays,
+        real_evidence_full.metadata,
+        messages=messages,
+        locale=locale,
+    )
+    mo.Html(
+        f"""
+        <section class="wm-shell wm-section" lang="{escape(locale)}" aria-labelledby="wm-road-heading">
+          <p class="wm-kicker">{escape(messages['realsection.kicker'])}</p>
+          <h2 id="wm-road-heading">{escape(messages['realsection.heading'])}</h2>
+          <p class="wm-body">{escape(messages['realsection.body'])}</p>
+          <div class="wm-evidence">{road_svg}</div>
+          <p class="wm-scope">{escape(messages['realsection.scope'])}</p>
+          <p class="wm-takeaway">{escape(messages['realsection.takeaway'])}</p>
+        </section>
+        """
+    )
+    return
+
+
+@app.cell(hide_code=True)
 def _(escape, locale, messages, mo):
     route_items = (
         ("#wm-real-heading", messages["route.real"]),
@@ -127,6 +159,37 @@ def _(
           <div class="wm-evidence">{real_svg}</div>
           <p class="wm-scope">{escape(messages['real.scope'])}</p>
           <p class="wm-takeaway">{escape(messages['real.takeaway'])}</p>
+        </section>
+        """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(
+    boundary_evolution,
+    escape,
+    locale,
+    messages,
+    mo,
+    real_frames_display,
+    witness_evolution_svg,
+):
+    evolution_svg = witness_evolution_svg(
+        boundary_evolution,
+        messages=messages,
+        locale=locale,
+        real_frame=real_frames_display.frames[1],
+    )
+    mo.Html(
+        f"""
+        <section class="wm-shell wm-section" lang="{escape(locale)}" aria-labelledby="wm-evolution-heading">
+          <p class="wm-kicker">{escape(messages['evosection.kicker'])}</p>
+          <h2 id="wm-evolution-heading">{escape(messages['evosection.heading'])}</h2>
+          <p class="wm-body">{escape(messages['evosection.body'])}</p>
+          <div class="wm-evidence">{evolution_svg}</div>
+          <p class="wm-scope">{escape(messages['evosection.scope'])}</p>
+          <p class="wm-takeaway">{escape(messages['evosection.takeaway'])}</p>
         </section>
         """
     )
@@ -1461,9 +1524,9 @@ def _():
     import urllib.request
     import zipfile
 
-    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.2.1/witness_machine_v12_molab_bundle.zip"
-    BUNDLE_BYTES = 3_705_237
-    BUNDLE_SHA256 = "e8494c72f46341c8be0055163f673b1ef840cb6df50047697efbca4a041e5472"
+    BUNDLE_URL = "https://github.com/adpena/witness-machine/releases/download/v1.3.0/witness_machine_v12_molab_bundle.zip"
+    BUNDLE_BYTES = 6_251_044
+    BUNDLE_SHA256 = "f9ed972157d70e7fda63431dcf7cb422a24cec2ded0ce51b860921d2240835c8"
     BUNDLE_TOP_LEVEL = "witness_machine_v12"
     BUNDLE_MARKER = ".bundle-sha256"
     REQUIRED_ROOT_FILES = (
@@ -1475,6 +1538,7 @@ def _():
         "src/molab_witness_machine/v12_gpu.py",
         "src/molab_witness_machine/v12_policy_compare.py",
         "src/molab_witness_machine/v12_real_evidence.py",
+        "src/molab_witness_machine/v12_real_frames.py",
         "src/molab_witness_machine/v12_stac.py",
         "src/molab_witness_machine/v12_temporal.py",
         "src/molab_witness_machine/v12_visuals.py",
@@ -1484,6 +1548,10 @@ def _():
         "artifacts/v12_public/v12_real_frozen_scorer_display.manifest.json",
         "artifacts/v12_public/v12_real_frozen_scorer_evidence.npz",
         "artifacts/v12_public/v12_real_frozen_scorer_evidence.manifest.json",
+        "artifacts/v12_public/v12_real_frame_display.npz",
+        "artifacts/v12_public/v12_real_frame_display.manifest.json",
+        "artifacts/v12_public/v12_boundary_evolution.npz",
+        "artifacts/v12_public/v12_boundary_evolution.manifest.json",
     )
 
     def _fail_bundle(message: str) -> None:
@@ -1628,6 +1696,7 @@ def _():
     geometry_module = importlib.import_module("molab_witness_machine.v12_geometry")
     policy_compare_module = importlib.import_module("molab_witness_machine.v12_policy_compare")
     real_evidence_module = importlib.import_module("molab_witness_machine.v12_real_evidence")
+    real_frames_module = importlib.import_module("molab_witness_machine.v12_real_frames")
     stac_module = importlib.import_module("molab_witness_machine.v12_stac")
     temporal_module = importlib.import_module("molab_witness_machine.v12_temporal")
     visuals_module = importlib.import_module("molab_witness_machine.v12_visuals")
@@ -1663,7 +1732,23 @@ def _():
         project_root / "artifacts/v12_public/v12_temporal_transport_display.manifest.json",
     )
 
+    real_road_partition_svg = real_frames_module.real_road_partition_svg
+    witness_evolution_svg = real_frames_module.witness_evolution_svg
+    real_frames_display = real_frames_module.load_real_frames(
+        project_root / "artifacts/v12_public/v12_real_frame_display.npz",
+        project_root / "artifacts/v12_public/v12_real_frame_display.manifest.json",
+    )
+    boundary_evolution = real_frames_module.load_boundary_evolution(
+        project_root / "artifacts/v12_public/v12_boundary_evolution.npz",
+        project_root / "artifacts/v12_public/v12_boundary_evolution.manifest.json",
+    )
+    real_evidence_full = real_evidence_module.load_locked_evidence(
+        project_root / "artifacts/v12_public/v12_real_frozen_scorer_evidence.npz",
+        project_root / "artifacts/v12_public/v12_real_frozen_scorer_evidence.manifest.json",
+    )
+
     return (
+        boundary_evolution,
         boundary_sweep,
         catalog,
         compare_matched_precision_policies,
@@ -1681,6 +1766,9 @@ def _():
         notebook_toy_proposals,
         np,
         project_root,
+        real_evidence_full,
+        real_frames_display,
+        real_road_partition_svg,
         score_law_balance,
         select_regional_strategy,
         screw_trajectory,
@@ -1691,6 +1779,7 @@ def _():
         temporal_aperture_scene,
         temporal_display,
         value_carrier_proposals,
+        witness_evolution_svg,
     )
 
 

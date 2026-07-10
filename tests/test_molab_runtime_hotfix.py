@@ -36,6 +36,7 @@ REQUIRED_PACKAGE_FILES = (
     "v12_gpu.py",
     "v12_policy_compare.py",
     "v12_real_evidence.py",
+    "v12_real_frames.py",
     "v12_stac.py",
     "v12_temporal.py",
     "v12_visuals.py",
@@ -47,6 +48,10 @@ REQUIRED_ASSETS = (
     "v12_real_frozen_scorer_display.manifest.json",
     "v12_real_frozen_scorer_evidence.npz",
     "v12_real_frozen_scorer_evidence.manifest.json",
+    "v12_real_frame_display.npz",
+    "v12_real_frame_display.manifest.json",
+    "v12_boundary_evolution.npz",
+    "v12_boundary_evolution.manifest.json",
 )
 
 
